@@ -1,0 +1,104 @@
+PODS:
+  - audioplayers_darwin (0.0.1):
+    - Flutter
+  - camera_avfoundation (0.0.1):
+    - Flutter
+  - device_info_plus (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - media_kit_libs_ios_video (1.0.4):
+    - Flutter
+  - media_kit_video (0.0.1):
+    - Flutter
+  - package_info_plus (0.4.5):
+    - Flutter
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - permission_handler_apple (9.3.0):
+    - Flutter
+  - record_ios (1.1.0):
+    - Flutter
+  - super_player (12.9.0):
+    - Flutter
+    - TXLiteAVSDK_Professional (= 12.9.20063)
+  - TXLiteAVSDK_Professional (12.9.20063):
+    - TXLiteAVSDK_Professional/Professional (= 12.9.20063)
+  - TXLiteAVSDK_Professional/Professional (12.9.20063)
+  - volume_controller (0.0.1):
+    - Flutter
+  - wakelock_plus (0.0.1):
+    - Flutter
+  - xp2p_sdk (2.4.50):
+    - Flutter
+
+DEPENDENCIES:
+  - audioplayers_darwin (from `.symlinks/plugins/audioplayers_darwin/ios`)
+  - camera_avfoundation (from `.symlinks/plugins/camera_avfoundation/ios`)
+  - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
+  - Flutter (from `Flutter`)
+  - media_kit_libs_ios_video (from `.symlinks/plugins/media_kit_libs_ios_video/ios`)
+  - media_kit_video (from `.symlinks/plugins/media_kit_video/ios`)
+  - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - record_ios (from `.symlinks/plugins/record_ios/ios`)
+  - super_player (from `.symlinks/plugins/super_player/ios`)
+  - volume_controller (from `.symlinks/plugins/volume_controller/ios`)
+  - wakelock_plus (from `.symlinks/plugins/wakelock_plus/ios`)
+  - xp2p_sdk (from `.symlinks/plugins/xp2p_sdk/ios`)
+
+SPEC REPOS:
+  trunk:
+    - TXLiteAVSDK_Professional
+
+EXTERNAL SOURCES:
+  audioplayers_darwin:
+    :path: ".symlinks/plugins/audioplayers_darwin/ios"
+  camera_avfoundation:
+    :path: ".symlinks/plugins/camera_avfoundation/ios"
+  device_info_plus:
+    :path: ".symlinks/plugins/device_info_plus/ios"
+  Flutter:
+    :path: Flutter
+  media_kit_libs_ios_video:
+    :path: ".symlinks/plugins/media_kit_libs_ios_video/ios"
+  media_kit_video:
+    :path: ".symlinks/plugins/media_kit_video/ios"
+  package_info_plus:
+    :path: ".symlinks/plugins/package_info_plus/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+  record_ios:
+    :path: ".symlinks/plugins/record_ios/ios"
+  super_player:
+    :path: ".symlinks/plugins/super_player/ios"
+  volume_controller:
+    :path: ".symlinks/plugins/volume_controller/ios"
+  wakelock_plus:
+    :path: ".symlinks/plugins/wakelock_plus/ios"
+  xp2p_sdk:
+    :path: ".symlinks/plugins/xp2p_sdk/ios"
+
+SPEC CHECKSUMS:
+  audioplayers_darwin: 877d9a4d06331c5c374595e46e16453ac7eafa40
+  camera_avfoundation: 281867ff09f1da66f031a184ecfbc6f2e625c9f5
+  device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  media_kit_libs_ios_video: a5fe24bc7875ccd6378a0978c13185e1344651c1
+  media_kit_video: 5da63f157170e5bf303bf85453b7ef6971218a2e
+  package_info_plus: c0502532a26c7662a62a356cebe2692ec5fe4ec4
+  path_provider_foundation: 0b743cbb62d8e47eab856f09262bb8c1ddcfe6ba
+  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
+  record_ios: 840d21cce013c5a3b2168b74a54ebdb4136359e2
+  super_player: c9332bd08f1f2407f5fee9130468697206fb2d04
+  TXLiteAVSDK_Professional: 46059af0eff3078277e5b3365b5192514fd0fc39
+  volume_controller: 2e3de73d6e7e81a0067310d17fb70f2f86d71ac7
+  wakelock_plus: 76957ab028e12bfa4e66813c99e46637f367fc7e
+  xp2p_sdk: 3828824fecb2f2d984f547069065b854bfb3a3a2
+
+PODFILE CHECKSUM: 8b12e27be966de00b872bccd2360089c1bbf95ed
+
+COCOAPODS: 1.16.2
