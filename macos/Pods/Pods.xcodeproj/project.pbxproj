@@ -1,0 +1,3721 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 624022EE1C2EAB1C3CC38699E1368C5F /* Build configuration list for PBXAggregateTarget "FlutterMacOS" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = FlutterMacOS;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		03FF65672874530A3E9AE6BAB1764A4A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
+		077B2AA269F0444075CFE925A691CEB5 /* package_info_plus-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5053A265EB3DC03E70B8FFFEA37901FC /* package_info_plus-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		138460986AF207F7133F77B7880CD1B8 /* wakelock_plus-wakelock_plus in Resources */ = {isa = PBXBuildFile; fileRef = 65BF1E62409A8FB4AD8291729ABB646B /* wakelock_plus-wakelock_plus */; };
+		213E2698F95FF9E71FEAAA592994F6B0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
+		219775C576695EEF30FD5FB87D156171 /* VideoOutputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EBEBF7D4EF7C89EC80EB22DF622503 /* VideoOutputManager.swift */; };
+		219820A1D0CB7879302CED4C0208AC44 /* FPPPackageInfoPlusPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = FF923D5B3E44F296291B1A97B68DBF7C /* FPPPackageInfoPlusPlugin.m */; };
+		3408FBF4D0A7FEB4EEBEF714C7346571 /* TextureSW.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7374D12C0AA15DE0BDF6EE3ACA8775 /* TextureSW.swift */; };
+		359E0914A5EBBA5BCA6DA449E7D7A572 /* wakelock_plus-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F1D202B61F4FF3B5D6EBC6C185B45B9 /* wakelock_plus-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38FB2BA058CB02F20729103518BB6C96 /* WakelockPlusMacosPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CFB0D1AF31D639BE0540B1EBAEE294 /* WakelockPlusMacosPlugin.swift */; };
+		451F4C52408E64DA523B4FE424F748F3 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A65CEF0867DEAB96DFE9E6417CBAF2 /* Worker.swift */; };
+		46C5C77C6AE41F711547BC50EA440DE8 /* volume_controller-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D41197D70B0E09AF4C7F733D573E31A /* volume_controller-dummy.m */; };
+		48D926AD3974B459CB34EAE919ECA5A2 /* render_gl.h in Headers */ = {isa = PBXBuildFile; fileRef = C718F1FA0DF2B4492E3E58B8D59D864A /* render_gl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		573302382DFFBD7D1FFC982E777BDF91 /* MPVVideoOutParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057224D3830669DE1821BC8C58197A96 /* MPVVideoOutParams.swift */; };
+		57638071C86E91584952DE058DEE8583 /* package_info_plus-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD40B06D3C18E948B5A5454736896D72 /* package_info_plus-dummy.m */; };
+		5A32090E28CA2B3A401C62D5253EA634 /* render.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B7F837469C870C09606505B2B8CA00 /* render.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B035F3D7DAF405D8B7722CED19D72E2 /* MPVHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39D3F2E216BC86A56C44119BDF0A92F /* MPVHelpers.swift */; };
+		5F79BAEDC743A6C7CA7CF05C8E45142C /* VolumeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E895A3380FCE397DC700D0517CB875EB /* VolumeListener.swift */; };
+		638E1E85FE5CC7571C3130C039A758D4 /* Pods-Runner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 499E3722E8DACDC2AAA6C15AD1796520 /* Pods-Runner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70DBEAFC07C8AA29888F17FB963E479A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
+		74B1A78A2804CF45AB9A28753E70E1FE /* SafeResizableTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556EB40B5AB39F1C517E613C1F6B2102 /* SafeResizableTexture.swift */; };
+		7C4856F2B7B8DF93BA3344DEA70FBBD9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EF208929A7FE13958146375C669AB7 /* Constants.swift */; };
+		813EA03FCF34594212213A82459E2C09 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
+		85BF2C1F8BED8DD96E7BD68577F46D27 /* SwappableObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF9F9CD5C29F82EA9B903C75C022D2 /* SwappableObjectManager.swift */; };
+		85DE97F5362C9C758F1C9239F17E2CB4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
+		86CA19BC6F2A8EA65C6E69742F64D95B /* media_kit_libs_macos_video-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A54C953AF7F92D7FF67132D2F2A19CC4 /* media_kit_libs_macos_video-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		891F159D98BC67F9AEDC90988D7741B7 /* UtilsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527F2C6BB134B9F1EF23A21A4D7126B0 /* UtilsProtocol.swift */; };
+		8DF533C9B2380A9BF5425F370116BAEE /* VolumeControllerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A471DA3A9BA0C4993617376D4FADB9 /* VolumeControllerPlugin.swift */; };
+		8EAF2E66C81E04CA0C06D2A5897BDF84 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 55F413AFB3EA331433AB35F3BDFFD3AF /* PrivacyInfo.xcprivacy */; };
+		908EFB2BCC5153670503C94CEA92CC8B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56ABFFE6EEC37666B5E37541943781D3 /* Utils.swift */; };
+		964C066AA40A984925161398508B0E34 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
+		987446FD907569BF1210F519C436C76A /* volume_controller-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 38F990793DEE25B96400592CF227EE4C /* volume_controller-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9AB3D196FA79F4D524ABC4B597B4F6B9 /* TextureGLContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5807043453890E34479B0D4F69976E2 /* TextureGLContext.swift */; };
+		A5AA673785AB6B6575970E383A788DDC /* package_info_plus-package_info_plus_privacy in Resources */ = {isa = PBXBuildFile; fileRef = 64FB8D36F3D5FD1F4E08A8CB92BCD154 /* package_info_plus-package_info_plus_privacy */; };
+		A6D2D8439AF96D1B54163F23231E9E09 /* ResizableTextureProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4766BD0C51AB0E88C375CB84269344C9 /* ResizableTextureProtocol.swift */; };
+		A6F406E58FD2E5F2F39ECCC19817FA53 /* MediaKitVideoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386C0457741D23CCF1CDA884616E5AA /* MediaKitVideoPlugin.swift */; };
+		A9F187AD96CFF6350F111CCA6392BFBB /* client.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DDA5AC53155822F6D7BC018FD902D66 /* client.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE5A3DA979E24EA351F80313C4F90ED4 /* VideoOutputConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A51D7F4B8496F52BCD68B82F6613D /* VideoOutputConfiguration.swift */; };
+		B1A99DD52B87DF281734593E81E6C79A /* PrivacyInfo.xcprivacy in Sources */ = {isa = PBXBuildFile; fileRef = C5FD1724D8CCB338236F548EAC3D98BC /* PrivacyInfo.xcprivacy */; };
+		B375EA128E6579366091BAA390BBDD34 /* Pods-RunnerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3DB54C128E3D88C0C9C7DDEA475ED7 /* Pods-RunnerTests-dummy.m */; };
+		BB0D536D0E3339044C67E0FEEFA7A71E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */; };
+		C0BCA8057D009B63AC643EB798EC42EE /* VolumeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121096DC1BEEE531C4E27D3FD4E37591 /* VolumeController.swift */; };
+		C6B3BF3E5A98F82890F3DDA4EDC865EE /* media_kit_video-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCFDEEE52E7D581FD1BF8C4A3E6BB24 /* media_kit_video-dummy.m */; };
+		CA66D2D1E33A56D4942995576DDCC449 /* VideoOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94E793063275F9C944B3FEE190EA246 /* VideoOutput.swift */; };
+		CF5A94B08D4FDDFBC950305C24083E88 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 67A203FD797F0C28CE1E38AAE04A4684 /* PrivacyInfo.xcprivacy */; };
+		CFF43DA6F3C6C8AD6F2E8289E124F8B9 /* MediaKitLibsMacosVideoPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367B7374C634955156EFC416F0648E0C /* MediaKitLibsMacosVideoPlugin.swift */; };
+		D0538BC3F74B344F739BB21848437C1F /* media_kit_video-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ADE5E776FDF48D9A60073A174C798250 /* media_kit_video-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D3669D9B8376528FE29144353B5BEAB5 /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E794494AB90477BA94C681E994ADF341 /* Pods-Runner-dummy.m */; };
+		D9D09B6EFC479E7FD23C6E95856C94AF /* TextureSWContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB20B86B0E4F2262385486A615D90F /* TextureSWContext.swift */; };
+		E65E3F9C5737427161B4602FA78E77A9 /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741CB79D5DD52582F69449904037503 /* AudioHelper.swift */; };
+		EAD254F22C7DD42DDD6106D775183995 /* wakelock_plus-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77F12110A3B8F918AB51D669593F765E /* wakelock_plus-dummy.m */; };
+		EB2DC96CDCF638AB89007D2DB0F3119A /* Pods-RunnerTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E9B12BCE5540D02A80250C3EC16D399 /* Pods-RunnerTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECDB9358B0740170FA30455F51DC9B01 /* stream_cb.h in Headers */ = {isa = PBXBuildFile; fileRef = C4976CD3B03FB78D57C5252B75289115 /* stream_cb.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECF01E03430780600C90EB401F7A8109 /* FPPPackageInfoPlusPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 60A40A2B6D59C75AC5D489EBB1D499A8 /* FPPPackageInfoPlusPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0743A701D290E2F3DD514DC194F8267 /* media_kit_libs_macos_video-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E812F5A2E2C8DC1A83100AAC2454B9C7 /* media_kit_libs_macos_video-dummy.m */; };
+		F3F1EB30446D974DCA53329A9694BF08 /* TextureHW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150A0A5D6F832CF8A91A4102BC3E9A4 /* TextureHW.swift */; };
+		FB986EAC95D29DC311B2989AC5050333 /* OpenGLHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7039208DE182C150A42225C1BA067CDD /* OpenGLHelpers.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1294026A61E817F9354F7A45AFE7B7AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EA10528363524F2D525920D4E8820C7;
+			remoteInfo = media_kit_libs_macos_video;
+		};
+		178464105EAE0D9838A16ECAEED124FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA272E8348BAB4CE0B0C804FB7B818C4;
+			remoteInfo = FlutterMacOS;
+		};
+		2166FEF684BD604B4432629466A2988D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B74B458B450D74B75744B87BD747314;
+			remoteInfo = "Pods-Runner";
+		};
+		3FC427478444AF81357158F195D34464 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FE9F9425CD9A7AC89153E1C45500E16;
+			remoteInfo = volume_controller;
+		};
+		59A4794738EA3F1948000201C9A1684E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA272E8348BAB4CE0B0C804FB7B818C4;
+			remoteInfo = FlutterMacOS;
+		};
+		6859B71F6A537EF7E20E26A228DCA6E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA272E8348BAB4CE0B0C804FB7B818C4;
+			remoteInfo = FlutterMacOS;
+		};
+		810E7E93B113B7F5B4A26757646E9A21 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54A00AF9F830F355D8FD8F6A4387F6A2;
+			remoteInfo = package_info_plus;
+		};
+		8B4FC5E34882A6111FE7AA1600781C16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07C64B0E06ED7C1903D446F9BBDDF5C9;
+			remoteInfo = "package_info_plus-package_info_plus_privacy";
+		};
+		9657D217CD1922B59A305BE8C0B606B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA272E8348BAB4CE0B0C804FB7B818C4;
+			remoteInfo = FlutterMacOS;
+		};
+		9774F0BCE3823B91FEBDDCEC2FB6195A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40E70FDA48D5C02EE32CA0F3F53EB178;
+			remoteInfo = wakelock_plus;
+		};
+		B16DD5C0C7EED063DBF3D8AFADE68FBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 261F30766AE7E1B1D598B806D30EF060;
+			remoteInfo = media_kit_video;
+		};
+		B42D23E9731C9A113D68D451F9F8BDC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA272E8348BAB4CE0B0C804FB7B818C4;
+			remoteInfo = FlutterMacOS;
+		};
+		E4C0F72459096D6B5E237A061C0F4E0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA272E8348BAB4CE0B0C804FB7B818C4;
+			remoteInfo = FlutterMacOS;
+		};
+		EE67CDD176CC9024E60FA67A042EECEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A81600071D3147734AAEE6F5CE61A90;
+			remoteInfo = "wakelock_plus-wakelock_plus";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03E8AD2E8B75443E12D3D3BD12A9900E /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		057224D3830669DE1821BC8C58197A96 /* MPVVideoOutParams.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MPVVideoOutParams.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/MPVVideoOutParams.swift"; sourceTree = "<group>"; };
+		05857A2A4D6543F979C51241ED508506 /* media_kit_libs_macos_video.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = media_kit_libs_macos_video.debug.xcconfig; sourceTree = "<group>"; };
+		05EF208929A7FE13958146375C669AB7 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/volume_controller-3.4.0/macos/volume_controller/Sources/volume_controller/Constants.swift"; sourceTree = "<group>"; };
+		08EBEBF7D4EF7C89EC80EB22DF622503 /* VideoOutputManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoOutputManager.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/VideoOutputManager.swift"; sourceTree = "<group>"; };
+		0AB8CB113C6BB2ADB419D54949C0DCEF /* media_kit_libs_macos_video */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = media_kit_libs_macos_video; path = media_kit_libs_macos_video.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AFB643DA4919253F749E2836A5AAFDC /* Pods-Runner-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-Info.plist"; sourceTree = "<group>"; };
+		0DC7FF9708C4453B9B09443685DF60B3 /* media_kit_libs_macos_video-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "media_kit_libs_macos_video-Info.plist"; sourceTree = "<group>"; };
+		0DDA5AC53155822F6D7BC018FD902D66 /* client.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = client.h; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Headers/mpv/client.h"; sourceTree = "<group>"; };
+		1150A0A5D6F832CF8A91A4102BC3E9A4 /* TextureHW.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextureHW.swift; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/TextureHW.swift"; sourceTree = "<group>"; };
+		11AA7018F95317D959D9D2E76CBB2377 /* Pods-RunnerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RunnerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		121096DC1BEEE531C4E27D3FD4E37591 /* VolumeController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VolumeController.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/volume_controller-3.4.0/macos/volume_controller/Sources/volume_controller/VolumeController.swift"; sourceTree = "<group>"; };
+		1319A3191D280CA5805CEEAFA2B2394E /* package_info_plus.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = package_info_plus.podspec; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/package_info_plus-9.0.0/macos/package_info_plus.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		17DB20B86B0E4F2262385486A615D90F /* TextureSWContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextureSWContext.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/TextureSWContext.swift"; sourceTree = "<group>"; };
+		1B136F41D5B5FAE96EA576E768A5771D /* Pods-Runner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-acknowledgements.plist"; sourceTree = "<group>"; };
+		2386C0457741D23CCF1CDA884616E5AA /* MediaKitVideoPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MediaKitVideoPlugin.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/MediaKitVideoPlugin.swift"; sourceTree = "<group>"; };
+		2852C9760260B09892E672004E985AA2 /* Mbedtls.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Mbedtls.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Mbedtls.xcframework"; sourceTree = "<group>"; };
+		367B7374C634955156EFC416F0648E0C /* MediaKitLibsMacosVideoPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MediaKitLibsMacosVideoPlugin.swift; path = "../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Classes/MediaKitLibsMacosVideoPlugin.swift"; sourceTree = "<group>"; };
+		38241E46C6536880DB1F6372659A73E0 /* media_kit_video.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = media_kit_video.debug.xcconfig; sourceTree = "<group>"; };
+		38F990793DEE25B96400592CF227EE4C /* volume_controller-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "volume_controller-umbrella.h"; sourceTree = "<group>"; };
+		4766BD0C51AB0E88C375CB84269344C9 /* ResizableTextureProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResizableTextureProtocol.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/ResizableTextureProtocol.swift"; sourceTree = "<group>"; };
+		499E3722E8DACDC2AAA6C15AD1796520 /* Pods-Runner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Runner-umbrella.h"; sourceTree = "<group>"; };
+		4D3DB54C128E3D88C0C9C7DDEA475ED7 /* Pods-RunnerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RunnerTests-dummy.m"; sourceTree = "<group>"; };
+		5053A265EB3DC03E70B8FFFEA37901FC /* package_info_plus-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "package_info_plus-umbrella.h"; sourceTree = "<group>"; };
+		50A1936D6B8493BC4A0D1F7FCEDC7813 /* Xml2.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Xml2.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Xml2.xcframework"; sourceTree = "<group>"; };
+		50F537E0791F74CF080E82105A98F46E /* wakelock_plus.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = wakelock_plus.modulemap; sourceTree = "<group>"; };
+		5126095301F4D7C79B193161D6B2B03D /* package_info_plus-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "package_info_plus-prefix.pch"; sourceTree = "<group>"; };
+		527F2C6BB134B9F1EF23A21A4D7126B0 /* UtilsProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UtilsProtocol.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/UtilsProtocol.swift"; sourceTree = "<group>"; };
+		556EB40B5AB39F1C517E613C1F6B2102 /* SafeResizableTexture.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SafeResizableTexture.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/SafeResizableTexture.swift"; sourceTree = "<group>"; };
+		55C13EDD7E201D71A889791B31B8A36F /* wakelock_plus */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = wakelock_plus; path = wakelock_plus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55F413AFB3EA331433AB35F3BDFFD3AF /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = "../../../../../../../../../../../../../.pub-cache/hosted/pub.dev/wakelock_plus-1.4.0/macos/wakelock_plus/Sources/wakelock_plus/Resources/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
+		5691829C80405E8C501270149B5920CA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/LICENSE"; sourceTree = "<group>"; };
+		56ABFFE6EEC37666B5E37541943781D3 /* Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/Utils.swift"; sourceTree = "<group>"; };
+		58347C94742DD01531E96CD5EE99BAE0 /* volume_controller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = volume_controller.release.xcconfig; sourceTree = "<group>"; };
+		5C40ECA6C3BF82F8A8299E40EEDEB3EF /* Avcodec.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Avcodec.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Avcodec.xcframework"; sourceTree = "<group>"; };
+		60A40A2B6D59C75AC5D489EBB1D499A8 /* FPPPackageInfoPlusPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FPPPackageInfoPlusPlugin.h; path = "../../../../../../../../../../../../../../.pub-cache/hosted/pub.dev/package_info_plus-9.0.0/macos/package_info_plus/Sources/package_info_plus/include/package_info_plus/FPPPackageInfoPlusPlugin.h"; sourceTree = "<group>"; };
+		61B84C2F7611CFC0297A36A98F62A103 /* volume_controller.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = volume_controller.modulemap; sourceTree = "<group>"; };
+		64974D71B7C8BF0F304CD6D4649766B4 /* wakelock_plus-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "wakelock_plus-prefix.pch"; sourceTree = "<group>"; };
+		64E6B3BF7B9057A76A39378FF900F1B7 /* wakelock_plus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = wakelock_plus.release.xcconfig; sourceTree = "<group>"; };
+		64FB8D36F3D5FD1F4E08A8CB92BCD154 /* package_info_plus-package_info_plus_privacy */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "package_info_plus-package_info_plus_privacy"; path = package_info_plus_privacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6580FDB6314BA4106BB8476A55752C8B /* media_kit_video-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "media_kit_video-prefix.pch"; sourceTree = "<group>"; };
+		65BF1E62409A8FB4AD8291729ABB646B /* wakelock_plus-wakelock_plus */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "wakelock_plus-wakelock_plus"; path = wakelock_plus.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		669E8F25E1897672BDB80B7EB784DA24 /* Pods-Runner */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Runner"; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67A203FD797F0C28CE1E38AAE04A4684 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/package_info_plus-9.0.0/macos/package_info_plus/Sources/package_info_plus/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
+		68CE22DC538AC60B4212B01D7F4A8AFA /* volume_controller-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "volume_controller-prefix.pch"; sourceTree = "<group>"; };
+		6C3345B1B3CAEDF5B03B1F731FDC492E /* Pods-RunnerTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-RunnerTests"; path = Pods_RunnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CC93407EC98709B8F86C9147B6918FC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/volume_controller-3.4.0/LICENSE"; sourceTree = "<group>"; };
+		6F1D202B61F4FF3B5D6EBC6C185B45B9 /* wakelock_plus-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "wakelock_plus-umbrella.h"; sourceTree = "<group>"; };
+		7039208DE182C150A42225C1BA067CDD /* OpenGLHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OpenGLHelpers.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/gl/OpenGLHelpers.swift"; sourceTree = "<group>"; };
+		716F0256D806854DF07219E0C4F880FC /* Avutil.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Avutil.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Avutil.xcframework"; sourceTree = "<group>"; };
+		71A65CEF0867DEAB96DFE9E6417CBAF2 /* Worker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Worker.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/Worker.swift"; sourceTree = "<group>"; };
+		72502C634B5DB4173C899816101B6ABD /* package_info_plus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = package_info_plus.debug.xcconfig; sourceTree = "<group>"; };
+		728A5ED1DD60BAC8C8F382A87B976F84 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
+		7629EFC7A311CBE25D82091161DACD98 /* Swscale.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Swscale.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Swscale.xcframework"; sourceTree = "<group>"; };
+		773BFCE41424EB8EBB72EF3F6A5FB719 /* Pods-Runner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-frameworks.sh"; sourceTree = "<group>"; };
+		77F12110A3B8F918AB51D669593F765E /* wakelock_plus-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "wakelock_plus-dummy.m"; sourceTree = "<group>"; };
+		793CD5DD59E72BE3D6FDE3B57AA839B6 /* FlutterMacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlutterMacOS.release.xcconfig; sourceTree = "<group>"; };
+		79F83F4D505FA40C1CD18A8029181D59 /* Pods-RunnerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunnerTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7D41197D70B0E09AF4C7F733D573E31A /* volume_controller-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "volume_controller-dummy.m"; sourceTree = "<group>"; };
+		7FE38AC6C84E15251D2BFD8E3F0123D9 /* media_kit_libs_macos_video.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = media_kit_libs_macos_video.modulemap; sourceTree = "<group>"; };
+		840CD88F10F41C12E5E636D69ED208F0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/wakelock_plus-1.4.0/LICENSE"; sourceTree = "<group>"; };
+		872B7AE00F65EF39DE9C178C16C0D92D /* volume_controller */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = volume_controller; path = volume_controller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8741CB79D5DD52582F69449904037503 /* AudioHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AudioHelper.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/volume_controller-3.4.0/macos/volume_controller/Sources/volume_controller/AudioHelper.swift"; sourceTree = "<group>"; };
+		8BFF9F9CD5C29F82EA9B903C75C022D2 /* SwappableObjectManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwappableObjectManager.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/SwappableObjectManager.swift"; sourceTree = "<group>"; };
+		91A471DA3A9BA0C4993617376D4FADB9 /* VolumeControllerPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VolumeControllerPlugin.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/volume_controller-3.4.0/macos/volume_controller/Sources/volume_controller/VolumeControllerPlugin.swift"; sourceTree = "<group>"; };
+		947B0AF73801820093F4679C2F28BA48 /* Png16.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Png16.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Png16.xcframework"; sourceTree = "<group>"; };
+		987540A68013AB6E15525B1519792732 /* media_kit_video */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = media_kit_video; path = media_kit_video.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C67862BFDC563C6A10A2556516A4668 /* ResourceBundle-package_info_plus_privacy-package_info_plus-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-package_info_plus_privacy-package_info_plus-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E9B12BCE5540D02A80250C3EC16D399 /* Pods-RunnerTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RunnerTests-umbrella.h"; sourceTree = "<group>"; };
+		9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		9F1D1211CCA5C1604BAC4D66A750B158 /* media_kit_video.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = media_kit_video.podspec; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/media_kit_video.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A004C2F18B1B5D8FE02F0844B2670B0F /* FlutterMacOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FlutterMacOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0D512AEDC206049B6BEDCBEF4D740A0 /* Uchardet.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Uchardet.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Uchardet.xcframework"; sourceTree = "<group>"; };
+		A54C953AF7F92D7FF67132D2F2A19CC4 /* media_kit_libs_macos_video-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "media_kit_libs_macos_video-umbrella.h"; sourceTree = "<group>"; };
+		A5807043453890E34479B0D4F69976E2 /* TextureGLContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextureGLContext.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/gl/TextureGLContext.swift"; sourceTree = "<group>"; };
+		A6C1CB1050E9523C1FA6D4E0A2C3D8A2 /* wakelock_plus-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "wakelock_plus-Info.plist"; sourceTree = "<group>"; };
+		A75FBE43CAE1ED8D9DB2068D7C6B75CF /* Freetype.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Freetype.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Freetype.xcframework"; sourceTree = "<group>"; };
+		A8AF6A5B5091FDAC55374519BF7CADEA /* Dav1d.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Dav1d.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Dav1d.xcframework"; sourceTree = "<group>"; };
+		A8FDDE7C72DF7DB5CC94E13C644A3D96 /* media_kit_libs_macos_video-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "media_kit_libs_macos_video-xcframeworks.sh"; sourceTree = "<group>"; };
+		AB87A8CFBB64CA42789EAB1DED772862 /* Mbedx509.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Mbedx509.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Mbedx509.xcframework"; sourceTree = "<group>"; };
+		AC47AE0887BA67C2818E0FCDB1417371 /* Mbedcrypto.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Mbedcrypto.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Mbedcrypto.xcframework"; sourceTree = "<group>"; };
+		AC8FE152530FBDCE460186B326C1A8FB /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
+		ADE5E776FDF48D9A60073A174C798250 /* media_kit_video-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "media_kit_video-umbrella.h"; sourceTree = "<group>"; };
+		AF25654B6FEBF49F24F42BAFD68DC16F /* media_kit_libs_macos_video.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = media_kit_libs_macos_video.podspec; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/media_kit_libs_macos_video.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B00A5ECAED4CA0C16FF7C65365BC0334 /* Pods-RunnerTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RunnerTests-Info.plist"; sourceTree = "<group>"; };
+		B0BD57AB3672E53828D11C2A3368023A /* Pods-RunnerTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RunnerTests.modulemap"; sourceTree = "<group>"; };
+		B3EEDEFBBA30BE3046767DA225F0006E /* media_kit_libs_macos_video.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = media_kit_libs_macos_video.release.xcconfig; sourceTree = "<group>"; };
+		B4C6DF521BEDDF320A2195ADD2EEF17E /* package_info_plus-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "package_info_plus-Info.plist"; sourceTree = "<group>"; };
+		B5B7F837469C870C09606505B2B8CA00 /* render.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = render.h; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Headers/mpv/render.h"; sourceTree = "<group>"; };
+		B703785507B22BAF0B800737429577EC /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		B70981B3B5DE4E85C290F3ACC3DA33BA /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/package_info_plus-9.0.0/LICENSE"; sourceTree = "<group>"; };
+		B94E793063275F9C944B3FEE190EA246 /* VideoOutput.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoOutput.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/VideoOutput.swift"; sourceTree = "<group>"; };
+		C24C1A035F22D24883C6F1876F274C6F /* Pods-Runner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Runner.modulemap"; sourceTree = "<group>"; };
+		C25521037F8406E709445CDF3A968566 /* ResourceBundle-wakelock_plus-wakelock_plus-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-wakelock_plus-wakelock_plus-Info.plist"; sourceTree = "<group>"; };
+		C2D230FF173690957C835ADE70E95746 /* Avfilter.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Avfilter.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Avfilter.xcframework"; sourceTree = "<group>"; };
+		C3416731100A860347F336DCE0C52888 /* media_kit_video-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "media_kit_video-Info.plist"; sourceTree = "<group>"; };
+		C39BE06027F24EB0328A76E7507FA463 /* package_info_plus */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = package_info_plus; path = package_info_plus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4976CD3B03FB78D57C5252B75289115 /* stream_cb.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = stream_cb.h; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Headers/mpv/stream_cb.h"; sourceTree = "<group>"; };
+		C50FD10CD19FF6999637BA5ECAF1681B /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+		C5FD1724D8CCB338236F548EAC3D98BC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/volume_controller-3.4.0/macos/volume_controller/Sources/volume_controller/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
+		C6991DE35A4A7FF1BA433397AFADE5F2 /* Harfbuzz.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Harfbuzz.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Harfbuzz.xcframework"; sourceTree = "<group>"; };
+		C718F1FA0DF2B4492E3E58B8D59D864A /* render_gl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = render_gl.h; path = "../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Headers/mpv/render_gl.h"; sourceTree = "<group>"; };
+		CDEEBB4CC9668285A4C400CB6E2D6E67 /* Fribidi.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Fribidi.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Fribidi.xcframework"; sourceTree = "<group>"; };
+		D00F5F9AC4AD0D717C5ADE3CD41C304F /* Avformat.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Avformat.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Avformat.xcframework"; sourceTree = "<group>"; };
+		D02216E855576E0F7668CA442427614B /* media_kit_libs_macos_video-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "media_kit_libs_macos_video-prefix.pch"; sourceTree = "<group>"; };
+		D94F3586CB8FD40A7A9617A41372D29B /* package_info_plus.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = package_info_plus.modulemap; sourceTree = "<group>"; };
+		DA19AC44C2A8CBB712B997108C743F48 /* volume_controller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = volume_controller.debug.xcconfig; sourceTree = "<group>"; };
+		DA278825076BFC8DFAC32F79B1808A14 /* media_kit_video.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = media_kit_video.release.xcconfig; sourceTree = "<group>"; };
+		DFCFDEEE52E7D581FD1BF8C4A3E6BB24 /* media_kit_video-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "media_kit_video-dummy.m"; sourceTree = "<group>"; };
+		E14A51D7F4B8496F52BCD68B82F6613D /* VideoOutputConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VideoOutputConfiguration.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/VideoOutputConfiguration.swift"; sourceTree = "<group>"; };
+		E369E5C20EF66AC60F2CDEE706843C52 /* Ass.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Ass.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Ass.xcframework"; sourceTree = "<group>"; };
+		E736E0C9C5B73D27B8865E363E2108AC /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
+		E794494AB90477BA94C681E994ADF341 /* Pods-Runner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Runner-dummy.m"; sourceTree = "<group>"; };
+		E7CFB0D1AF31D639BE0540B1EBAEE294 /* WakelockPlusMacosPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WakelockPlusMacosPlugin.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/wakelock_plus-1.4.0/macos/wakelock_plus/Sources/wakelock_plus/WakelockPlusMacosPlugin.swift"; sourceTree = "<group>"; };
+		E812F5A2E2C8DC1A83100AAC2454B9C7 /* media_kit_libs_macos_video-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "media_kit_libs_macos_video-dummy.m"; sourceTree = "<group>"; };
+		E895A3380FCE397DC700D0517CB875EB /* VolumeListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VolumeListener.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/volume_controller-3.4.0/macos/volume_controller/Sources/volume_controller/VolumeListener.swift"; sourceTree = "<group>"; };
+		E8E7800DBF8D8CD95D574887E3F0CCCC /* wakelock_plus.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = wakelock_plus.podspec; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/wakelock_plus-1.4.0/macos/wakelock_plus.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ECDF6AA713870989438BA93B395DC557 /* Pods-Runner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Runner-acknowledgements.markdown"; sourceTree = "<group>"; };
+		EF7AA4CCE5AD02AC6F33EE7BD552A59C /* volume_controller.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = volume_controller.podspec; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/volume_controller-3.4.0/macos/volume_controller.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F18C3249736DE93BD38958592B275C29 /* FlutterMacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlutterMacOS.debug.xcconfig; sourceTree = "<group>"; };
+		F2E88B0B866F3A49FD1B6E426F51FA0E /* package_info_plus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = package_info_plus.release.xcconfig; sourceTree = "<group>"; };
+		F39D3F2E216BC86A56C44119BDF0A92F /* MPVHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MPVHelpers.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/MPVHelpers.swift"; sourceTree = "<group>"; };
+		F54D6B67E2017858495176C30715009C /* Swresample.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Swresample.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Swresample.xcframework"; sourceTree = "<group>"; };
+		F57F2CB62DE41E83C512288DC9ACBBD4 /* wakelock_plus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = wakelock_plus.debug.xcconfig; sourceTree = "<group>"; };
+		F8BB375AB38EB23B61736613F8D41B59 /* Mpv.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = Mpv.xcframework; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos/Frameworks/Mpv.xcframework"; sourceTree = "<group>"; };
+		F9422FEB807ACD4DDF246CC3D46553DD /* media_kit_video.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = media_kit_video.modulemap; sourceTree = "<group>"; };
+		F9CADFE52AF60E186E680DB920ABA964 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/LICENSE"; sourceTree = "<group>"; };
+		FC0E55923E2D2CF0F3EE6FEBB97A48DF /* volume_controller-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "volume_controller-Info.plist"; sourceTree = "<group>"; };
+		FD40B06D3C18E948B5A5454736896D72 /* package_info_plus-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "package_info_plus-dummy.m"; sourceTree = "<group>"; };
+		FD7374D12C0AA15DE0BDF6EE3ACA8775 /* TextureSW.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextureSW.swift; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1/macos/Classes/plugin/common/TextureSW.swift"; sourceTree = "<group>"; };
+		FF923D5B3E44F296291B1A97B68DBF7C /* FPPPackageInfoPlusPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FPPPackageInfoPlusPlugin.m; path = "../../../../../../../../../../../../.pub-cache/hosted/pub.dev/package_info_plus-9.0.0/macos/package_info_plus/Sources/package_info_plus/FPPPackageInfoPlusPlugin.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		06B84C4D75E387F8E8F4D22A05AC5EE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70DBEAFC07C8AA29888F17FB963E479A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E519DA52483D123638DED67420900CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				213E2698F95FF9E71FEAAA592994F6B0 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54C9017E534B706765671BFA6046F9CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0D536D0E3339044C67E0FEEFA7A71E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80B8EEB1FBE139DA72C173FD0D89A3DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				813EA03FCF34594212213A82459E2C09 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9834BEF9048EEFE218357BCBF36A6465 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B48200218C340144283E5E0BD508471B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85DE97F5362C9C758F1C9239F17E2CB4 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B64CFD9B14F175879BC7428D6ACF64A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				964C066AA40A984925161398508B0E34 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAC0834F7252D8143E0E41335E53F3B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03FF65672874530A3E9AE6BAB1764A4A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F71DFD02F4B9602987715A573D1EE1ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06EC52C3521736BC0B37433A5F659A64 /* iot-link-flutter */ = {
+			isa = PBXGroup;
+			children = (
+				624781A9271F35EA7918E6AF3678C30B /* macos */,
+			);
+			name = "iot-link-flutter";
+			path = "iot-link-flutter";
+			sourceTree = "<group>";
+		};
+		0B8BD5769B71C6DC5E7367F9F3405BCF /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				6C8A0AF3115F70792F089092DD1AE720 /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_libs_macos_video-1.1.4/macos";
+			sourceTree = "<group>";
+		};
+		0BA0CBCA330D073D4D40EF40CDEE2834 /* mpv */ = {
+			isa = PBXGroup;
+			children = (
+				0DDA5AC53155822F6D7BC018FD902D66 /* client.h */,
+				B5B7F837469C870C09606505B2B8CA00 /* render.h */,
+				C718F1FA0DF2B4492E3E58B8D59D864A /* render_gl.h */,
+				C4976CD3B03FB78D57C5252B75289115 /* stream_cb.h */,
+			);
+			name = mpv;
+			path = mpv;
+			sourceTree = "<group>";
+		};
+		0EA34575D7637A37FCCF7844FB34406B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C25521037F8406E709445CDF3A968566 /* ResourceBundle-wakelock_plus-wakelock_plus-Info.plist */,
+				50F537E0791F74CF080E82105A98F46E /* wakelock_plus.modulemap */,
+				77F12110A3B8F918AB51D669593F765E /* wakelock_plus-dummy.m */,
+				A6C1CB1050E9523C1FA6D4E0A2C3D8A2 /* wakelock_plus-Info.plist */,
+				64974D71B7C8BF0F304CD6D4649766B4 /* wakelock_plus-prefix.pch */,
+				6F1D202B61F4FF3B5D6EBC6C185B45B9 /* wakelock_plus-umbrella.h */,
+				F57F2CB62DE41E83C512288DC9ACBBD4 /* wakelock_plus.debug.xcconfig */,
+				64E6B3BF7B9057A76A39378FF900F1B7 /* wakelock_plus.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../../../Pods/Target Support Files/wakelock_plus";
+			sourceTree = "<group>";
+		};
+		0EE4EB2EA6B60DBC4D8DB8B6006C0052 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				39D950F521BD0C52AB29239E4A247048 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		11AD4186836B60BF0AEA646689ADC269 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				D7E9471E28627FAC38018E1C4DCAC65D /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		12FBDF6A3508EFF19F055F8DAD39FE5D /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				6B6E0B143DCC70DA96C8801050ADF86D /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		15F13CE839A829AE90948978FC4FACBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0AB8CB113C6BB2ADB419D54949C0DCEF /* media_kit_libs_macos_video */,
+				987540A68013AB6E15525B1519792732 /* media_kit_video */,
+				C39BE06027F24EB0328A76E7507FA463 /* package_info_plus */,
+				64FB8D36F3D5FD1F4E08A8CB92BCD154 /* package_info_plus-package_info_plus_privacy */,
+				669E8F25E1897672BDB80B7EB784DA24 /* Pods-Runner */,
+				6C3345B1B3CAEDF5B03B1F731FDC492E /* Pods-RunnerTests */,
+				872B7AE00F65EF39DE9C178C16C0D92D /* volume_controller */,
+				55C13EDD7E201D71A889791B31B8A36F /* wakelock_plus */,
+				65BF1E62409A8FB4AD8291729ABB646B /* wakelock_plus-wakelock_plus */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17F9314CDE013457FEBF61A5E3DF7250 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				1A5A2EB9297A49E830F480C955FF57F9 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1A5A2EB9297A49E830F480C955FF57F9 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				CC2BFD8330A56B57642F7D6A7484F9DE /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1BC08BDF832DA04577194093B5D67C4F /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				C4D5EAD15C31B87779465C22A782BCB7 /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		1F28A437E9CFDEF9BF19D24729EF5AA8 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				8DFF745C2631511B60BB5E9673298F7B /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../../.pub-cache/hosted/pub.dev/package_info_plus-9.0.0/macos/package_info_plus/Sources";
+			sourceTree = "<group>";
+		};
+		1FAA703E5C8C33F7F6FB7C4411AB3741 /* ephemeral */ = {
+			isa = PBXGroup;
+			children = (
+				EB9F4BD9AE9CB71CDB9D9F4BCDEFCB76 /* .symlinks */,
+			);
+			name = ephemeral;
+			path = ephemeral;
+			sourceTree = "<group>";
+		};
+		201A080C31B1345D2130A921A7C8FA6B /* project */ = {
+			isa = PBXGroup;
+			children = (
+				6D73E80D51AA1D18BF337084079B3426 /* iot-link-flutter */,
+			);
+			name = project;
+			path = project;
+			sourceTree = "<group>";
+		};
+		214A0E207D1361EEE427BC82D893836E /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				6BEB525E72EB28F360463861C792F66E /* Flutter */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		22AD05FB9417BF386F4A9C019F549C42 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				D9690F94267257CD8EA35E3615B23BFC /* project */,
+			);
+			name = ..;
+			path = .;
+			sourceTree = "<group>";
+		};
+		22BE7EC7F69620222C2E833CFC4B958B /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				9405900445D62C290456DB32A36DF540 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		25FC1213CEBC45E442D7D66BE75C51FB /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				17F9314CDE013457FEBF61A5E3DF7250 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		2C15D8976FB495F9E19D0A723E22BDEB /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				DB31F5E92723279006C820719C711D1E /* Flutter */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		2C6604DCF19CEBFC1F88FDD56BE3E30B /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				0EE4EB2EA6B60DBC4D8DB8B6006C0052 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		2CF215CA67BE7B8EAF2213FB75C8CA9B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				468818B00ECB3AD80DB6DA9A0772200D /* wakelock_plus */,
+			);
+			name = Sources;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		2DB8426A477BA92773F00012EBA84D53 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E806A4F97D48F5FD3B4CA1BC617EA1F5 /* Pods-Runner */,
+				537E840C4F4E30B706FD9D64B15C53A7 /* Pods-RunnerTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		314CB9032D8EBCAB3FB209FB1F447B9C /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				6CC93407EC98709B8F86C9147B6918FC /* LICENSE */,
+				EF7AA4CCE5AD02AC6F33EE7BD552A59C /* volume_controller.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		31737F706F3BE3864CE404F914C4D877 /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				7145E2036D4C64FF6ED8F505E01A5A59 /* Flutter */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		3215CC700359826700D7DCBEABA93A0F /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				F12AECC97BC68A7A422E25BF193A855F /* volume_controller */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		379B91B0267AB4AE94406D0E7B771CCB /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				2C6604DCF19CEBFC1F88FDD56BE3E30B /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../../.pub-cache/hosted/pub.dev/volume_controller-3.4.0/macos/volume_controller/Sources";
+			sourceTree = "<group>";
+		};
+		37FCA8126951A4618F7404742AD3248F /* package_info_plus */ = {
+			isa = PBXGroup;
+			children = (
+				43BF4D650564D12A2168F09CF1E97533 /* Sources */,
+			);
+			name = package_info_plus;
+			path = package_info_plus;
+			sourceTree = "<group>";
+		};
+		39D950F521BD0C52AB29239E4A247048 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				8218767F8D98EF5AFA6B0D5FEEA56757 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3A0ABE52ECDD73E61ABF817B650E7D5D /* project */ = {
+			isa = PBXGroup;
+			children = (
+				06EC52C3521736BC0B37433A5F659A64 /* iot-link-flutter */,
+			);
+			name = project;
+			path = project;
+			sourceTree = "<group>";
+		};
+		3A54F25B4EBEA0F3B27F1F51B1817BD4 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				11AD4186836B60BF0AEA646689ADC269 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3C2D9B043B65890F082870168A073FF5 /* iot-link-flutter */ = {
+			isa = PBXGroup;
+			children = (
+				EE9BA666978534B5637BB2AEDBA8608D /* macos */,
+			);
+			name = "iot-link-flutter";
+			path = "iot-link-flutter";
+			sourceTree = "<group>";
+		};
+		3FF72D002229BF5FDEB46EE79CD6D0F7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				61B84C2F7611CFC0297A36A98F62A103 /* volume_controller.modulemap */,
+				7D41197D70B0E09AF4C7F733D573E31A /* volume_controller-dummy.m */,
+				FC0E55923E2D2CF0F3EE6FEBB97A48DF /* volume_controller-Info.plist */,
+				68CE22DC538AC60B4212B01D7F4A8AFA /* volume_controller-prefix.pch */,
+				38F990793DEE25B96400592CF227EE4C /* volume_controller-umbrella.h */,
+				DA19AC44C2A8CBB712B997108C743F48 /* volume_controller.debug.xcconfig */,
+				58347C94742DD01531E96CD5EE99BAE0 /* volume_controller.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../../../Pods/Target Support Files/volume_controller";
+			sourceTree = "<group>";
+		};
+		4375332D9B102A698CCC6E1B6D36E064 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				5691829C80405E8C501270149B5920CA /* LICENSE */,
+				AF25654B6FEBF49F24F42BAFD68DC16F /* media_kit_libs_macos_video.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		43B4379A0F6DC84E6F06F93444A38FAC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FE38AC6C84E15251D2BFD8E3F0123D9 /* media_kit_libs_macos_video.modulemap */,
+				E812F5A2E2C8DC1A83100AAC2454B9C7 /* media_kit_libs_macos_video-dummy.m */,
+				0DC7FF9708C4453B9B09443685DF60B3 /* media_kit_libs_macos_video-Info.plist */,
+				D02216E855576E0F7668CA442427614B /* media_kit_libs_macos_video-prefix.pch */,
+				A54C953AF7F92D7FF67132D2F2A19CC4 /* media_kit_libs_macos_video-umbrella.h */,
+				A8FDDE7C72DF7DB5CC94E13C644A3D96 /* media_kit_libs_macos_video-xcframeworks.sh */,
+				05857A2A4D6543F979C51241ED508506 /* media_kit_libs_macos_video.debug.xcconfig */,
+				B3EEDEFBBA30BE3046767DA225F0006E /* media_kit_libs_macos_video.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../../../Pods/Target Support Files/media_kit_libs_macos_video";
+			sourceTree = "<group>";
+		};
+		43BF4D650564D12A2168F09CF1E97533 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C6840BDC03DD1B32E7AFE7B64E18A884 /* package_info_plus */,
+			);
+			name = Sources;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		46561F117963D2D713B03A52EED3C185 /* project */ = {
+			isa = PBXGroup;
+			children = (
+				E992829EE310E20239E02B7892C748D9 /* iot-link-flutter */,
+			);
+			name = project;
+			path = project;
+			sourceTree = "<group>";
+		};
+		468818B00ECB3AD80DB6DA9A0772200D /* wakelock_plus */ = {
+			isa = PBXGroup;
+			children = (
+				8667DCE4660E2932F9715898CEBB86FC /* Resources */,
+			);
+			name = wakelock_plus;
+			path = wakelock_plus;
+			sourceTree = "<group>";
+		};
+		47E88A96858C2A204BF7A095634C02A3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F074AAB5C15D9432764FE7D9C43AE924 /* volume_controller */,
+			);
+			name = Sources;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		4A0B43FDFFF5B747F80AE440A7BDD3E1 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				5F5411251D9FA2CF6184AE849ADC66AB /* package_info_plus */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		4AF36C5B079F571CE2AD3ADF9A04B1C5 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				0BA0CBCA330D073D4D40EF40CDEE2834 /* mpv */,
+			);
+			name = Headers;
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		4D01D53F60371028BB1C0B4FBAE5C3FC /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				3A0ABE52ECDD73E61ABF817B650E7D5D /* project */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		5071883306241566303A74CE83B65CA4 /* ephemeral */ = {
+			isa = PBXGroup;
+			children = (
+				12FBDF6A3508EFF19F055F8DAD39FE5D /* .symlinks */,
+			);
+			name = ephemeral;
+			path = ephemeral;
+			sourceTree = "<group>";
+		};
+		522C55455B5B144DA61F8E9150CE1C39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E369E5C20EF66AC60F2CDEE706843C52 /* Ass.xcframework */,
+				5C40ECA6C3BF82F8A8299E40EEDEB3EF /* Avcodec.xcframework */,
+				C2D230FF173690957C835ADE70E95746 /* Avfilter.xcframework */,
+				D00F5F9AC4AD0D717C5ADE3CD41C304F /* Avformat.xcframework */,
+				716F0256D806854DF07219E0C4F880FC /* Avutil.xcframework */,
+				A8AF6A5B5091FDAC55374519BF7CADEA /* Dav1d.xcframework */,
+				A75FBE43CAE1ED8D9DB2068D7C6B75CF /* Freetype.xcframework */,
+				CDEEBB4CC9668285A4C400CB6E2D6E67 /* Fribidi.xcframework */,
+				C6991DE35A4A7FF1BA433397AFADE5F2 /* Harfbuzz.xcframework */,
+				AC47AE0887BA67C2818E0FCDB1417371 /* Mbedcrypto.xcframework */,
+				2852C9760260B09892E672004E985AA2 /* Mbedtls.xcframework */,
+				AB87A8CFBB64CA42789EAB1DED772862 /* Mbedx509.xcframework */,
+				F8BB375AB38EB23B61736613F8D41B59 /* Mpv.xcframework */,
+				947B0AF73801820093F4679C2F28BA48 /* Png16.xcframework */,
+				F54D6B67E2017858495176C30715009C /* Swresample.xcframework */,
+				7629EFC7A311CBE25D82091161DACD98 /* Swscale.xcframework */,
+				A0D512AEDC206049B6BEDCBEF4D740A0 /* Uchardet.xcframework */,
+				50A1936D6B8493BC4A0D1F7FCEDC7813 /* Xml2.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		537E840C4F4E30B706FD9D64B15C53A7 /* Pods-RunnerTests */ = {
+			isa = PBXGroup;
+			children = (
+				B0BD57AB3672E53828D11C2A3368023A /* Pods-RunnerTests.modulemap */,
+				11AA7018F95317D959D9D2E76CBB2377 /* Pods-RunnerTests-acknowledgements.markdown */,
+				79F83F4D505FA40C1CD18A8029181D59 /* Pods-RunnerTests-acknowledgements.plist */,
+				4D3DB54C128E3D88C0C9C7DDEA475ED7 /* Pods-RunnerTests-dummy.m */,
+				B00A5ECAED4CA0C16FF7C65365BC0334 /* Pods-RunnerTests-Info.plist */,
+				9E9B12BCE5540D02A80250C3EC16D399 /* Pods-RunnerTests-umbrella.h */,
+				03E8AD2E8B75443E12D3D3BD12A9900E /* Pods-RunnerTests.debug.xcconfig */,
+				E736E0C9C5B73D27B8865E363E2108AC /* Pods-RunnerTests.profile.xcconfig */,
+				AC8FE152530FBDCE460186B326C1A8FB /* Pods-RunnerTests.release.xcconfig */,
+			);
+			name = "Pods-RunnerTests";
+			path = "Target Support Files/Pods-RunnerTests";
+			sourceTree = "<group>";
+		};
+		54AC48DB1D85223FDA8A4933D70EBB98 /* gl */ = {
+			isa = PBXGroup;
+			children = (
+				7039208DE182C150A42225C1BA067CDD /* OpenGLHelpers.swift */,
+				A5807043453890E34479B0D4F69976E2 /* TextureGLContext.swift */,
+			);
+			name = gl;
+			path = gl;
+			sourceTree = "<group>";
+		};
+		566E7CF20A4FDDA75421C5D13523572A /* volume_controller */ = {
+			isa = PBXGroup;
+			children = (
+				379B91B0267AB4AE94406D0E7B771CCB /* .. */,
+				314CB9032D8EBCAB3FB209FB1F447B9C /* Pod */,
+				3FF72D002229BF5FDEB46EE79CD6D0F7 /* Support Files */,
+			);
+			name = volume_controller;
+			path = ../Flutter/ephemeral/.symlinks/plugins/volume_controller/macos;
+			sourceTree = "<group>";
+		};
+		5DC171BD48B670FECA03E17E9629FD24 /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				7E3A8B426AFD49A6C70ABE77E5B25AAF /* Classes */,
+				4AF36C5B079F571CE2AD3ADF9A04B1C5 /* Headers */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		5F0BDA100592485A3D109F4AA4410951 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				22BE7EC7F69620222C2E833CFC4B958B /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		5F5411251D9FA2CF6184AE849ADC66AB /* package_info_plus */ = {
+			isa = PBXGroup;
+			children = (
+				73E44D5DC384CC450CDC73C39AED5EBB /* macos */,
+			);
+			name = package_info_plus;
+			path = package_info_plus;
+			sourceTree = "<group>";
+		};
+		5FA9FD9B7F9F85B86AE17DC13FE8DCDF /* media_kit_video */ = {
+			isa = PBXGroup;
+			children = (
+				5DC171BD48B670FECA03E17E9629FD24 /* macos */,
+			);
+			name = media_kit_video;
+			path = media_kit_video;
+			sourceTree = "<group>";
+		};
+		61AB89A8F24630A6EEA44F3D5C259C8D /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				7F1EB9BC316496B8362C6482C22AD692 /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		624781A9271F35EA7918E6AF3678C30B /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				D2DE2A4515732BD83666F9FEF9447CE1 /* Flutter */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		625E4D5634F1DE8F88C0BE5E8F8454D4 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				D15050289B3A53F30DDB83F38FE2D23F /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		6A24B368011511F965342DC099EDB323 /* media_kit_video */ = {
+			isa = PBXGroup;
+			children = (
+				757C92F71D6D94492BCEDE86EB794659 /* .. */,
+				7F6295CD0075AB1BA85278B01FB1E520 /* Pod */,
+				8DD0FDA7003A4584550253E4626152D2 /* Support Files */,
+			);
+			name = media_kit_video;
+			path = ../Flutter/ephemeral/.symlinks/plugins/media_kit_video/macos;
+			sourceTree = "<group>";
+		};
+		6B6E0B143DCC70DA96C8801050ADF86D /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				C2B5E853F3F062FC5E858DEFE4DB2A56 /* wakelock_plus */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		6BEB525E72EB28F360463861C792F66E /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				1FAA703E5C8C33F7F6FB7C4411AB3741 /* ephemeral */,
+			);
+			name = Flutter;
+			path = Flutter;
+			sourceTree = "<group>";
+		};
+		6C8A0AF3115F70792F089092DD1AE720 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				5F0BDA100592485A3D109F4AA4410951 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		6CF8013CA832F8AB5DDAE0156C97FD88 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				9EE00D34B275026D4656C738BED5A001 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		6D73E80D51AA1D18BF337084079B3426 /* iot-link-flutter */ = {
+			isa = PBXGroup;
+			children = (
+				77907C3EED715F404840E999AA563DA9 /* macos */,
+			);
+			name = "iot-link-flutter";
+			path = "iot-link-flutter";
+			sourceTree = "<group>";
+		};
+		6EC129E184208B3BDBF5E8DC152B056A /* plugin */ = {
+			isa = PBXGroup;
+			children = (
+				1150A0A5D6F832CF8A91A4102BC3E9A4 /* TextureHW.swift */,
+				56ABFFE6EEC37666B5E37541943781D3 /* Utils.swift */,
+				D08404ACD3FBB7EB8534B5E301C76EDE /* common */,
+				54AC48DB1D85223FDA8A4933D70EBB98 /* gl */,
+			);
+			name = plugin;
+			path = plugin;
+			sourceTree = "<group>";
+		};
+		704437F6205A102AF3F4ACDB25FC393B /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				D15B9EABDF8BD955B8F1DEC1CBF14889 /* project */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		71310F992DE120289CA7ACED0457EBB1 /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				9FDF7BC7B607819B7C3365D17ADEF64B /* wakelock_plus */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		7145E2036D4C64FF6ED8F505E01A5A59 /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				931549FA53719041A3C37BE0BF6E5760 /* ephemeral */,
+			);
+			name = Flutter;
+			path = Flutter;
+			sourceTree = "<group>";
+		};
+		73250B5622D4F56DBF4D20FC0A5B4343 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				FC4AE14AF02C823262419A3DB1D328DE /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		73E44D5DC384CC450CDC73C39AED5EBB /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				37FCA8126951A4618F7404742AD3248F /* package_info_plus */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		749E1249CFBE9D64CB9782B81F2BBD95 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D94F3586CB8FD40A7A9617A41372D29B /* package_info_plus.modulemap */,
+				FD40B06D3C18E948B5A5454736896D72 /* package_info_plus-dummy.m */,
+				B4C6DF521BEDDF320A2195ADD2EEF17E /* package_info_plus-Info.plist */,
+				5126095301F4D7C79B193161D6B2B03D /* package_info_plus-prefix.pch */,
+				5053A265EB3DC03E70B8FFFEA37901FC /* package_info_plus-umbrella.h */,
+				72502C634B5DB4173C899816101B6ABD /* package_info_plus.debug.xcconfig */,
+				F2E88B0B866F3A49FD1B6E426F51FA0E /* package_info_plus.release.xcconfig */,
+				9C67862BFDC563C6A10A2556516A4668 /* ResourceBundle-package_info_plus_privacy-package_info_plus-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../../../../../../Pods/Target Support Files/package_info_plus";
+			sourceTree = "<group>";
+		};
+		757C92F71D6D94492BCEDE86EB794659 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				73250B5622D4F56DBF4D20FC0A5B4343 /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../../.pub-cache/hosted/pub.dev/media_kit_video-1.3.1";
+			sourceTree = "<group>";
+		};
+		776ED7ACAE7FE9B1035C9E402CFCA112 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CFEF11F16A423DA4F8B2C80D18569B8C /* FlutterMacOS */,
+				88FE1ECBCD6F4D0EC8812C437237AAF7 /* media_kit_libs_macos_video */,
+				6A24B368011511F965342DC099EDB323 /* media_kit_video */,
+				B3D90D3DE8A711D70066F80D474A8203 /* package_info_plus */,
+				566E7CF20A4FDDA75421C5D13523572A /* volume_controller */,
+				E70F7744E8255D0A3301091F0FB21A1C /* wakelock_plus */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		77907C3EED715F404840E999AA563DA9 /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				F31E5F747807894D266D5AEE4F050D9E /* Flutter */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		7995A42C1BB5515B206C9391D9810B84 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				C11ACA992A72BE4363AA1CC22A663DD5 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		79CA00E2A05E13FA952F71EAA54FA880 /* wakelock_plus */ = {
+			isa = PBXGroup;
+			children = (
+				B36BF373FF551314E70020DCEEEEB3FD /* Sources */,
+			);
+			name = wakelock_plus;
+			path = wakelock_plus;
+			sourceTree = "<group>";
+		};
+		7E3A8B426AFD49A6C70ABE77E5B25AAF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6EC129E184208B3BDBF5E8DC152B056A /* plugin */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7F0C8CE3CE7EA8632867E3401D7D66F2 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				201A080C31B1345D2130A921A7C8FA6B /* project */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		7F1EB9BC316496B8362C6482C22AD692 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				80A08401D855B880226279B5C9FC5658 /* media_kit_libs_macos_video */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		7F6295CD0075AB1BA85278B01FB1E520 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				F9CADFE52AF60E186E680DB920ABA964 /* LICENSE */,
+				9F1D1211CCA5C1604BAC4D66A750B158 /* media_kit_video.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		80A08401D855B880226279B5C9FC5658 /* media_kit_libs_macos_video */ = {
+			isa = PBXGroup;
+			children = (
+				F58CC64061FE49C96E8E331091EBDF50 /* macos */,
+			);
+			name = media_kit_libs_macos_video;
+			path = media_kit_libs_macos_video;
+			sourceTree = "<group>";
+		};
+		8218767F8D98EF5AFA6B0D5FEEA56757 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				625E4D5634F1DE8F88C0BE5E8F8454D4 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		8329B9A6D4A49D418155CE34DB71ACD4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				367B7374C634955156EFC416F0648E0C /* MediaKitLibsMacosVideoPlugin.swift */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		840E9FE6E508E9A10CA4A4E92F3E08AB /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				994F546E7C7B835C24AE1CBCCACD0E0D /* wakelock_plus */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		8667DCE4660E2932F9715898CEBB86FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				55F413AFB3EA331433AB35F3BDFFD3AF /* PrivacyInfo.xcprivacy */,
+			);
+			name = Resources;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		88FE1ECBCD6F4D0EC8812C437237AAF7 /* media_kit_libs_macos_video */ = {
+			isa = PBXGroup;
+			children = (
+				0B8BD5769B71C6DC5E7367F9F3405BCF /* .. */,
+				522C55455B5B144DA61F8E9150CE1C39 /* Frameworks */,
+				4375332D9B102A698CCC6E1B6D36E064 /* Pod */,
+				43B4379A0F6DC84E6F06F93444A38FAC /* Support Files */,
+			);
+			name = media_kit_libs_macos_video;
+			path = ../Flutter/ephemeral/.symlinks/plugins/media_kit_libs_macos_video/macos;
+			sourceTree = "<group>";
+		};
+		8A35E91FD0B236CE0E438594D1F95AD4 /* package_info_plus */ = {
+			isa = PBXGroup;
+			children = (
+				60A40A2B6D59C75AC5D489EBB1D499A8 /* FPPPackageInfoPlusPlugin.h */,
+			);
+			name = package_info_plus;
+			path = package_info_plus;
+			sourceTree = "<group>";
+		};
+		8D96D8EBA5B603E955CD5D2A35822B48 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				4D01D53F60371028BB1C0B4FBAE5C3FC /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		8DD0FDA7003A4584550253E4626152D2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F9422FEB807ACD4DDF246CC3D46553DD /* media_kit_video.modulemap */,
+				DFCFDEEE52E7D581FD1BF8C4A3E6BB24 /* media_kit_video-dummy.m */,
+				C3416731100A860347F336DCE0C52888 /* media_kit_video-Info.plist */,
+				6580FDB6314BA4106BB8476A55752C8B /* media_kit_video-prefix.pch */,
+				ADE5E776FDF48D9A60073A174C798250 /* media_kit_video-umbrella.h */,
+				38241E46C6536880DB1F6372659A73E0 /* media_kit_video.debug.xcconfig */,
+				DA278825076BFC8DFAC32F79B1808A14 /* media_kit_video.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../../../Pods/Target Support Files/media_kit_video";
+			sourceTree = "<group>";
+		};
+		8DFF745C2631511B60BB5E9673298F7B /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				C0FE2E9975EF3CCBDBF47A22171C3562 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		931549FA53719041A3C37BE0BF6E5760 /* ephemeral */ = {
+			isa = PBXGroup;
+			children = (
+				A11581AFF1F19F403A7D7D7504F464DD /* .symlinks */,
+			);
+			name = ephemeral;
+			path = ephemeral;
+			sourceTree = "<group>";
+		};
+		9405900445D62C290456DB32A36DF540 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				7F0C8CE3CE7EA8632867E3401D7D66F2 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		946EA4172BC2C0B2D40D80E7A2B11441 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				840CD88F10F41C12E5E636D69ED208F0 /* LICENSE */,
+				E8E7800DBF8D8CD95D574887E3F0CCCC /* wakelock_plus.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		95129EB96D6C03AA004933CAFCF4F505 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F18C3249736DE93BD38958592B275C29 /* FlutterMacOS.debug.xcconfig */,
+				793CD5DD59E72BE3D6FDE3B57AA839B6 /* FlutterMacOS.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../Pods/Target Support Files/FlutterMacOS";
+			sourceTree = "<group>";
+		};
+		994F546E7C7B835C24AE1CBCCACD0E0D /* wakelock_plus */ = {
+			isa = PBXGroup;
+			children = (
+				D869256970A3236F27E513417C8DF780 /* macos */,
+			);
+			name = wakelock_plus;
+			path = wakelock_plus;
+			sourceTree = "<group>";
+		};
+		9B1F9A63B32A65C2D0CB29E4FBC618D2 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				F593380ABD0098F5A951D1DD49C71A87 /* volume_controller */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		9BC9FE812810BE082F1F8F0EF314037C /* iot-link-flutter */ = {
+			isa = PBXGroup;
+			children = (
+				31737F706F3BE3864CE404F914C4D877 /* macos */,
+			);
+			name = "iot-link-flutter";
+			path = "iot-link-flutter";
+			sourceTree = "<group>";
+		};
+		9D85E9D1249337E98D83DA1BE2F8D44F /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				B70981B3B5DE4E85C290F3ACC3DA33BA /* LICENSE */,
+				1319A3191D280CA5805CEEAFA2B2394E /* package_info_plus.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		9DB52B42F6342F202C0210A20BA3DABE /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				25FC1213CEBC45E442D7D66BE75C51FB /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		9EA14E0703CFA7CA9AB4C14B32A5F9E3 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				9DB52B42F6342F202C0210A20BA3DABE /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../../.pub-cache/hosted/pub.dev/wakelock_plus-1.4.0/macos/wakelock_plus/Sources";
+			sourceTree = "<group>";
+		};
+		9FDF7BC7B607819B7C3365D17ADEF64B /* wakelock_plus */ = {
+			isa = PBXGroup;
+			children = (
+				2CF215CA67BE7B8EAF2213FB75C8CA9B /* Sources */,
+			);
+			name = wakelock_plus;
+			path = wakelock_plus;
+			sourceTree = "<group>";
+		};
+		A11581AFF1F19F403A7D7D7504F464DD /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				840E9FE6E508E9A10CA4A4E92F3E08AB /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		A9089106531767749E719CEE09C9EC8E /* ephemeral */ = {
+			isa = PBXGroup;
+			children = (
+				61AB89A8F24630A6EEA44F3D5C259C8D /* .symlinks */,
+			);
+			name = ephemeral;
+			path = ephemeral;
+			sourceTree = "<group>";
+		};
+		B1B42E15ADD4605FA0464484978E217A /* iot-link-flutter */ = {
+			isa = PBXGroup;
+			children = (
+				2C15D8976FB495F9E19D0A723E22BDEB /* macos */,
+			);
+			name = "iot-link-flutter";
+			path = "iot-link-flutter";
+			sourceTree = "<group>";
+		};
+		B36BF373FF551314E70020DCEEEEB3FD /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C49697098D055C071888A299FDA6ADE5 /* wakelock_plus */,
+			);
+			name = Sources;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B3D90D3DE8A711D70066F80D474A8203 /* package_info_plus */ = {
+			isa = PBXGroup;
+			children = (
+				1F28A437E9CFDEF9BF19D24729EF5AA8 /* .. */,
+				9D85E9D1249337E98D83DA1BE2F8D44F /* Pod */,
+				749E1249CFBE9D64CB9782B81F2BBD95 /* Support Files */,
+			);
+			name = package_info_plus;
+			path = ../Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos;
+			sourceTree = "<group>";
+		};
+		B4C9374AB1FB9A78279C7F79E2255FB9 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				A004C2F18B1B5D8FE02F0844B2670B0F /* FlutterMacOS.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		C0FE2E9975EF3CCBDBF47A22171C3562 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				3A54F25B4EBEA0F3B27F1F51B1817BD4 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C11ACA992A72BE4363AA1CC22A663DD5 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				46561F117963D2D713B03A52EED3C185 /* project */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C2B5E853F3F062FC5E858DEFE4DB2A56 /* wakelock_plus */ = {
+			isa = PBXGroup;
+			children = (
+				71310F992DE120289CA7ACED0457EBB1 /* macos */,
+			);
+			name = wakelock_plus;
+			path = wakelock_plus;
+			sourceTree = "<group>";
+		};
+		C49697098D055C071888A299FDA6ADE5 /* wakelock_plus */ = {
+			isa = PBXGroup;
+			children = (
+				E7CFB0D1AF31D639BE0540B1EBAEE294 /* WakelockPlusMacosPlugin.swift */,
+			);
+			name = wakelock_plus;
+			path = wakelock_plus;
+			sourceTree = "<group>";
+		};
+		C4AD7914D38C7B1294B536B99E356EAB /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				9B1F9A63B32A65C2D0CB29E4FBC618D2 /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		C4D5EAD15C31B87779465C22A782BCB7 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				5FA9FD9B7F9F85B86AE17DC13FE8DCDF /* media_kit_video */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		C6840BDC03DD1B32E7AFE7B64E18A884 /* package_info_plus */ = {
+			isa = PBXGroup;
+			children = (
+				FF923D5B3E44F296291B1A97B68DBF7C /* FPPPackageInfoPlusPlugin.m */,
+				67A203FD797F0C28CE1E38AAE04A4684 /* PrivacyInfo.xcprivacy */,
+				FA745407F82AAB36AC5BDCC2BD9AF0CF /* include */,
+			);
+			name = package_info_plus;
+			path = package_info_plus;
+			sourceTree = "<group>";
+		};
+		C74201A19ADE507E47AB67A440FA0D33 /* ephemeral */ = {
+			isa = PBXGroup;
+			children = (
+				1BC08BDF832DA04577194093B5D67C4F /* .symlinks */,
+			);
+			name = ephemeral;
+			path = ephemeral;
+			sourceTree = "<group>";
+		};
+		CC2BFD8330A56B57642F7D6A7484F9DE /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				DECDF80C21CD4AFCA58F33951E0D703A /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				776ED7ACAE7FE9B1035C9E402CFCA112 /* Development Pods */,
+				E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */,
+				15F13CE839A829AE90948978FC4FACBC /* Products */,
+				2DB8426A477BA92773F00012EBA84D53 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		CFEF11F16A423DA4F8B2C80D18569B8C /* FlutterMacOS */ = {
+			isa = PBXGroup;
+			children = (
+				B4C9374AB1FB9A78279C7F79E2255FB9 /* Pod */,
+				95129EB96D6C03AA004933CAFCF4F505 /* Support Files */,
+			);
+			name = FlutterMacOS;
+			path = ../Flutter/ephemeral;
+			sourceTree = "<group>";
+		};
+		D023FD35B8B2DD371E2A1710A860FF1A /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				22AD05FB9417BF386F4A9C019F549C42 /* .. */,
+				D81B9770392411C34821475D06AE3C42 /* project */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D08404ACD3FBB7EB8534B5E301C76EDE /* common */ = {
+			isa = PBXGroup;
+			children = (
+				2386C0457741D23CCF1CDA884616E5AA /* MediaKitVideoPlugin.swift */,
+				F39D3F2E216BC86A56C44119BDF0A92F /* MPVHelpers.swift */,
+				057224D3830669DE1821BC8C58197A96 /* MPVVideoOutParams.swift */,
+				4766BD0C51AB0E88C375CB84269344C9 /* ResizableTextureProtocol.swift */,
+				556EB40B5AB39F1C517E613C1F6B2102 /* SafeResizableTexture.swift */,
+				8BFF9F9CD5C29F82EA9B903C75C022D2 /* SwappableObjectManager.swift */,
+				FD7374D12C0AA15DE0BDF6EE3ACA8775 /* TextureSW.swift */,
+				17DB20B86B0E4F2262385486A615D90F /* TextureSWContext.swift */,
+				527F2C6BB134B9F1EF23A21A4D7126B0 /* UtilsProtocol.swift */,
+				B94E793063275F9C944B3FEE190EA246 /* VideoOutput.swift */,
+				E14A51D7F4B8496F52BCD68B82F6613D /* VideoOutputConfiguration.swift */,
+				08EBEBF7D4EF7C89EC80EB22DF622503 /* VideoOutputManager.swift */,
+				71A65CEF0867DEAB96DFE9E6417CBAF2 /* Worker.swift */,
+			);
+			name = common;
+			path = common;
+			sourceTree = "<group>";
+		};
+		D15050289B3A53F30DDB83F38FE2D23F /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				704437F6205A102AF3F4ACDB25FC393B /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D15B9EABDF8BD955B8F1DEC1CBF14889 /* project */ = {
+			isa = PBXGroup;
+			children = (
+				B1B42E15ADD4605FA0464484978E217A /* iot-link-flutter */,
+			);
+			name = project;
+			path = project;
+			sourceTree = "<group>";
+		};
+		D2DE2A4515732BD83666F9FEF9447CE1 /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				C74201A19ADE507E47AB67A440FA0D33 /* ephemeral */,
+			);
+			name = Flutter;
+			path = Flutter;
+			sourceTree = "<group>";
+		};
+		D7E9471E28627FAC38018E1C4DCAC65D /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				7995A42C1BB5515B206C9391D9810B84 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D81B9770392411C34821475D06AE3C42 /* project */ = {
+			isa = PBXGroup;
+			children = (
+				9BC9FE812810BE082F1F8F0EF314037C /* iot-link-flutter */,
+			);
+			name = project;
+			path = project;
+			sourceTree = "<group>";
+		};
+		D869256970A3236F27E513417C8DF780 /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				79CA00E2A05E13FA952F71EAA54FA880 /* wakelock_plus */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		D9690F94267257CD8EA35E3615B23BFC /* project */ = {
+			isa = PBXGroup;
+			children = (
+				3C2D9B043B65890F082870168A073FF5 /* iot-link-flutter */,
+			);
+			name = project;
+			path = project;
+			sourceTree = "<group>";
+		};
+		DB31F5E92723279006C820719C711D1E /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				E9815C80D267734D93C80A7D8F49A9FD /* ephemeral */,
+			);
+			name = Flutter;
+			path = Flutter;
+			sourceTree = "<group>";
+		};
+		DECDF80C21CD4AFCA58F33951E0D703A /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				D023FD35B8B2DD371E2A1710A860FF1A /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6CF8013CA832F8AB5DDAE0156C97FD88 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E70F7744E8255D0A3301091F0FB21A1C /* wakelock_plus */ = {
+			isa = PBXGroup;
+			children = (
+				9EA14E0703CFA7CA9AB4C14B32A5F9E3 /* .. */,
+				946EA4172BC2C0B2D40D80E7A2B11441 /* Pod */,
+				0EA34575D7637A37FCCF7844FB34406B /* Support Files */,
+			);
+			name = wakelock_plus;
+			path = ../Flutter/ephemeral/.symlinks/plugins/wakelock_plus/macos;
+			sourceTree = "<group>";
+		};
+		E806A4F97D48F5FD3B4CA1BC617EA1F5 /* Pods-Runner */ = {
+			isa = PBXGroup;
+			children = (
+				C24C1A035F22D24883C6F1876F274C6F /* Pods-Runner.modulemap */,
+				ECDF6AA713870989438BA93B395DC557 /* Pods-Runner-acknowledgements.markdown */,
+				1B136F41D5B5FAE96EA576E768A5771D /* Pods-Runner-acknowledgements.plist */,
+				E794494AB90477BA94C681E994ADF341 /* Pods-Runner-dummy.m */,
+				773BFCE41424EB8EBB72EF3F6A5FB719 /* Pods-Runner-frameworks.sh */,
+				0AFB643DA4919253F749E2836A5AAFDC /* Pods-Runner-Info.plist */,
+				499E3722E8DACDC2AAA6C15AD1796520 /* Pods-Runner-umbrella.h */,
+				728A5ED1DD60BAC8C8F382A87B976F84 /* Pods-Runner.debug.xcconfig */,
+				C50FD10CD19FF6999637BA5ECAF1681B /* Pods-Runner.profile.xcconfig */,
+				B703785507B22BAF0B800737429577EC /* Pods-Runner.release.xcconfig */,
+			);
+			name = "Pods-Runner";
+			path = "Target Support Files/Pods-Runner";
+			sourceTree = "<group>";
+		};
+		E9815C80D267734D93C80A7D8F49A9FD /* ephemeral */ = {
+			isa = PBXGroup;
+			children = (
+				C4AD7914D38C7B1294B536B99E356EAB /* .symlinks */,
+			);
+			name = ephemeral;
+			path = ephemeral;
+			sourceTree = "<group>";
+		};
+		E992829EE310E20239E02B7892C748D9 /* iot-link-flutter */ = {
+			isa = PBXGroup;
+			children = (
+				214A0E207D1361EEE427BC82D893836E /* macos */,
+			);
+			name = "iot-link-flutter";
+			path = "iot-link-flutter";
+			sourceTree = "<group>";
+		};
+		EB9F4BD9AE9CB71CDB9D9F4BCDEFCB76 /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				4A0B43FDFFF5B747F80AE440A7BDD3E1 /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		EE9BA666978534B5637BB2AEDBA8608D /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				F750A69E97E6E6AB8FDD22FC0FDF7825 /* Flutter */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		F074AAB5C15D9432764FE7D9C43AE924 /* volume_controller */ = {
+			isa = PBXGroup;
+			children = (
+				8741CB79D5DD52582F69449904037503 /* AudioHelper.swift */,
+				05EF208929A7FE13958146375C669AB7 /* Constants.swift */,
+				C5FD1724D8CCB338236F548EAC3D98BC /* PrivacyInfo.xcprivacy */,
+				121096DC1BEEE531C4E27D3FD4E37591 /* VolumeController.swift */,
+				91A471DA3A9BA0C4993617376D4FADB9 /* VolumeControllerPlugin.swift */,
+				E895A3380FCE397DC700D0517CB875EB /* VolumeListener.swift */,
+			);
+			name = volume_controller;
+			path = volume_controller;
+			sourceTree = "<group>";
+		};
+		F12AECC97BC68A7A422E25BF193A855F /* volume_controller */ = {
+			isa = PBXGroup;
+			children = (
+				47E88A96858C2A204BF7A095634C02A3 /* Sources */,
+			);
+			name = volume_controller;
+			path = volume_controller;
+			sourceTree = "<group>";
+		};
+		F31E5F747807894D266D5AEE4F050D9E /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				A9089106531767749E719CEE09C9EC8E /* ephemeral */,
+			);
+			name = Flutter;
+			path = Flutter;
+			sourceTree = "<group>";
+		};
+		F58CC64061FE49C96E8E331091EBDF50 /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				8329B9A6D4A49D418155CE34DB71ACD4 /* Classes */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
+		F593380ABD0098F5A951D1DD49C71A87 /* volume_controller */ = {
+			isa = PBXGroup;
+			children = (
+				3215CC700359826700D7DCBEABA93A0F /* macos */,
+			);
+			name = volume_controller;
+			path = volume_controller;
+			sourceTree = "<group>";
+		};
+		F750A69E97E6E6AB8FDD22FC0FDF7825 /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				5071883306241566303A74CE83B65CA4 /* ephemeral */,
+			);
+			name = Flutter;
+			path = Flutter;
+			sourceTree = "<group>";
+		};
+		FA745407F82AAB36AC5BDCC2BD9AF0CF /* include */ = {
+			isa = PBXGroup;
+			children = (
+				8A35E91FD0B236CE0E438594D1F95AD4 /* package_info_plus */,
+			);
+			name = include;
+			path = include;
+			sourceTree = "<group>";
+		};
+		FC4AE14AF02C823262419A3DB1D328DE /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				8D96D8EBA5B603E955CD5D2A35822B48 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1B567C7FE4160758F4684FEDC83B4751 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86CA19BC6F2A8EA65C6E69742F64D95B /* media_kit_libs_macos_video-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B7D4800A2F1E74FE59FFEB56B5B4C0F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				638E1E85FE5CC7571C3130C039A758D4 /* Pods-Runner-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BD834DA4EC6C410C69C15FD89BCE46B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECF01E03430780600C90EB401F7A8109 /* FPPPackageInfoPlusPlugin.h in Headers */,
+				077B2AA269F0444075CFE925A691CEB5 /* package_info_plus-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		612CA8DD9FD2783F76387A76286067A6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				987446FD907569BF1210F519C436C76A /* volume_controller-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D27EA90C583848DB0D78A5AC69E8DA6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9F187AD96CFF6350F111CCA6392BFBB /* client.h in Headers */,
+				D0538BC3F74B344F739BB21848437C1F /* media_kit_video-umbrella.h in Headers */,
+				5A32090E28CA2B3A401C62D5253EA634 /* render.h in Headers */,
+				48D926AD3974B459CB34EAE919ECA5A2 /* render_gl.h in Headers */,
+				ECDB9358B0740170FA30455F51DC9B01 /* stream_cb.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A0785E57B248D318A52CBE810186EFDA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				359E0914A5EBBA5BCA6DA449E7D7A572 /* wakelock_plus-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC4DA9BD27A4914E75F803590E4C4B8B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB2DC96CDCF638AB89007D2DB0F3119A /* Pods-RunnerTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		07C64B0E06ED7C1903D446F9BBDDF5C9 /* package_info_plus-package_info_plus_privacy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A3A05D25484BD74EFA6145584FCF8D5 /* Build configuration list for PBXNativeTarget "package_info_plus-package_info_plus_privacy" */;
+			buildPhases = (
+				CF0A7BCC04691D5ADE31A2E7DABC4558 /* Sources */,
+				F71DFD02F4B9602987715A573D1EE1ED /* Frameworks */,
+				4773B61F21EBC0FBBCDF5765D18FD3E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "package_info_plus-package_info_plus_privacy";
+			productName = package_info_plus_privacy;
+			productReference = 64FB8D36F3D5FD1F4E08A8CB92BCD154 /* package_info_plus-package_info_plus_privacy */;
+			productType = "com.apple.product-type.bundle";
+		};
+		261F30766AE7E1B1D598B806D30EF060 /* media_kit_video */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6181D46C6C4BF8F6E5565B8EA924957 /* Build configuration list for PBXNativeTarget "media_kit_video" */;
+			buildPhases = (
+				7D27EA90C583848DB0D78A5AC69E8DA6 /* Headers */,
+				ABECB3DFEF64C5970B2A4E4BB7F1B78D /* Sources */,
+				80B8EEB1FBE139DA72C173FD0D89A3DE /* Frameworks */,
+				D5D92967367DC9909E777C18A25C8DFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ADAFF4386EDC4A9C55A9B8C4EE61640B /* PBXTargetDependency */,
+			);
+			name = media_kit_video;
+			productName = media_kit_video;
+			productReference = 987540A68013AB6E15525B1519792732 /* media_kit_video */;
+			productType = "com.apple.product-type.framework";
+		};
+		3232F0C0E7C65B232832393F9ADDD8C3 /* Pods-RunnerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D52099AA1537D0F3745166E1889F6CA3 /* Build configuration list for PBXNativeTarget "Pods-RunnerTests" */;
+			buildPhases = (
+				FC4DA9BD27A4914E75F803590E4C4B8B /* Headers */,
+				001CCB0FEA80CD1C6BF534C6D9C6283A /* Sources */,
+				EAC0834F7252D8143E0E41335E53F3B8 /* Frameworks */,
+				4A765108DEAFDEBF078F71CDDBE3414E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				844F2001BB94EB0CE02149E1DAECC54C /* PBXTargetDependency */,
+			);
+			name = "Pods-RunnerTests";
+			productName = Pods_RunnerTests;
+			productReference = 6C3345B1B3CAEDF5B03B1F731FDC492E /* Pods-RunnerTests */;
+			productType = "com.apple.product-type.framework";
+		};
+		40E70FDA48D5C02EE32CA0F3F53EB178 /* wakelock_plus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A624B996F9F75EFDABBBB0E57F23BBA /* Build configuration list for PBXNativeTarget "wakelock_plus" */;
+			buildPhases = (
+				A0785E57B248D318A52CBE810186EFDA /* Headers */,
+				9CBF4FEE4BF37AD7F65F873A51EB1CE9 /* Sources */,
+				54C9017E534B706765671BFA6046F9CA /* Frameworks */,
+				217CF446C3AED70A31A64FA1898E3BAB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6DAF3FF2F0C04B96839E4734859EB2A5 /* PBXTargetDependency */,
+				DF3A6B15E3C36AEB04D08CE6EF453314 /* PBXTargetDependency */,
+			);
+			name = wakelock_plus;
+			productName = wakelock_plus;
+			productReference = 55C13EDD7E201D71A889791B31B8A36F /* wakelock_plus */;
+			productType = "com.apple.product-type.framework";
+		};
+		54A00AF9F830F355D8FD8F6A4387F6A2 /* package_info_plus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01B1335B7147E896DF9C45EF1D5ABE47 /* Build configuration list for PBXNativeTarget "package_info_plus" */;
+			buildPhases = (
+				2BD834DA4EC6C410C69C15FD89BCE46B /* Headers */,
+				26D7365A46C8467D714EA4CCC3272C58 /* Sources */,
+				B64CFD9B14F175879BC7428D6ACF64A7 /* Frameworks */,
+				197A05F92A6519F61404AE248B4CC035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3F439F23733D1CCAA636B44D0B38663 /* PBXTargetDependency */,
+				C833C8544F8912A1BBF4EC98CB973311 /* PBXTargetDependency */,
+			);
+			name = package_info_plus;
+			productName = package_info_plus;
+			productReference = C39BE06027F24EB0328A76E7507FA463 /* package_info_plus */;
+			productType = "com.apple.product-type.framework";
+		};
+		6A81600071D3147734AAEE6F5CE61A90 /* wakelock_plus-wakelock_plus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 723738CD8921C23C83AC6CE68D36FDDA /* Build configuration list for PBXNativeTarget "wakelock_plus-wakelock_plus" */;
+			buildPhases = (
+				6E18AF8954CB807B864AE3A7B44E4AB9 /* Sources */,
+				9834BEF9048EEFE218357BCBF36A6465 /* Frameworks */,
+				0AC17241D2604D0DC3F29DD625A00362 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "wakelock_plus-wakelock_plus";
+			productName = wakelock_plus;
+			productReference = 65BF1E62409A8FB4AD8291729ABB646B /* wakelock_plus-wakelock_plus */;
+			productType = "com.apple.product-type.bundle";
+		};
+		6FE9F9425CD9A7AC89153E1C45500E16 /* volume_controller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87C0CB2008BE7DA83C9BAE92E6FAB2B1 /* Build configuration list for PBXNativeTarget "volume_controller" */;
+			buildPhases = (
+				612CA8DD9FD2783F76387A76286067A6 /* Headers */,
+				C9E9DEA3871092FA921A72698745DDC0 /* Sources */,
+				3E519DA52483D123638DED67420900CF /* Frameworks */,
+				4D21A2F83BAF5215602C4F352EEA59E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBE03E8F8F636EA3C64E3625D4106C3D /* PBXTargetDependency */,
+			);
+			name = volume_controller;
+			productName = volume_controller;
+			productReference = 872B7AE00F65EF39DE9C178C16C0D92D /* volume_controller */;
+			productType = "com.apple.product-type.framework";
+		};
+		7EA10528363524F2D525920D4E8820C7 /* media_kit_libs_macos_video */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E81CB481A5EED76C2CD759A1536CD6AF /* Build configuration list for PBXNativeTarget "media_kit_libs_macos_video" */;
+			buildPhases = (
+				1B567C7FE4160758F4684FEDC83B4751 /* Headers */,
+				3879730B76E06DDA48D4269C320A36E9 /* [CP] Copy XCFrameworks */,
+				5FBDF80B3755774E3BC632B1F0496122 /* Sources */,
+				06B84C4D75E387F8E8F4D22A05AC5EE1 /* Frameworks */,
+				4C8EC2FD9B2598E299ECC4EF8D363EC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				702078FDB5CE6153904C5F48DD4BB57C /* PBXTargetDependency */,
+			);
+			name = media_kit_libs_macos_video;
+			productName = media_kit_libs_macos_video;
+			productReference = 0AB8CB113C6BB2ADB419D54949C0DCEF /* media_kit_libs_macos_video */;
+			productType = "com.apple.product-type.framework";
+		};
+		8B74B458B450D74B75744B87BD747314 /* Pods-Runner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99C50A7CAABA7A4BA2C7F515CA30C3C6 /* Build configuration list for PBXNativeTarget "Pods-Runner" */;
+			buildPhases = (
+				2B7D4800A2F1E74FE59FFEB56B5B4C0F /* Headers */,
+				5D3949173D931B95C5BE64FDF18AFEC0 /* Sources */,
+				B48200218C340144283E5E0BD508471B /* Frameworks */,
+				AD62D24A3FF5642791C3166F092E162B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0D7D5B67D57955C5B656EEF5BA81819 /* PBXTargetDependency */,
+				15CE2A491C6C95BD6D5062CD116FC68B /* PBXTargetDependency */,
+				7F2B41D6352063A09962911B5759E556 /* PBXTargetDependency */,
+				EE646F2732AD1D341F1CA5AFD9A57695 /* PBXTargetDependency */,
+				AC27D63EFD143835E2D5FA40DED82669 /* PBXTargetDependency */,
+				6A5D53E596BF2848F19C7C451DE40BF9 /* PBXTargetDependency */,
+			);
+			name = "Pods-Runner";
+			productName = Pods_Runner;
+			productReference = 669E8F25E1897672BDB80B7EB784DA24 /* Pods-Runner */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 15F13CE839A829AE90948978FC4FACBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */,
+				7EA10528363524F2D525920D4E8820C7 /* media_kit_libs_macos_video */,
+				261F30766AE7E1B1D598B806D30EF060 /* media_kit_video */,
+				54A00AF9F830F355D8FD8F6A4387F6A2 /* package_info_plus */,
+				07C64B0E06ED7C1903D446F9BBDDF5C9 /* package_info_plus-package_info_plus_privacy */,
+				8B74B458B450D74B75744B87BD747314 /* Pods-Runner */,
+				3232F0C0E7C65B232832393F9ADDD8C3 /* Pods-RunnerTests */,
+				6FE9F9425CD9A7AC89153E1C45500E16 /* volume_controller */,
+				40E70FDA48D5C02EE32CA0F3F53EB178 /* wakelock_plus */,
+				6A81600071D3147734AAEE6F5CE61A90 /* wakelock_plus-wakelock_plus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0AC17241D2604D0DC3F29DD625A00362 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8EAF2E66C81E04CA0C06D2A5897BDF84 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		197A05F92A6519F61404AE248B4CC035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5AA673785AB6B6575970E383A788DDC /* package_info_plus-package_info_plus_privacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		217CF446C3AED70A31A64FA1898E3BAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				138460986AF207F7133F77B7880CD1B8 /* wakelock_plus-wakelock_plus in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4773B61F21EBC0FBBCDF5765D18FD3E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF5A94B08D4FDDFBC950305C24083E88 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A765108DEAFDEBF078F71CDDBE3414E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C8EC2FD9B2598E299ECC4EF8D363EC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D21A2F83BAF5215602C4F352EEA59E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD62D24A3FF5642791C3166F092E162B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5D92967367DC9909E777C18A25C8DFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3879730B76E06DDA48D4269C320A36E9 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		001CCB0FEA80CD1C6BF534C6D9C6283A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B375EA128E6579366091BAA390BBDD34 /* Pods-RunnerTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26D7365A46C8467D714EA4CCC3272C58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219820A1D0CB7879302CED4C0208AC44 /* FPPPackageInfoPlusPlugin.m in Sources */,
+				57638071C86E91584952DE058DEE8583 /* package_info_plus-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D3949173D931B95C5BE64FDF18AFEC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3669D9B8376528FE29144353B5BEAB5 /* Pods-Runner-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FBDF80B3755774E3BC632B1F0496122 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0743A701D290E2F3DD514DC194F8267 /* media_kit_libs_macos_video-dummy.m in Sources */,
+				CFF43DA6F3C6C8AD6F2E8289E124F8B9 /* MediaKitLibsMacosVideoPlugin.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E18AF8954CB807B864AE3A7B44E4AB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9CBF4FEE4BF37AD7F65F873A51EB1CE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD254F22C7DD42DDD6106D775183995 /* wakelock_plus-dummy.m in Sources */,
+				38FB2BA058CB02F20729103518BB6C96 /* WakelockPlusMacosPlugin.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ABECB3DFEF64C5970B2A4E4BB7F1B78D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6B3BF3E5A98F82890F3DDA4EDC865EE /* media_kit_video-dummy.m in Sources */,
+				A6F406E58FD2E5F2F39ECCC19817FA53 /* MediaKitVideoPlugin.swift in Sources */,
+				5B035F3D7DAF405D8B7722CED19D72E2 /* MPVHelpers.swift in Sources */,
+				573302382DFFBD7D1FFC982E777BDF91 /* MPVVideoOutParams.swift in Sources */,
+				FB986EAC95D29DC311B2989AC5050333 /* OpenGLHelpers.swift in Sources */,
+				A6D2D8439AF96D1B54163F23231E9E09 /* ResizableTextureProtocol.swift in Sources */,
+				74B1A78A2804CF45AB9A28753E70E1FE /* SafeResizableTexture.swift in Sources */,
+				85BF2C1F8BED8DD96E7BD68577F46D27 /* SwappableObjectManager.swift in Sources */,
+				9AB3D196FA79F4D524ABC4B597B4F6B9 /* TextureGLContext.swift in Sources */,
+				F3F1EB30446D974DCA53329A9694BF08 /* TextureHW.swift in Sources */,
+				3408FBF4D0A7FEB4EEBEF714C7346571 /* TextureSW.swift in Sources */,
+				D9D09B6EFC479E7FD23C6E95856C94AF /* TextureSWContext.swift in Sources */,
+				908EFB2BCC5153670503C94CEA92CC8B /* Utils.swift in Sources */,
+				891F159D98BC67F9AEDC90988D7741B7 /* UtilsProtocol.swift in Sources */,
+				CA66D2D1E33A56D4942995576DDCC449 /* VideoOutput.swift in Sources */,
+				AE5A3DA979E24EA351F80313C4F90ED4 /* VideoOutputConfiguration.swift in Sources */,
+				219775C576695EEF30FD5FB87D156171 /* VideoOutputManager.swift in Sources */,
+				451F4C52408E64DA523B4FE424F748F3 /* Worker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9E9DEA3871092FA921A72698745DDC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E65E3F9C5737427161B4602FA78E77A9 /* AudioHelper.swift in Sources */,
+				7C4856F2B7B8DF93BA3344DEA70FBBD9 /* Constants.swift in Sources */,
+				B1A99DD52B87DF281734593E81E6C79A /* PrivacyInfo.xcprivacy in Sources */,
+				46C5C77C6AE41F711547BC50EA440DE8 /* volume_controller-dummy.m in Sources */,
+				C0BCA8057D009B63AC643EB798EC42EE /* VolumeController.swift in Sources */,
+				8DF533C9B2380A9BF5425F370116BAEE /* VolumeControllerPlugin.swift in Sources */,
+				5F79BAEDC743A6C7CA7CF05C8E45142C /* VolumeListener.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF0A7BCC04691D5ADE31A2E7DABC4558 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		15CE2A491C6C95BD6D5062CD116FC68B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = media_kit_libs_macos_video;
+			target = 7EA10528363524F2D525920D4E8820C7 /* media_kit_libs_macos_video */;
+			targetProxy = 1294026A61E817F9354F7A45AFE7B7AC /* PBXContainerItemProxy */;
+		};
+		6A5D53E596BF2848F19C7C451DE40BF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = wakelock_plus;
+			target = 40E70FDA48D5C02EE32CA0F3F53EB178 /* wakelock_plus */;
+			targetProxy = 9774F0BCE3823B91FEBDDCEC2FB6195A /* PBXContainerItemProxy */;
+		};
+		6DAF3FF2F0C04B96839E4734859EB2A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlutterMacOS;
+			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
+			targetProxy = E4C0F72459096D6B5E237A061C0F4E0D /* PBXContainerItemProxy */;
+		};
+		702078FDB5CE6153904C5F48DD4BB57C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlutterMacOS;
+			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
+			targetProxy = 6859B71F6A537EF7E20E26A228DCA6E5 /* PBXContainerItemProxy */;
+		};
+		7F2B41D6352063A09962911B5759E556 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = media_kit_video;
+			target = 261F30766AE7E1B1D598B806D30EF060 /* media_kit_video */;
+			targetProxy = B16DD5C0C7EED063DBF3D8AFADE68FBA /* PBXContainerItemProxy */;
+		};
+		844F2001BB94EB0CE02149E1DAECC54C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Runner";
+			target = 8B74B458B450D74B75744B87BD747314 /* Pods-Runner */;
+			targetProxy = 2166FEF684BD604B4432629466A2988D /* PBXContainerItemProxy */;
+		};
+		AC27D63EFD143835E2D5FA40DED82669 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = volume_controller;
+			target = 6FE9F9425CD9A7AC89153E1C45500E16 /* volume_controller */;
+			targetProxy = 3FC427478444AF81357158F195D34464 /* PBXContainerItemProxy */;
+		};
+		ADAFF4386EDC4A9C55A9B8C4EE61640B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlutterMacOS;
+			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
+			targetProxy = B42D23E9731C9A113D68D451F9F8BDC4 /* PBXContainerItemProxy */;
+		};
+		BBE03E8F8F636EA3C64E3625D4106C3D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlutterMacOS;
+			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
+			targetProxy = 59A4794738EA3F1948000201C9A1684E /* PBXContainerItemProxy */;
+		};
+		C3F439F23733D1CCAA636B44D0B38663 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlutterMacOS;
+			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
+			targetProxy = 178464105EAE0D9838A16ECAEED124FF /* PBXContainerItemProxy */;
+		};
+		C833C8544F8912A1BBF4EC98CB973311 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "package_info_plus-package_info_plus_privacy";
+			target = 07C64B0E06ED7C1903D446F9BBDDF5C9 /* package_info_plus-package_info_plus_privacy */;
+			targetProxy = 8B4FC5E34882A6111FE7AA1600781C16 /* PBXContainerItemProxy */;
+		};
+		DF3A6B15E3C36AEB04D08CE6EF453314 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "wakelock_plus-wakelock_plus";
+			target = 6A81600071D3147734AAEE6F5CE61A90 /* wakelock_plus-wakelock_plus */;
+			targetProxy = EE67CDD176CC9024E60FA67A042EECEB /* PBXContainerItemProxy */;
+		};
+		E0D7D5B67D57955C5B656EEF5BA81819 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FlutterMacOS;
+			target = CA272E8348BAB4CE0B0C804FB7B818C4 /* FlutterMacOS */;
+			targetProxy = 9657D217CD1922B59A305BE8C0B606B8 /* PBXContainerItemProxy */;
+		};
+		EE646F2732AD1D341F1CA5AFD9A57695 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = package_info_plus;
+			target = 54A00AF9F830F355D8FD8F6A4387F6A2 /* package_info_plus */;
+			targetProxy = 810E7E93B113B7F5B4A26757646E9A21 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07AD40A4677FB80E95DF81E94F42B5EE /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E736E0C9C5B73D27B8865E363E2108AC /* Pods-RunnerTests.profile.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Profile;
+		};
+		0AE172D8F2A4843BFACAD21A0ED26541 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		0C0815C2490CEE26A42D30A7F9F612A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E88B0B866F3A49FD1B6E426F51FA0E /* package_info_plus.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/package_info_plus";
+				IBSC_MODULE = package_info_plus;
+				INFOPLIST_FILE = "Target Support Files/package_info_plus/ResourceBundle-package_info_plus_privacy-package_info_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_NAME = package_info_plus_privacy;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		0EE5C0F340671465730122F803631A78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3EEDEFBBA30BE3046767DA225F0006E /* media_kit_libs_macos_video.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video.modulemap";
+				PRODUCT_MODULE_NAME = media_kit_libs_macos_video;
+				PRODUCT_NAME = media_kit_libs_macos_video;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0FF6C30D3A20FD2B30CE50FFAF0507DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72502C634B5DB4173C899816101B6ABD /* package_info_plus.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/package_info_plus";
+				IBSC_MODULE = package_info_plus;
+				INFOPLIST_FILE = "Target Support Files/package_info_plus/ResourceBundle-package_info_plus_privacy-package_info_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_NAME = package_info_plus_privacy;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		2142A60E7AEA14174C8CD8E4A0DBDEAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA278825076BFC8DFAC32F79B1808A14 /* media_kit_video.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/media_kit_video/media_kit_video-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/media_kit_video/media_kit_video-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/media_kit_video/media_kit_video.modulemap";
+				PRODUCT_MODULE_NAME = media_kit_video;
+				PRODUCT_NAME = media_kit_video;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3788AB44B6DBB484E04E6A35C16C21C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E88B0B866F3A49FD1B6E426F51FA0E /* package_info_plus.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/package_info_plus/package_info_plus-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/package_info_plus/package_info_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/package_info_plus/package_info_plus.modulemap";
+				PRODUCT_MODULE_NAME = package_info_plus;
+				PRODUCT_NAME = package_info_plus;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		553117BDD95F38542582E100745AAE5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64E6B3BF7B9057A76A39378FF900F1B7 /* wakelock_plus.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/wakelock_plus/wakelock_plus-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/wakelock_plus/wakelock_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/wakelock_plus/wakelock_plus.modulemap";
+				PRODUCT_MODULE_NAME = wakelock_plus;
+				PRODUCT_NAME = wakelock_plus;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		558B7F31618D9040A661908D5101D34F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64E6B3BF7B9057A76A39378FF900F1B7 /* wakelock_plus.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/wakelock_plus";
+				IBSC_MODULE = wakelock_plus;
+				INFOPLIST_FILE = "Target Support Files/wakelock_plus/ResourceBundle-wakelock_plus-wakelock_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = wakelock_plus;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		568E571D3BD4AA10587DEFC09A187D79 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64E6B3BF7B9057A76A39378FF900F1B7 /* wakelock_plus.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/wakelock_plus/wakelock_plus-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/wakelock_plus/wakelock_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/wakelock_plus/wakelock_plus.modulemap";
+				PRODUCT_MODULE_NAME = wakelock_plus;
+				PRODUCT_NAME = wakelock_plus;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Profile;
+		};
+		62DA5C768FE101F93EB0A14D909E165F /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E88B0B866F3A49FD1B6E426F51FA0E /* package_info_plus.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/package_info_plus";
+				IBSC_MODULE = package_info_plus;
+				INFOPLIST_FILE = "Target Support Files/package_info_plus/ResourceBundle-package_info_plus_privacy-package_info_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_NAME = package_info_plus_privacy;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Profile;
+		};
+		7240A8579D4E173D4895EA679806EC07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC8FE152530FBDCE460186B326C1A8FB /* Pods-RunnerTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		73A146472CC9628F31295209925776B4 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 793CD5DD59E72BE3D6FDE3B57AA839B6 /* FlutterMacOS.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				SDKROOT = macosx;
+			};
+			name = Profile;
+		};
+		7BEB17A03E351652CCB86FD7A332023E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72502C634B5DB4173C899816101B6ABD /* package_info_plus.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/package_info_plus/package_info_plus-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/package_info_plus/package_info_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/package_info_plus/package_info_plus.modulemap";
+				PRODUCT_MODULE_NAME = package_info_plus;
+				PRODUCT_NAME = package_info_plus;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		808E544862838153672EA12FCC127D9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		8717AE9D98E33F36B7BB74A77DA8AE9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F18C3249736DE93BD38958592B275C29 /* FlutterMacOS.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8ACBBE07B576C8670FC6DA09881CBC8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 728A5ED1DD60BAC8C8F382A87B976F84 /* Pods-Runner.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		91956561D7A471CBA778F90C1C85CDAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F57F2CB62DE41E83C512288DC9ACBBD4 /* wakelock_plus.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/wakelock_plus/wakelock_plus-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/wakelock_plus/wakelock_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/wakelock_plus/wakelock_plus.modulemap";
+				PRODUCT_MODULE_NAME = wakelock_plus;
+				PRODUCT_NAME = wakelock_plus;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AF5B76B31CAF4546B42C34718BA67232 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_PROFILE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Profile;
+		};
+		B23D24974E293ADA6A4C76B0A8C0CD47 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C50FD10CD19FF6999637BA5ECAF1681B /* Pods-Runner.profile.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Profile;
+		};
+		C1718B54A4B37F55FB046482E39B6985 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58347C94742DD01531E96CD5EE99BAE0 /* volume_controller.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/volume_controller/volume_controller-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/volume_controller/volume_controller-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/volume_controller/volume_controller.modulemap";
+				PRODUCT_MODULE_NAME = volume_controller;
+				PRODUCT_NAME = volume_controller;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Profile;
+		};
+		CB2C187A85F46E54B35DFB1FFF4DC910 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64E6B3BF7B9057A76A39378FF900F1B7 /* wakelock_plus.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/wakelock_plus";
+				IBSC_MODULE = wakelock_plus;
+				INFOPLIST_FILE = "Target Support Files/wakelock_plus/ResourceBundle-wakelock_plus-wakelock_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = wakelock_plus;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Profile;
+		};
+		CB3200E0835B0C3A88FA6360F496081E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B703785507B22BAF0B800737429577EC /* Pods-Runner.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CEAEF0BB86C6BBA81D6E17A5B8618EB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 793CD5DD59E72BE3D6FDE3B57AA839B6 /* FlutterMacOS.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D5A862CE625E225D1D3DE5CF494E3E6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA19AC44C2A8CBB712B997108C743F48 /* volume_controller.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/volume_controller/volume_controller-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/volume_controller/volume_controller-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/volume_controller/volume_controller.modulemap";
+				PRODUCT_MODULE_NAME = volume_controller;
+				PRODUCT_NAME = volume_controller;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D7C3AED86D5CF7F07F7337B0220A320B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05857A2A4D6543F979C51241ED508506 /* media_kit_libs_macos_video.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video.modulemap";
+				PRODUCT_MODULE_NAME = media_kit_libs_macos_video;
+				PRODUCT_NAME = media_kit_libs_macos_video;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DA3BD24AB8163B964380768FF011C28F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38241E46C6536880DB1F6372659A73E0 /* media_kit_video.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/media_kit_video/media_kit_video-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/media_kit_video/media_kit_video-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/media_kit_video/media_kit_video.modulemap";
+				PRODUCT_MODULE_NAME = media_kit_video;
+				PRODUCT_NAME = media_kit_video;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DAA6912F6E9AFE7B16EC9CC3323951FE /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3EEDEFBBA30BE3046767DA225F0006E /* media_kit_libs_macos_video.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/media_kit_libs_macos_video/media_kit_libs_macos_video.modulemap";
+				PRODUCT_MODULE_NAME = media_kit_libs_macos_video;
+				PRODUCT_NAME = media_kit_libs_macos_video;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Profile;
+		};
+		E3492020E6C8FFFAA75EF20124A3E54A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03E8AD2E8B75443E12D3D3BD12A9900E /* Pods-RunnerTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MODULEMAP_FILE = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F069B246C277A771EDF33EB60B56D8EA /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E88B0B866F3A49FD1B6E426F51FA0E /* package_info_plus.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/package_info_plus/package_info_plus-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/package_info_plus/package_info_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/package_info_plus/package_info_plus.modulemap";
+				PRODUCT_MODULE_NAME = package_info_plus;
+				PRODUCT_NAME = package_info_plus;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Profile;
+		};
+		F9863FE893320E964C9950821AB025FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58347C94742DD01531E96CD5EE99BAE0 /* volume_controller.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/volume_controller/volume_controller-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/volume_controller/volume_controller-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/volume_controller/volume_controller.modulemap";
+				PRODUCT_MODULE_NAME = volume_controller;
+				PRODUCT_NAME = volume_controller;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FB608FFE2BA5DF036BB7758F64C89E89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F57F2CB62DE41E83C512288DC9ACBBD4 /* wakelock_plus.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/wakelock_plus";
+				IBSC_MODULE = wakelock_plus;
+				INFOPLIST_FILE = "Target Support Files/wakelock_plus/ResourceBundle-wakelock_plus-wakelock_plus-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = wakelock_plus;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		FD60D414D55477C39959AD60FFA1E53B /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA278825076BFC8DFAC32F79B1808A14 /* media_kit_video.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"/Users/heyu/Library/flutter/bin/cache/artifacts/engine/darwin-x64-release/FlutterMacOS.xcframework/macos-arm64_x86_64\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/media_kit_video/media_kit_video-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/media_kit_video/media_kit_video-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/media_kit_video/media_kit_video.modulemap";
+				PRODUCT_MODULE_NAME = media_kit_video;
+				PRODUCT_NAME = media_kit_video;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Profile;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01B1335B7147E896DF9C45EF1D5ABE47 /* Build configuration list for PBXNativeTarget "package_info_plus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BEB17A03E351652CCB86FD7A332023E /* Debug */,
+				F069B246C277A771EDF33EB60B56D8EA /* Profile */,
+				3788AB44B6DBB484E04E6A35C16C21C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				808E544862838153672EA12FCC127D9A /* Debug */,
+				AF5B76B31CAF4546B42C34718BA67232 /* Profile */,
+				0AE172D8F2A4843BFACAD21A0ED26541 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		624022EE1C2EAB1C3CC38699E1368C5F /* Build configuration list for PBXAggregateTarget "FlutterMacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8717AE9D98E33F36B7BB74A77DA8AE9E /* Debug */,
+				73A146472CC9628F31295209925776B4 /* Profile */,
+				CEAEF0BB86C6BBA81D6E17A5B8618EB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		723738CD8921C23C83AC6CE68D36FDDA /* Build configuration list for PBXNativeTarget "wakelock_plus-wakelock_plus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB608FFE2BA5DF036BB7758F64C89E89 /* Debug */,
+				CB2C187A85F46E54B35DFB1FFF4DC910 /* Profile */,
+				558B7F31618D9040A661908D5101D34F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A624B996F9F75EFDABBBB0E57F23BBA /* Build configuration list for PBXNativeTarget "wakelock_plus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91956561D7A471CBA778F90C1C85CDAF /* Debug */,
+				568E571D3BD4AA10587DEFC09A187D79 /* Profile */,
+				553117BDD95F38542582E100745AAE5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87C0CB2008BE7DA83C9BAE92E6FAB2B1 /* Build configuration list for PBXNativeTarget "volume_controller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5A862CE625E225D1D3DE5CF494E3E6A /* Debug */,
+				C1718B54A4B37F55FB046482E39B6985 /* Profile */,
+				F9863FE893320E964C9950821AB025FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A3A05D25484BD74EFA6145584FCF8D5 /* Build configuration list for PBXNativeTarget "package_info_plus-package_info_plus_privacy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0FF6C30D3A20FD2B30CE50FFAF0507DE /* Debug */,
+				62DA5C768FE101F93EB0A14D909E165F /* Profile */,
+				0C0815C2490CEE26A42D30A7F9F612A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99C50A7CAABA7A4BA2C7F515CA30C3C6 /* Build configuration list for PBXNativeTarget "Pods-Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8ACBBE07B576C8670FC6DA09881CBC8A /* Debug */,
+				B23D24974E293ADA6A4C76B0A8C0CD47 /* Profile */,
+				CB3200E0835B0C3A88FA6360F496081E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6181D46C6C4BF8F6E5565B8EA924957 /* Build configuration list for PBXNativeTarget "media_kit_video" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA3BD24AB8163B964380768FF011C28F /* Debug */,
+				FD60D414D55477C39959AD60FFA1E53B /* Profile */,
+				2142A60E7AEA14174C8CD8E4A0DBDEAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D52099AA1537D0F3745166E1889F6CA3 /* Build configuration list for PBXNativeTarget "Pods-RunnerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3492020E6C8FFFAA75EF20124A3E54A /* Debug */,
+				07AD40A4677FB80E95DF81E94F42B5EE /* Profile */,
+				7240A8579D4E173D4895EA679806EC07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E81CB481A5EED76C2CD759A1536CD6AF /* Build configuration list for PBXNativeTarget "media_kit_libs_macos_video" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D7C3AED86D5CF7F07F7337B0220A320B /* Debug */,
+				DAA6912F6E9AFE7B16EC9CC3323951FE /* Profile */,
+				0EE5C0F340671465730122F803631A78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

@@ -1,0 +1,31 @@
+<component name="libraryTable">
+  <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/permission_handler_html-0.1.3+5" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/wakelock_plus-1.4.0" />
+      <root url="file://$PROJECT_DIR$/xp2p_sdk" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/path_provider_linux-2.2.1" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/camera_avfoundation-0.9.22+6" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/permission_handler-11.4.0" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/audioplayers-5.2.1" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/path_provider-2.1.5" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/package_info_plus-9.0.0" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/camera_web-0.3.5+1" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/record-6.1.2" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/camera_android-0.10.10+14" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/path_provider_foundation-2.5.1" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/media_kit_video-1.3.1" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/audioplayers_web-4.1.0" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/record_web-1.2.2" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/device_info_plus-9.1.2" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/super_player-12.9.0" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/path_provider_android-2.2.22" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/camera-0.10.6" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/record_linux-1.2.1" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/volume_controller-3.4.0" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
