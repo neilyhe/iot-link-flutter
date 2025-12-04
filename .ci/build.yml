@@ -1,0 +1,35 @@
+version: v2.0
+
+on:
+  push: [ "master" ]
+  mr: [ "*" ]
+
+steps:
+- run: |
+      echo "hello ${{ ci.branch }}, ci.sha is ${{ ci.sha }}">a.txt
+  name: 生成一个文件作为附件
+- uses: gitbranchop@3.*
+  name: 创建一个 git release
+  with:
+    git_type: git_woa
+    code_auth_type: MANUAL_INPUT
+    git_private_token: ${{ settings.git_personal_access_token.password }}
+    repositoryUrl: "https://git.woa.com/${{ ci.repo }}"
+    ld_selectop: create_one_release
+    ld_input_src_branch: ${{ ci.branch }}
+    # ld_input_dst_branch 为你创建的Release名称
+    ld_input_dst_branch: release_${{ ci.build_num }}  
+- uses: gitbranchop@3.*
+  name: 对一个release上传一个附件文件,只能是release不能是tag
+  with:
+    git_type: git_woa
+    code_auth_type: MANUAL_INPUT
+    git_private_token: ${{ settings.git_personal_access_token.password }}
+    repositoryUrl: "https://git.woa.com/${{ ci.repo }}"
+    ld_selectop: upload_one_attachment
+    # ld_input_branch 为你创建的Release名称
+    ld_input_branch: release_${{ ci.build_num }}
+    ld_input_upload_file_name: a.txt
+
+notices:
+- type: wework-message

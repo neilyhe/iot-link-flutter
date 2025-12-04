@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:media_kit/media_kit.dart';
 import 'package:flutter/services.dart';
-import 'video_stream_page.dart';
-import 'two_way_call_page.dart';
-import 'package:xp2p_sdk/src/log/logger.dart';
+import 'pages/video_stream_page.dart';
+import 'pages/two_way_call_page.dart';
+import 'package:xp2p_sdk/xp2p_sdk.dart';
 
 void main() {
   Logger.setLevel(LogLevel.debug);
   Logger.setConsoleOutput(true);
-  // 初始化 media_kit
+  // 初始化
   WidgetsFlutterBinding.ensureInitialized();
-  MediaKit.ensureInitialized();
 
   runApp(const MyApp());
 }
@@ -117,6 +115,8 @@ class _LoginPageState extends State<LoginPage> {
     _productIdController.text = '';
     _deviceNameController.text = '';
     _p2pInfoController.text = '';
+    // 初始化视立方播放器 License
+    TXLivePlayer.setupLicense(LICENSEURL, LICENSEURLKEY);
   }
 
   @override
@@ -300,3 +300,15 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+/*
+ * 腾讯云License管理页面(https://console.cloud.tencent.com/live/license)
+ * 当前应用的License LicenseUrl
+ */
+const String LICENSEURL = '';
+
+/*
+ * 腾讯云License管理页面(https://console.cloud.tencent.com/live/license)
+ * 当前应用的License Key
+ */
+const String LICENSEURLKEY = '';

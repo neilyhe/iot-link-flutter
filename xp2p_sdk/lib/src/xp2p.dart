@@ -371,6 +371,9 @@ class XP2P {
     final idPtr = id.toNativeUtf8();
     try {
       final resultPtr = XP2PFFI.delegateHttpFlv(idPtr);
+      if (resultPtr == ffi.nullptr) {
+        return '';
+      }
       return resultPtr.toDartString();
     } finally {
       malloc.free(idPtr);
