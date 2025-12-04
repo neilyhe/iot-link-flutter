@@ -38,6 +38,10 @@ class Command {
     return 'ipc.flv?action=live&channel=$channel&quality=super';
   }
 
+  static String getVideoUrlSuffix(int channel, String quality) {
+    return 'ipc.flv?action=live&channel=$channel&quality=$quality';
+  }
+
   static String getVideoMJPEGUrlSuffix(int channel) {
     return 'ipc.flv?action=live-mjpg&channel=$channel&quality=standard';
   }

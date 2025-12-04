@@ -209,6 +209,33 @@ class FlvFfiBindings {
     return _flv_muxer_aac(muxer, data, bytes, pts, dts);
   }
 
+  late final _flv_muxer_avc = _dylib.lookupFunction<
+    ffi.Int32 Function(
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<ffi.Void>,
+      ffi.Size,
+      ffi.Uint32,
+      ffi.Uint32,
+    ),
+    int Function(
+      ffi.Pointer<ffi.Void>,
+      ffi.Pointer<ffi.Void>,
+      int,
+      int,
+      int,
+    )
+  >('flv_muxer_avc');
+  
+  int flvMuxerAvc(
+    ffi.Pointer<ffi.Void> muxer,
+    ffi.Pointer<ffi.Void> data,
+    int bytes,
+    int pts,
+    int dts,
+  ) {
+    return _flv_muxer_avc(muxer, data, bytes, pts, dts);
+  }
+
   late final _flv_muxer_reset = _dylib.lookupFunction<
     ffi.Int32 Function(ffi.Pointer<ffi.Void>),
     int Function(ffi.Pointer<ffi.Void>)

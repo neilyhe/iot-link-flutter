@@ -5,12 +5,14 @@ import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart' as device_info_plus;
+import 'aac_encoder_service.dart';
 
 /// AAC数据监听器回调
 typedef AACDataListener = void Function(Uint8List aacData, int timestamp);
 
 class AudioRecorderService {
   final AudioRecorder _recorder = AudioRecorder();
+  final AACEncoderService _aacEncoder = AACEncoderService();
   String? _currentRecordingPath;
   bool _isRecording = false;
   Stream<Uint8List>? _audioStream;
@@ -142,8 +144,8 @@ class AudioRecorderService {
   }
 
   /// 开始流式录音（实时获取AAC数据）
-  /// iOS: 实时输出 AAC-LC 编码的音频数据流
-  /// Android: 实时输出 AAC-LC 编码的音频数据流
+  /// iOS: PCM -> AAC实时编码
+  /// Android: 直接输出AAC-LC编码
   Future<bool> startStreamRecording() async {
     try {
       // 检查权限
@@ -161,28 +163,78 @@ class AudioRecorderService {
         return false;
       }
 
-      // 配置录音参数（iOS和Android通用）
-      const config = RecordConfig(
-        encoder: AudioEncoder.aacLc, // AAC-LC 编码器（iOS原生支持）
-        bitRate: 64000, // 64 kbps
-        sampleRate: 16000, // 16 kHz
-        numChannels: 1, // 单声道
-        autoGain: true, // 自动增益
-        echoCancel: true, // 回声消除
-        noiseSuppress: true, // 噪音抑制
-      );
+      // iOS平台：初始化AAC编码器
+      if (Platform.isIOS) {
+        final encoderInitialized = await _aacEncoder.initEncoder();
+        if (!encoderInitialized) {
+          print('AAC编码器初始化失败');
+          return false;
+        }
+        print('AAC编码器初始化成功');
+      }
+
+      // 配置录音参数
+      RecordConfig config;
+      
+      if (Platform.isIOS) {
+        // iOS: 使用PCM格式，后续通过编码器转换为AAC
+        // streamBufferSize设置为1024帧，对应2048字节（16bit单声道），与AAC编码器帧大小对齐
+        config = const RecordConfig(
+          encoder: AudioEncoder.pcm16bits, // PCM 16bit
+          sampleRate: 16000, // 16 kHz
+          numChannels: 1, // 单声道
+          autoGain: true,
+          echoCancel: true,
+          noiseSuppress: true,
+          streamBufferSize: 1024, // 1024帧 = 2048字节，与AAC编码器对齐
+        );
+        print('iOS平台：使用PCM录音 + AAC编码 (buffer: 1024帧/2048字节)');
+      } else {
+        // Android: 直接使用AAC编码
+        config = const RecordConfig(
+          encoder: AudioEncoder.aacLc, // AAC-LC
+          bitRate: 64000,
+          sampleRate: 16000,
+          numChannels: 1,
+          autoGain: true,
+          echoCancel: true,
+          noiseSuppress: true,
+        );
+        print('Android平台：直接使用AAC录音');
+      }
 
       // 开始流式录音
       _audioStream = await _recorder.startStream(config);
       
-      // 订阅数据流，实时输出AAC数据给监听器
+      // 订阅数据流
       _streamSubscription = _audioStream!.listen(
-        (Uint8List audioData) {
+        (Uint8List audioData) async {
           // 获取当前时间戳
           final timestamp = DateTime.now().millisecondsSinceEpoch;
           
-          // 通知所有AAC数据监听器
-          _notifyAACDataListeners(audioData, timestamp);
+          // iOS平台：将PCM编码为AAC
+          if (Platform.isIOS) {
+            // 数据分片：将大块PCM数据切分成640字节的小块
+            // 640字节 = 320个样本 = 20ms音频 (16kHz采样率)
+            const chunkSize = 640;
+            
+            for (int offset = 0; offset < audioData.length; offset += chunkSize) {
+              final end = (offset + chunkSize < audioData.length) 
+                  ? offset + chunkSize 
+                  : audioData.length;
+              final chunk = audioData.sublist(offset, end);
+              
+              // 编码PCM数据块
+              final aacData = await _aacEncoder.encodePCM(chunk);
+              if (aacData != null && aacData.isNotEmpty) {
+                // 通知所有AAC数据监听器
+                _notifyAACDataListeners(aacData, timestamp + (offset ~/ chunkSize) * 20);
+              }
+            }
+          } else {
+            // Android平台：直接使用AAC数据
+            _notifyAACDataListeners(audioData, timestamp);
+          }
         },
         onError: (error) {
           print('音频流错误: $error');
@@ -194,10 +246,14 @@ class AudioRecorderService {
       );
 
       _isRecording = true;
-      print('开始流式录音 - 实时输出AAC数据给监听器');
+      print('开始流式录音成功 - 实时输出AAC数据');
       return true;
     } catch (e) {
       print('开始流式录音失败: $e');
+      // 清理编码器
+      if (Platform.isIOS) {
+        await _aacEncoder.releaseEncoder();
+      }
       return false;
     }
   }
@@ -218,6 +274,10 @@ class AudioRecorderService {
         print('已停止流式录音数据采集');
       }
 
+      // 释放AAC编码器
+      if (Platform.isIOS) {
+        await _aacEncoder.releaseEncoder();
+      }
       final path = await _recorder.stop();
       _isRecording = false;
 
@@ -299,6 +359,11 @@ class AudioRecorderService {
       _streamSubscription = null;
     }
     _audioStream = null;
+    
+    // 释放AAC编码器
+    if (Platform.isIOS) {
+      await _aacEncoder.releaseEncoder();
+    }
     
     await _recorder.dispose();
   }

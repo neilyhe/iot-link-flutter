@@ -22,8 +22,14 @@ class FLVPacker {
   File? _outputFile;
   IOSink? _fileSink;
 
+  // 使用实例映射来处理回调
+  static final Map<int, FLVPacker> _instances = {};
+  late final int _instanceId;
+
   FLVPacker() {
     _bindings = FlvFfiBindings();
+    _instanceId = DateTime.now().microsecondsSinceEpoch;
+    _instances[_instanceId] = this;
   }
 
   /// 初始化FLV打包器
@@ -37,9 +43,12 @@ class FLVPacker {
   }) async {
     try {
       if (_isInitialized) {
-        Logger.e('FLV打包器已经初始化', 'FLVPacker');
-        return true;
+        Logger.e('FLV打包器已经初始化，请先释放再重新初始化', 'FLVPacker');
+        return false;
       }
+
+      // 清空缓冲区
+      _flvBuffer.clear();
 
       if (outputPath != null) {
         _outputFile = File(outputPath);
@@ -51,11 +60,13 @@ class FLVPacker {
         _onWriteCallback,
         0,
       );
+      // 将实例ID作为参数传递给native层
+      final paramPtr = ffi.Pointer<ffi.Int64>.fromAddress(_instanceId);
       _writer = _bindings.flvWriterCreate2(
         hasAudio ? 1 : 0,
         hasVideo ? 1 : 0,
         _writerCallbackPtr!,
-        ffi.nullptr,
+        paramPtr.cast<ffi.Void>(),
       );
 
       if (_writer == ffi.nullptr) {
@@ -108,6 +119,15 @@ class FLVPacker {
     int n,
   ) {
     try {
+      // 从参数中获取实例ID
+      final instanceId = param.address;
+      final instance = _instances[instanceId];
+      
+      if (instance == null) {
+        Logger.e('找不到FLVPacker实例: $instanceId', 'FLVPacker');
+        return -1;
+      }
+
       int totalSize = 0;
       for (int i = 0; i < n; i++) {
         final v = vec.elementAt(i).ref;
@@ -123,7 +143,7 @@ class FLVPacker {
           flvData[offset++] = dataPtr.elementAt(j).value;
         }
       }
-      _globalInstance?._handleFlvData(flvData);
+      instance._handleFlvData(flvData);
       return 0;
     } catch (e) {
       Logger.eWithException('Writer回调错误: $e', 'FLVPacker');
@@ -171,6 +191,38 @@ class FLVPacker {
     }
   }
 
+  /// 编码H.264/AVC视频数据到FLV
+  /// [avcData] H.264/AVC视频数据（AVCC格式）
+  /// [timestamp] 时间戳（毫秒）
+  /// [dts] 解码时间戳（可选，默认与pts相同）
+  /// 返回0表示成功，-1表示失败
+  Future<int> encodeAvc(Uint8List avcData, int timestamp, {int? dts}) async {
+    if (!_isInitialized || _muxer == null) {
+      Logger.e('FLV打包器未初始化', 'FLVPacker');
+      return -1;
+    }
+
+    try {
+      final dataPtr = malloc.allocate<ffi.Uint8>(avcData.length);
+      for (int i = 0; i < avcData.length; i++) {
+        dataPtr.elementAt(i).value = avcData[i];
+      }
+      final result = _bindings.flvMuxerAvc(
+        _muxer!,
+        dataPtr.cast<ffi.Void>(),
+        avcData.length,
+        timestamp,
+        dts ?? timestamp,
+      );
+      malloc.free(dataPtr);
+
+      return result;
+    } catch (e) {
+      Logger.eWithException('编码AVC失败: $e', 'FLVPacker');
+      return -1;
+    }
+  }
+
   Uint8List getBufferedData() {
     return Uint8List.fromList(_flvBuffer);
   }
@@ -185,6 +237,9 @@ class FLVPacker {
 
   Future<void> release() async {
     try {
+      // 从实例映射中移除
+      _instances.remove(_instanceId);
+
       if (_fileSink != null) {
         await _fileSink!.flush();
         await _fileSink!.close();
@@ -205,39 +260,8 @@ class FLVPacker {
       _isInitialized = false;
       _flvBuffer.clear();
       _onFLVData = null;
-
-      if (_globalInstance == this) {
-        _globalInstance = null;
-      }
     } catch (e) {
       Logger.e('释放FLV打包器失败: $e', 'FLVPacker');
-    }
-  }
-
-  void _setAsGlobalInstance() {
-    _globalInstance = this;
-  }
-
-  static FLVPacker? _globalInstance;
-}
-
-class FLVPackerFactory {
-  static Future<FLVPacker?> create({
-    bool hasAudio = true,
-    bool hasVideo = false,
-    String? outputPath,
-  }) async {
-    final packer = FLVPacker();
-    packer._setAsGlobalInstance();
-    final success = await packer.init(
-      hasAudio: hasAudio,
-      hasVideo: hasVideo,
-      outputPath: outputPath,
-    );
-    if (success) {
-      return packer;
-    } else {
-      return null;
     }
   }
 }

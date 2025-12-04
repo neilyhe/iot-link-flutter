@@ -49,9 +49,9 @@ post_install do |installer|
         
         ## 启用麦克风权限
         'PERMISSION_MICROPHONE=1',
-        
+        'PERMISSION_CAMERA=1',
+
         ## 如果需要其他权限，可以取消注释
-        # 'PERMISSION_CAMERA=1',
         # 'PERMISSION_PHOTOS=1',
       ]
     end

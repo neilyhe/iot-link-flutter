@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11634FBB2EDECAF3006B531F /* VideoEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11634FBA2EDECAF3006B531F /* VideoEncoder.swift */; };
+		11D473262ED9A9DE008AAAE4 /* AACEncoderPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D473242ED9A9DE008AAAE4 /* AACEncoderPlugin.swift */; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		204513B5DB2EED53E30E8716 /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 876579073B8800025EF19C1C /* Pods_RunnerTests.framework */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11634FBA2EDECAF3006B531F /* VideoEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEncoder.swift; sourceTree = "<group>"; };
+		11D473242ED9A9DE008AAAE4 /* AACEncoderPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AACEncoderPlugin.swift; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
@@ -94,6 +98,15 @@
 				876579073B8800025EF19C1C /* Pods_RunnerTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		11D473252ED9A9DE008AAAE4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				11D473242ED9A9DE008AAAE4 /* AACEncoderPlugin.swift */,
+				11634FBA2EDECAF3006B531F /* VideoEncoder.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		173292341922D74D38A741EE /* Pods */ = {
@@ -159,6 +172,7 @@
 				1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */,
 				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
 				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
+				11D473252ED9A9DE008AAAE4 /* Classes */,
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
 			);
 			path = Runner;
@@ -394,8 +408,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11634FBB2EDECAF3006B531F /* VideoEncoder.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				11D473262ED9A9DE008AAAE4 /* AACEncoderPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

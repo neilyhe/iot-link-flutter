@@ -32,11 +32,6 @@ dependencies:
     sdk: flutter
   xp2p_sdk:
     path: xp2p_sdk
-    # 视频播放器 - 使用 media_kit 替代 VLC (更稳定，支持 FLV)
-  media_kit: ^1.1.10+1
-  media_kit_video: ^1.2.4
-  media_kit_libs_video: ^1.0.4
-  # 相机
   camera: ^0.10.5+5
   # 音频录制库
   record: ^6.1.2

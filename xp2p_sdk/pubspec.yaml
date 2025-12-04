@@ -15,7 +15,9 @@ dependencies:
   http: ^1.1.0
   crypto: ^3.0.3
   convert: ^3.1.1
-  super_player: ^12.9.0
+#  tencent_rtc_sdk: ^12.8.2
+  live_flutter_plugin: ^12.6.1
+  path_provider: ^2.1.5
 
 dev_dependencies:
   flutter_test:
