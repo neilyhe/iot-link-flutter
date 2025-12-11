@@ -18,7 +18,7 @@ import AVFoundation
 
     // 注册H.264编码器通道
     let controller = window?.rootViewController as! FlutterViewController
-    let channel = FlutterMethodChannel(name: "video_encoder", binaryMessenger: controller.binaryMessenger)
+    let channel = FlutterMethodChannel(name: "h264_encoder", binaryMessenger: controller.binaryMessenger)
 
     channel.setMethodCallHandler { [weak self] (call: FlutterMethodCall, result: @escaping FlutterResult) in
       switch call.method {

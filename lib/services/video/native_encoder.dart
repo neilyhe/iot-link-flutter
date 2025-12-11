@@ -5,7 +5,7 @@ import 'package:xp2p_sdk/src/log/logger.dart';
 /// 视频编码器
 /// 使用平台原生编码器将YUV420数据编码为H.264
 class VideoEncoder {
-  static const MethodChannel _channel = MethodChannel('video_encoder');
+  static const MethodChannel _channel = MethodChannel('h264_encoder');
 
   bool _isInitialized = false;
   int _width = 0;

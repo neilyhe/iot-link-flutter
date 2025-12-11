@@ -5,6 +5,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart' as device_info_plus;
+import 'package:xp2p_sdk/xp2p_sdk.dart';
 import 'aac_encoder_service.dart';
 
 /// AAC数据监听器回调
@@ -13,16 +14,23 @@ typedef AACDataListener = void Function(Uint8List aacData, int timestamp);
 class AudioRecorderService {
   final AudioRecorder _recorder = AudioRecorder();
   final AACEncoderService _aacEncoder = AACEncoderService();
-  String? _currentRecordingPath;
+  SoundTouch? _soundTouch;
   bool _isRecording = false;
   Stream<Uint8List>? _audioStream;
   StreamSubscription<Uint8List>? _streamSubscription;
   
+  // 变调参数（-12到12，0表示不变调）
+  int _pitch = 6;
+
   // AAC数据监听器列表
   final List<AACDataListener> _aacDataListeners = [];
 
   bool get isRecording => _isRecording;
-  String? get currentRecordingPath => _currentRecordingPath;
+
+  /// 设置变调参数（-12到12，0表示不变调）
+  void setPitch(int pitch) {
+    _pitch = pitch;
+  }
 
   /// 添加AAC数据监听器
   void addAACDataListener(AACDataListener listener) {
@@ -45,102 +53,53 @@ class AudioRecorderService {
   Future<bool> requestPermission() async {
     // 请求麦克风权限
     final micStatus = await Permission.microphone.request();
-    
+
     // iOS平台权限处理
     if (Platform.isIOS) {
       // iOS只需要麦克风权限
       return micStatus == PermissionStatus.granted;
     }
-    
+
     // 对于Android 10以下设备，请求存储权限
     if (Platform.isAndroid) {
       final deviceInfo = device_info_plus.DeviceInfoPlugin();
       final androidInfo = await deviceInfo.androidInfo;
-      if (androidInfo.version.sdkInt < 29) { // Android 10 (API 29)以下
+      if (androidInfo.version.sdkInt < 29) {
+        // Android 10 (API 29)以下
         final storageStatus = await Permission.storage.request();
         if (storageStatus != PermissionStatus.granted) {
           return false;
         }
       }
     }
-    
+
     return micStatus == PermissionStatus.granted;
   }
 
   /// 检查权限状态
   Future<bool> checkPermission() async {
     final micStatus = await Permission.microphone.status;
-    
+
     // iOS平台权限检查
     if (Platform.isIOS) {
       // iOS只需要检查麦克风权限
       return micStatus == PermissionStatus.granted;
     }
-    
+
     // 对于Android 10以下设备，检查存储权限
     if (Platform.isAndroid) {
       final deviceInfo = device_info_plus.DeviceInfoPlugin();
       final androidInfo = await deviceInfo.androidInfo;
-      if (androidInfo.version.sdkInt < 29) { // Android 10 (API 29)以下
+      if (androidInfo.version.sdkInt < 29) {
+        // Android 10 (API 29)以下
         final storageStatus = await Permission.storage.status;
         if (storageStatus != PermissionStatus.granted) {
           return false;
         }
       }
     }
-    
+
     return micStatus == PermissionStatus.granted;
-  }
-
-  /// 开始录音（AAC 格式）
-  /// iOS: 使用 AAC-LC 编码，输出 .m4a 格式（MPEG-4 Audio容器）
-  /// Android: 使用 AAC-LC 编码，输出 .m4a 格式
-  Future<bool> startRecording() async {
-    try {
-      // 检查权限
-      if (!await checkPermission()) {
-        final granted = await requestPermission();
-        if (!granted) {
-          print('录音权限被拒绝');
-          return false;
-        }
-      }
-
-      // 检查是否支持录音
-      if (!await _recorder.hasPermission()) {
-        print('没有录音权限');
-        return false;
-      }
-
-      // 生成文件路径（iOS和Android都使用.m4a格式）
-      final directory = await getApplicationDocumentsDirectory();
-      final timestamp = DateTime.now().millisecondsSinceEpoch;
-      _currentRecordingPath = '${directory.path}/recording_$timestamp.m4a';
-
-      // 配置录音参数（iOS和Android通用）
-      const config = RecordConfig(
-        encoder: AudioEncoder.aacLc, // AAC-LC 编码器（iOS原生支持）
-        bitRate: 64000, // 64 kbps
-        sampleRate: 16000, // 16 kHz
-        numChannels: 1, // 单声道
-        autoGain: true, // 自动增益
-        echoCancel: true, // 回声消除
-        noiseSuppress: true, // 噪音抑制
-      );
-
-      // 开始录音
-      await _recorder.start(
-        config,
-        path: _currentRecordingPath!,
-      );
-
-      _isRecording = true;
-      print('开始录音: $_currentRecordingPath');
-      return true;
-    } catch (e) {
-      print('开始录音失败: $e');
-      return false;
-    }
   }
 
   /// 开始流式录音（实时获取AAC数据）
@@ -152,109 +111,109 @@ class AudioRecorderService {
       if (!await checkPermission()) {
         final granted = await requestPermission();
         if (!granted) {
-          print('录音权限被拒绝');
+          Logger.e('录音权限被拒绝',"AudioRecorder");
           return false;
         }
       }
 
       // 检查是否支持录音
       if (!await _recorder.hasPermission()) {
-        print('没有录音权限');
+        Logger.e('没有录音权限',"AudioRecorder");
         return false;
       }
 
-      // iOS平台：初始化AAC编码器
-      if (Platform.isIOS) {
-        final encoderInitialized = await _aacEncoder.initEncoder();
-        if (!encoderInitialized) {
-          print('AAC编码器初始化失败');
-          return false;
-        }
-        print('AAC编码器初始化成功');
+      // 初始化AAC编码器（iOS和Android都需要）
+      final encoderInitialized = await _aacEncoder.initEncoder();
+      if (!encoderInitialized) {
+        Logger.e('AAC编码器初始化失败',"AudioRecorder");
+        return false;
+      }
+      Logger.i('AAC编码器初始化成功',"AudioRecorder");
+
+      // 初始化SoundTouch（如果需要变调）
+      if (_pitch != 0) {
+        _soundTouch = SoundTouch(
+          track: 0,
+          channels: 1,
+          samplingRate: 16000,
+          bytesPerSample: 2,
+          tempo: 1.0,
+          pitch: _pitch,
+        );
       }
 
-      // 配置录音参数
-      RecordConfig config;
-      
-      if (Platform.isIOS) {
-        // iOS: 使用PCM格式，后续通过编码器转换为AAC
-        // streamBufferSize设置为1024帧，对应2048字节（16bit单声道），与AAC编码器帧大小对齐
-        config = const RecordConfig(
-          encoder: AudioEncoder.pcm16bits, // PCM 16bit
-          sampleRate: 16000, // 16 kHz
-          numChannels: 1, // 单声道
-          autoGain: true,
-          echoCancel: true,
-          noiseSuppress: true,
-          streamBufferSize: 1024, // 1024帧 = 2048字节，与AAC编码器对齐
-        );
-        print('iOS平台：使用PCM录音 + AAC编码 (buffer: 1024帧/2048字节)');
-      } else {
-        // Android: 直接使用AAC编码
-        config = const RecordConfig(
-          encoder: AudioEncoder.aacLc, // AAC-LC
-          bitRate: 64000,
-          sampleRate: 16000,
-          numChannels: 1,
-          autoGain: true,
-          echoCancel: true,
-          noiseSuppress: true,
-        );
-        print('Android平台：直接使用AAC录音');
-      }
+      // 配置录音参数（iOS和Android都使用PCM格式，然后通过编码器转换为AAC）
+      // streamBufferSize设置为1024帧，对应2048字节（16bit单声道），与AAC编码器帧大小对齐
+      const config = RecordConfig(
+        encoder: AudioEncoder.pcm16bits, // PCM 16bit
+        sampleRate: 16000, // 16 kHz
+        numChannels: 1, // 单声道
+        autoGain: true,
+        echoCancel: true,
+        noiseSuppress: true,
+        streamBufferSize: 1024, // 1024帧 = 2048字节，与AAC编码器对齐
+      );
 
       // 开始流式录音
       _audioStream = await _recorder.startStream(config);
-      
+
       // 订阅数据流
       _streamSubscription = _audioStream!.listen(
         (Uint8List audioData) async {
-          // 获取当前时间戳
-          final timestamp = DateTime.now().millisecondsSinceEpoch;
-          
-          // iOS平台：将PCM编码为AAC
-          if (Platform.isIOS) {
-            // 数据分片：将大块PCM数据切分成640字节的小块
-            // 640字节 = 320个样本 = 20ms音频 (16kHz采样率)
-            const chunkSize = 640;
-            
-            for (int offset = 0; offset < audioData.length; offset += chunkSize) {
-              final end = (offset + chunkSize < audioData.length) 
-                  ? offset + chunkSize 
-                  : audioData.length;
-              final chunk = audioData.sublist(offset, end);
-              
-              // 编码PCM数据块
-              final aacData = await _aacEncoder.encodePCM(chunk);
-              if (aacData != null && aacData.isNotEmpty) {
-                // 通知所有AAC数据监听器
-                _notifyAACDataListeners(aacData, timestamp + (offset ~/ chunkSize) * 20);
-              }
+          //变声
+          if (_pitch != 0 && _soundTouch != null) {
+            _soundTouch?.putBytes(audioData);
+
+            Uint8List processedData;
+            while ((processedData = _soundTouch!.getBytes()).isNotEmpty) {
+              slicePCM(processedData);
             }
           } else {
-            // Android平台：直接使用AAC数据
-            _notifyAACDataListeners(audioData, timestamp);
+            slicePCM(audioData);
           }
         },
         onError: (error) {
-          print('音频流错误: $error');
+          Logger.e('音频流错误: $error',"AudioRecorder");
         },
         onDone: () {
-          print('音频流结束');
+          Logger.i('音频流结束',"AudioRecorder");
         },
         cancelOnError: true,
       );
 
       _isRecording = true;
-      print('开始流式录音成功 - 实时输出AAC数据');
+      Logger.i('开始流式录音成功 - 实时输出AAC数据',"AudioRecorder");
       return true;
     } catch (e) {
-      print('开始流式录音失败: $e');
-      // 清理编码器
-      if (Platform.isIOS) {
-        await _aacEncoder.releaseEncoder();
-      }
+      Logger.e('开始流式录音失败: $e',"AudioRecorder");
+      // 清理编码器（iOS和Android都需要）
+      await _aacEncoder.releaseEncoder();
       return false;
+    }
+  }
+
+
+  Future<void> slicePCM(Uint8List pcmData) async {
+    // 获取当前时间戳
+    final timestamp = DateTime.now().millisecondsSinceEpoch;
+
+    // 将PCM编码为AAC（iOS和Android都需要）
+    // 数据分片：将大块PCM数据切分成640字节的小块
+    // 640字节 = 320个样本 = 20ms音频 (16kHz采样率)
+    const chunkSize = 640;
+
+    for (int offset = 0; offset < pcmData.length; offset += chunkSize) {
+      final end = (offset + chunkSize < pcmData.length)
+          ? offset + chunkSize
+          : pcmData.length;
+      final chunk = pcmData.sublist(offset, end);
+
+      // 编码PCM数据块
+      final aacData = await _aacEncoder.encodePCM(chunk);
+      if (aacData != null && aacData.isNotEmpty) {
+        // 通知所有AAC数据监听器
+        _notifyAACDataListeners(aacData, timestamp + (offset ~/ chunkSize) * 20);
+      }
     }
   }
 
@@ -262,7 +221,7 @@ class AudioRecorderService {
   Future<String?> stopRecording() async {
     try {
       if (!_isRecording) {
-        print('当前没有正在进行的录音');
+        Logger.i('当前没有正在进行的录音',"AudioRecorder");
         return null;
       }
 
@@ -271,13 +230,20 @@ class AudioRecorderService {
         await _streamSubscription!.cancel();
         _streamSubscription = null;
         _audioStream = null;
-        print('已停止流式录音数据采集');
+        Logger.i('已停止流式录音数据采集',"AudioRecorder");
       }
 
-      // 释放AAC编码器
-      if (Platform.isIOS) {
-        await _aacEncoder.releaseEncoder();
+      // 释放AAC编码器（iOS和Android都需要）
+      await _aacEncoder.releaseEncoder();
+      
+      // 清理SoundTouch资源
+      if (_soundTouch != null) {
+        _soundTouch!.finish();
+        _soundTouch!.clearBuffer();
+        _soundTouch = null;
+        Logger.i('SoundTouch资源已释放',"AudioRecorder");
       }
+      
       final path = await _recorder.stop();
       _isRecording = false;
 
@@ -285,15 +251,15 @@ class AudioRecorderService {
         final file = File(path);
         if (await file.exists()) {
           final size = await file.length();
-          print('录音完成: $path (${size} bytes)');
+          Logger.i('录音完成: $path (${size} bytes)',"AudioRecorder");
           return path;
         }
       }
 
-      print('录音文件不存在');
+      Logger.e('录音文件不存在',"AudioRecorder");
       return null;
     } catch (e) {
-      print('停止录音失败: $e');
+      Logger.e('停止录音失败: $e',"AudioRecorder");
       _isRecording = false;
       return null;
     }
@@ -304,10 +270,10 @@ class AudioRecorderService {
     try {
       if (_isRecording) {
         await _recorder.pause();
-        print('录音已暂停');
+        Logger.i('录音已暂停',"AudioRecorder");
       }
     } catch (e) {
-      print('暂停录音失败: $e');
+      Logger.e('暂停录音失败: $e',"AudioRecorder");
     }
   }
 
@@ -315,9 +281,9 @@ class AudioRecorderService {
   Future<void> resumeRecording() async {
     try {
       await _recorder.resume();
-      print('录音已恢复');
+      Logger.i('录音已恢复',"AudioRecorder");
     } catch (e) {
-      print('恢复录音失败: $e');
+      Logger.e('恢复录音失败: $e',"AudioRecorder");
     }
   }
 
@@ -327,7 +293,7 @@ class AudioRecorderService {
       final amplitude = await _recorder.getAmplitude();
       return amplitude;
     } catch (e) {
-      print('获取振幅失败: $e');
+      Logger.e('获取振幅失败: $e',"AudioRecorder");
       return Amplitude(current: 0, max: 0);
     }
   }
@@ -337,17 +303,8 @@ class AudioRecorderService {
     try {
       await _recorder.stop();
       _isRecording = false;
-
-      if (_currentRecordingPath != null) {
-        final file = File(_currentRecordingPath!);
-        if (await file.exists()) {
-          await file.delete();
-          print('录音已取消并删除文件');
-        }
-      }
-      _currentRecordingPath = null;
     } catch (e) {
-      print('取消录音失败: $e');
+      Logger.e('取消录音失败: $e',"AudioRecorder");
     }
   }
 
@@ -359,12 +316,17 @@ class AudioRecorderService {
       _streamSubscription = null;
     }
     _audioStream = null;
-    
-    // 释放AAC编码器
-    if (Platform.isIOS) {
-      await _aacEncoder.releaseEncoder();
+
+    // 释放AAC编码器（iOS和Android都需要）
+    await _aacEncoder.releaseEncoder();
+
+    // 清理SoundTouch资源
+    if (_soundTouch != null) {
+      _soundTouch!.finish();
+      _soundTouch!.clearBuffer();
+      _soundTouch = null;
     }
-    
+
     await _recorder.dispose();
   }
 
@@ -381,12 +343,11 @@ class AudioRecorderService {
           .toList();
 
       // 按修改时间排序
-      files.sort((a, b) =>
-          b.lastModifiedSync().compareTo(a.lastModifiedSync()));
+      files.sort((a, b) => b.lastModifiedSync().compareTo(a.lastModifiedSync()));
 
       return files;
     } catch (e) {
-      print('获取录音文件列表失败: $e');
+      Logger.e('获取录音文件列表失败: $e',"AudioRecorder");
       return [];
     }
   }
@@ -397,12 +358,12 @@ class AudioRecorderService {
       final file = File(path);
       if (await file.exists()) {
         await file.delete();
-        print('文件已删除: $path');
+        Logger.i('文件已删除: $path',"AudioRecorder");
         return true;
       }
       return false;
     } catch (e) {
-      print('删除文件失败: $e');
+      Logger.e('删除文件失败: $e',"AudioRecorder");
       return false;
     }
   }

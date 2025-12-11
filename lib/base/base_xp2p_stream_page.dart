@@ -126,9 +126,9 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
     Logger.i('正在启动服务...', logTag);
 
     const config = XP2PAppConfig(
-      appKey: '***REMOVED***',
-      appSecret: '***REMOVED***',
-      autoConfigFromDevice: false,
+      appKey: '<APPKEY>',
+      appSecret: '<APPSECRET>',
+      autoConfigFromDevice: true,
       crossStunTurn: false,
       type: XP2PProtocolType.udp,
     );

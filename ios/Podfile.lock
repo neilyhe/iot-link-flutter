@@ -71,7 +71,7 @@ SPEC CHECKSUMS:
   record_ios: 840d21cce013c5a3b2168b74a54ebdb4136359e2
   TXCustomBeautyProcesserPlugin: 099393b941cb40eda12b3a80bf6c0319957b1cfd
   TXLiteAVSDK_Professional: adf74fce095f059a6c400f4e8d062b47eea92261
-  xp2p_sdk: 3828824fecb2f2d984f547069065b854bfb3a3a2
+  xp2p_sdk: 62a4c76b0b17e12b4e18f74ebabaff07531d20c9
 
 PODFILE CHECKSUM: 061f874247ebe218f617f06f3c7b1a136c08b0ce
 
