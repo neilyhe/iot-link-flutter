@@ -16,6 +16,7 @@ class AudioRecorderService {
   final AACEncoderService _aacEncoder = AACEncoderService();
   SoundTouch? _soundTouch;
   bool _isRecording = false;
+  bool _isInitialized = false; // 标记是否已经初始化过录制
   Stream<Uint8List>? _audioStream;
   StreamSubscription<Uint8List>? _streamSubscription;
   
@@ -122,6 +123,15 @@ class AudioRecorderService {
         return false;
       }
 
+      // 如果已经初始化过录制，则使用resume恢复录制，避免重复调用startStream卡主线程
+      if (_isInitialized && !_isRecording) {
+        await _recorder.resume();
+        _isRecording = true;
+        Logger.i('恢复录制成功 - 使用resume避免startStream卡顿',"AudioRecorder");
+        return true;
+      }
+
+      // 首次初始化录制
       // 初始化AAC编码器（iOS和Android都需要）
       final encoderInitialized = await _aacEncoder.initEncoder();
       if (!encoderInitialized) {
@@ -182,6 +192,7 @@ class AudioRecorderService {
       );
 
       _isRecording = true;
+      _isInitialized = true; // 标记已经初始化过录制
       Logger.i('开始流式录音成功 - 实时输出AAC数据',"AudioRecorder");
       return true;
     } catch (e) {
@@ -217,14 +228,23 @@ class AudioRecorderService {
     }
   }
 
-  /// 停止录音
-  Future<String?> stopRecording() async {
+  /// 停止录音（如果只是暂停录制，使用pause而不是完全stop）
+  Future<String?> stopRecording({bool completeStop = false}) async {
     try {
       if (!_isRecording) {
         Logger.i('当前没有正在进行的录音',"AudioRecorder");
         return null;
       }
 
+      // 如果只是暂停录制而不是完全停止，使用pause方法
+      if (!completeStop && _isInitialized) {
+        await _recorder.pause();
+        _isRecording = false;
+        Logger.i('暂停录制成功 - 使用pause避免stop/startStream卡顿',"AudioRecorder");
+        return null;
+      }
+
+      // 完全停止录制，释放所有资源
       // 停止流式录音订阅
       if (_streamSubscription != null) {
         await _streamSubscription!.cancel();
@@ -246,6 +266,7 @@ class AudioRecorderService {
       
       final path = await _recorder.stop();
       _isRecording = false;
+      _isInitialized = false; // 重置初始化标记
 
       if (path != null) {
         final file = File(path);
@@ -265,26 +286,37 @@ class AudioRecorderService {
     }
   }
 
-  /// 暂停录音
+  /// 暂停录音（使用pause而不是stop，避免重新startStream卡顿）
   Future<void> pauseRecording() async {
     try {
       if (_isRecording) {
         await _recorder.pause();
-        Logger.i('录音已暂停',"AudioRecorder");
+        _isRecording = false;
+        Logger.i('录音已暂停 - 使用pause避免stop/startStream卡顿',"AudioRecorder");
       }
     } catch (e) {
       Logger.e('暂停录音失败: $e',"AudioRecorder");
     }
   }
 
-  /// 恢复录音
+  /// 恢复录音（如果已经初始化过录制，直接resume）
   Future<void> resumeRecording() async {
     try {
-      await _recorder.resume();
-      Logger.i('录音已恢复',"AudioRecorder");
+      if (_isInitialized && !_isRecording) {
+        await _recorder.resume();
+        _isRecording = true;
+        Logger.i('录音已恢复 - 使用resume避免startStream卡顿',"AudioRecorder");
+      } else if (!_isInitialized) {
+        Logger.w('录音未初始化，请先调用startStreamRecording',"AudioRecorder");
+      }
     } catch (e) {
       Logger.e('恢复录音失败: $e',"AudioRecorder");
     }
+  }
+
+  /// 完全停止录制并释放所有资源
+  Future<String?> completeStopRecording() async {
+    return await stopRecording(completeStop: true);
   }
 
   /// 获取录音振幅（用于显示音量波形）
@@ -326,6 +358,10 @@ class AudioRecorderService {
       _soundTouch!.clearBuffer();
       _soundTouch = null;
     }
+
+    // 重置状态标记
+    _isRecording = false;
+    _isInitialized = false;
 
     await _recorder.dispose();
   }
