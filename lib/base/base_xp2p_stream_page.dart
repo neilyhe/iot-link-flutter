@@ -26,6 +26,8 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
   String _statusText = '正在初始化...';
   bool _isConnected = false;
   bool _isPlayerReady = false;
+  
+  late String _p2pInfo;
 
   TXLivePlayer? _player;
 
@@ -52,6 +54,7 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
   @override
   void initState() {
     super.initState();
+    _p2pInfo = widget.p2pInfo;
     Logger.i('进入页面: productId=${widget.productId}, deviceName=${widget.deviceName}', logTag);
     onInitServices();
     _initXP2P();
@@ -103,6 +106,7 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
               });
             }
             onP2PDisconnect();
+            _restartService();
             break;
           default:
             break;
@@ -136,7 +140,7 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
     final result = await XP2P.startService(
       productId: widget.productId,
       deviceName: widget.deviceName,
-      xp2pInfo: widget.p2pInfo,
+      xp2pInfo: _p2pInfo,
       config: config,
     );
 
@@ -167,6 +171,9 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
 
     if (result != null) {
       Logger.i('收到设备状态响应: ${utf8.decode(result)}', logTag);
+    } else {
+      Logger.i('设备状态检查无响应', logTag);
+      _restartService();
     }
   }
 
@@ -181,6 +188,32 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
         _isConnected = false;
       });
     }
+  }
+
+  /// 重启 XP2P 服务
+  /// 触发时机：
+  /// 1. onXp2pEventNotifyCallback 收到 disconnected
+  /// 2. _checkDeviceStatus 无响应
+  Future<void> _restartService() async {
+    Logger.i('重启服务中...', logTag);
+    stopService();
+
+    // TODO 根据自身情况重新获取 p2pInfo
+    // _p2pInfo = await updateP2PInfo();
+    // _startService();
+  }
+
+  /// 更新 P2P Info
+  Future<String?> updateP2PInfo() async {
+    // 自行实现 P2PInfo 的获取逻辑
+    // final newP2pInfo = await getP2PInfo();
+    // setP2PInfo(newP2pInfo);
+    return null;
+  }
+
+  void setP2PInfo(String newP2pInfo) {
+    _p2pInfo = newP2pInfo;
+    Logger.i('P2P Info 已更新', logTag);
   }
 
   // ========== 播放器管理 ==========
@@ -324,6 +357,8 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
       });
     }
   }
+  
+  String get p2pInfo => _p2pInfo;
 }
 
 /// XP2P 回调实现

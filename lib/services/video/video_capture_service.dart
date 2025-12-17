@@ -160,21 +160,9 @@ class VideoCaptureService {
         _saveYuvDataToFile(yuvData);
       }
 
-      // 将YUV420图像转换为H.264
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
       // 使用硬件编码器（Android: MediaCodec, iOS: VideoToolbox）
-      final h264Data = await _convertToH264WithYuvData(yuvData);
-
-      if (h264Data != null && h264Data.isNotEmpty) {
-        final timestamp = DateTime.now().millisecondsSinceEpoch;
-
-        if (_isSavingToFile && _h264FileSink != null) {
-          _saveH264DataToFile(h264Data);
-        }
-        // 通知所有监听器
-        for (var listener in _h264DataListeners) {
-          listener(h264Data, timestamp);
-        }
-      }
+      _convertToH264WithYuvData(yuvData, timestamp);
     } catch (e) {
       Logger.e('处理图像数据失败: $e', 'VideoCapture');
     }
@@ -182,21 +170,28 @@ class VideoCaptureService {
 
   /// 将YUV420数据转换为H.264编码数据
   /// 使用平台原生编码器（Android: MediaCodec, iOS: VideoToolbox）
-  Future<Uint8List?> _convertToH264WithYuvData(Uint8List yuvData) async {
-    try {
-      if (!_encoderInitialized) {
-        Logger.w('编码器未初始化', 'VideoCapture');
-        return null;
-      }
-
-      // 调用原生编码器进行编码
-      final h264Data = await _encoder.encodeFrame(yuvData,true);
-
-      return h264Data;
-    } catch (e) {
-      Logger.e('H.264编码失败: $e', 'VideoCapture');
-      return null;
+  void _convertToH264WithYuvData(Uint8List yuvData, int timestamp) {
+    if (!_encoderInitialized) {
+      Logger.w('编码器未初始化', 'VideoCapture');
+      return;
     }
+
+    _encoder.encodeFrame(yuvData, true).then((h264Data) {
+      try {
+        if (h264Data != null && h264Data.isNotEmpty) {
+          if (_isSavingToFile && _h264FileSink != null) {
+            _saveH264DataToFile(h264Data);
+          }
+          for (var listener in _h264DataListeners) {
+            listener(h264Data, timestamp);
+          }
+        }
+      } catch (e) {
+        Logger.e('处理H.264数据失败: $e', 'VideoCapture');
+      }
+    }).catchError((e) {
+      Logger.e('H.264编码失败: $e', 'VideoCapture');
+    });
   }
 
   /// 将CameraImage转换为YUV420字节数组

@@ -159,7 +159,7 @@ class AudioRecorderService {
 
       // 订阅数据流
       _streamSubscription = _audioStream!.listen(
-        (Uint8List audioData) async {
+        (Uint8List audioData) {
           //变声
           if (_pitch != 0 && _soundTouch != null) {
             _soundTouch?.putBytes(audioData);
@@ -193,10 +193,7 @@ class AudioRecorderService {
   }
 
 
-  Future<void> slicePCM(Uint8List pcmData) async {
-    // 获取当前时间戳
-    final timestamp = DateTime.now().millisecondsSinceEpoch;
-
+  void slicePCM(Uint8List pcmData) {
     // 将PCM编码为AAC（iOS和Android都需要）
     // 数据分片：将大块PCM数据切分成640字节的小块
     // 640字节 = 320个样本 = 20ms音频 (16kHz采样率)
@@ -209,11 +206,14 @@ class AudioRecorderService {
       final chunk = pcmData.sublist(offset, end);
 
       // 编码PCM数据块
-      final aacData = await _aacEncoder.encodePCM(chunk);
-      if (aacData != null && aacData.isNotEmpty) {
-        // 通知所有AAC数据监听器
-        _notifyAACDataListeners(aacData, timestamp + (offset ~/ chunkSize) * 20);
-      }
+      _aacEncoder.encodePCM(chunk).then((aacData) {
+        if (aacData != null && aacData.isNotEmpty) {
+          final chunkTimestamp = DateTime.now().millisecondsSinceEpoch;
+          _notifyAACDataListeners(aacData, chunkTimestamp);
+        }
+      }).catchError((error) {
+        Logger.e('AAC编码失败: $error', "AudioRecorder");
+      });
     }
   }
 
