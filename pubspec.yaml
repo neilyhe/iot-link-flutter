@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  xp2p_sdk: ^1.0.0
+  xp2p_sdk: ^1.0.2
 
   camera: ^0.10.5+5
   # 音频录制库

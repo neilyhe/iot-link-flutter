@@ -281,9 +281,24 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
     onPlayerEvent(type, param);
   }
 
+  Future<String?> buildUrl() async {
+    final baseUrl = XP2P.delegateHttpFlv(id);
+    Logger.d('delegateHttpFlv, baseUrl: $baseUrl, id: $id', "BaseXp2pStreamPage");
+
+    if (baseUrl.isEmpty) {
+      Logger.e('get an empty url', "BaseXp2pStreamPage");
+      return null;
+    }
+
+    final url = baseUrl + Command.getVideoUrlSuffix(0, LiveStreamQuality.standard.value);
+    Logger.d('delegateHttpFlv, url: $url', "BaseXp2pStreamPage");
+    return url;
+  }
+
   /// 启动拉流播放
   void startLivePlay() async {
-    final result = await _player?.startPlay(id);
+    final url = await buildUrl();
+    final result = await _player?.startPlay(url);
 
     if (result == DELEGATE_FLV_FAILED) {
       showMessage('无效链接，请检查设备连接！');
