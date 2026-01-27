@@ -34,18 +34,25 @@ class _VideoStreamPageState extends BaseXP2PStreamPageState<VideoStreamPage>
 
   @override
   void onInitServices() {
-    initAudioRecorder();
+    try {
+      initAudioRecorder();
+    } catch (e, stackTrace) {
+      Logger.e('初始化音频服务失败: $e', logTag);
+      Logger.e('堆栈信息: $stackTrace', logTag);
+    }
   }
 
   @override
   bool canSendAudio() => _isTalking;
 
   @override
-  void onPlayerEvent(V2TXLivePlayerListenerType type, dynamic param) {
-    if (type == V2TXLivePlayerListenerType.onSnapshotComplete) {
-      if (param is Map && param.containsKey('image')) {
-        _saveSnapshotImage(param);
-      }
+  void onPlayerEvent(String type, Map<dynamic, dynamic> data) {
+    if (type == 'event') {
+      final eventId = data['event'] ?? 0;
+      // 处理截图完成事件
+      // if (eventId == TXLivePlayEvent.PLAY_EVT_SNAPSHOT_COMPLETE) {
+      //   _saveSnapshotImage(data);
+      // }
     }
   }
 
@@ -226,6 +233,7 @@ class _VideoStreamPageState extends BaseXP2PStreamPageState<VideoStreamPage>
 
   @override
   Widget build(BuildContext context) {
+    // 添加错误边界，防止 Release 模式下白屏
     return Scaffold(
       appBar: AppBar(
         title: Text('设备: ${widget.deviceName}'),
@@ -234,112 +242,143 @@ class _VideoStreamPageState extends BaseXP2PStreamPageState<VideoStreamPage>
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // 状态显示
-            buildStatusBar(),
-
-            // 视频区域 - 固定尺寸300x200dp
-            AspectRatio(
-              aspectRatio: 16 / 9,
-              child: Container(
-                  color: Colors.black,
-                  child: isConnected
-                      ? buildBaseVideoArea()
-                      : const Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              CircularProgressIndicator(),
-                              SizedBox(height: 16),
-                              Text(
-                                '等待设备连接...',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        )),
-            ),
-
-            // 信令按钮区域
-            Container(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Builder(
+        builder: (context) {
+          try {
+            return SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  ElevatedButton.icon(
-                    onPressed: () => _postCommand("test"),
-                    icon: const Icon(Icons.send),
-                    label: const Text('发送信令'),
+                  // 状态显示
+                  buildStatusBar(),
+
+                  // 视频区域 - 固定尺寸300x200dp
+                  AspectRatio(
+                    aspectRatio: 16 / 9,
+                    child: Container(
+                        color: Colors.black,
+                        child: isConnected
+                            ? buildBaseVideoArea()
+                            : const Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    CircularProgressIndicator(),
+                                    SizedBox(height: 16),
+                                    Text(
+                                      '等待设备连接...',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ],
+                                ),
+                              )),
                   ),
-                  ElevatedButton.icon(
-                    onPressed: _radioTalk,
-                    icon: Icon(_isTalking ? Icons.mic_off : Icons.mic),
-                    label: Text(_isTalking ? '停止对讲' : '语音对讲'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: _isTalking ? Colors.red : null,
-                      foregroundColor: _isTalking ? Colors.white : null,
+
+                  // 信令按钮区域
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: () => _postCommand("test"),
+                          icon: const Icon(Icons.send),
+                          label: const Text('发送信令'),
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: _radioTalk,
+                          icon: Icon(_isTalking ? Icons.mic_off : Icons.mic),
+                          label: Text(_isTalking ? '停止对讲' : '语音对讲'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: _isTalking ? Colors.red : null,
+                            foregroundColor: _isTalking ? Colors.white : null,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+
+                  // 截图、录制区域
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: _snapshot,
+                          icon: const Icon(Icons.camera_alt_outlined),
+                          label: const Text('视频截图'),
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: _record,
+                          icon: const Icon(Icons.videocam_outlined),
+                          label: const Text('视频录制'),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // 语音对讲状态显示
+                  if (_isTalking)
+                    Container(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      color: Colors.red.withOpacity(0.1),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.mic,
+                            color: Colors.red,
+                            size: 16,
+                          ),
+                          SizedBox(width: 8),
+                          Text(
+                            '语音对讲中...',
+                            style: TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                  // // 占用剩余空间的空白区域
+                  // Expanded(
+                  //   child: Container(),
+                  // ),
                 ],
               ),
-            ),
-
-            // 截图、录制区域
-            Container(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton.icon(
-                    onPressed: _snapshot,
-                    icon: const Icon(Icons.camera_alt_outlined),
-                    label: const Text('视频截图'),
-                  ),
-                  ElevatedButton.icon(
-                    onPressed: _record,
-                    icon: const Icon(Icons.videocam_outlined),
-                    label: const Text('视频录制'),
-                  ),
-                ],
-              ),
-            ),
-
-            // 语音对讲状态显示
-            if (_isTalking)
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                color: Colors.red.withOpacity(0.1),
-                child: const Row(
+            );
+          } catch (e, stackTrace) {
+            Logger.e('构建页面失败: $e', logTag);
+            Logger.e('堆栈信息: $stackTrace', logTag);
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.mic,
-                      color: Colors.red,
-                      size: 16,
+                    const Icon(Icons.error_outline, size: 48, color: Colors.red),
+                    const SizedBox(height: 16),
+                    const Text(
+                      '页面加载失败',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(height: 8),
                     Text(
-                      '语音对讲中...',
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                      ),
+                      '错误信息: $e',
+                      style: const TextStyle(fontSize: 14, color: Colors.grey),
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),
               ),
-
-            // // 占用剩余空间的空白区域
-            // Expanded(
-            //   child: Container(),
-            // ),
-          ],
-        ),
+            );
+          }
+        },
       ),
     );
   }

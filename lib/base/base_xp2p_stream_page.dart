@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:iot_link_flutter/base/tx_live_player.dart';
 import 'package:xp2p_sdk/xp2p_sdk.dart';
 
 /// XP2P流媒体页面基类
@@ -48,7 +49,7 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
   void onP2PDisconnect() {}
 
   /// 播放器事件回调
-  void onPlayerEvent(V2TXLivePlayerListenerType type, dynamic param) {}
+  void onPlayerEvent(String type, Map<dynamic, dynamic> data) {}
 
   // ========== XP2P生命周期管理 ==========
   @override
@@ -56,9 +57,21 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
     super.initState();
     _p2pInfo = widget.p2pInfo;
     Logger.i('进入页面: productId=${widget.productId}, deviceName=${widget.deviceName}', logTag);
-    onInitServices();
-    _initXP2P();
-    _startService();
+    
+    // 使用 try-catch 包裹初始化逻辑，防止 Release 模式下崩溃
+    try {
+      onInitServices();
+      _initXP2P();
+      _startService();
+    } catch (e, stackTrace) {
+      Logger.e('初始化失败: $e', logTag);
+      Logger.e('堆栈信息: $stackTrace', logTag);
+      if (mounted) {
+        setState(() {
+          _statusText = '初始化失败: $e';
+        });
+      }
+    }
   }
 
   /// 初始化 XP2P SDK
@@ -221,12 +234,12 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
   Future<void> onVideoViewCreated(int viewId) async {
     Logger.d('Video view created: $viewId', logTag);
 
-    // 创建播放器实例
-    _player = TXLivePlayer(
-      observer: _onPlayerObserver,
-    );
-
     try {
+      // 创建播放器实例
+      _player = TXLivePlayer(
+        observer: _onPlayerObserver,
+      );
+
       // 显式初始化播放器
       await _player!.initialize();
 
@@ -244,41 +257,46 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
       if (_isConnected) {
         startLivePlay();
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
       Logger.e('Failed to initialize player: $e', logTag);
+      Logger.e('堆栈信息: $stackTrace', logTag);
       if (mounted) {
         setState(() {
-          _statusText = '播放器初始化失败';
+          _statusText = '播放器初始化失败: $e';
         });
       }
     }
   }
 
   /// 播放器监听回调
-  void _onPlayerObserver(V2TXLivePlayerListenerType type, param) {
-    switch (type) {
-      case V2TXLivePlayerListenerType.onStatisticsUpdate:
-        break;
-      case V2TXLivePlayerListenerType.onError:
-      case V2TXLivePlayerListenerType.onWarning:
-      case V2TXLivePlayerListenerType.onVideoResolutionChanged:
-      case V2TXLivePlayerListenerType.onConnected:
-      case V2TXLivePlayerListenerType.onVideoPlaying:
-      case V2TXLivePlayerListenerType.onAudioPlaying:
-      case V2TXLivePlayerListenerType.onVideoLoading:
-      case V2TXLivePlayerListenerType.onAudioLoading:
-      case V2TXLivePlayerListenerType.onPlayoutVolumeUpdate:
-      case V2TXLivePlayerListenerType.onRenderVideoFrame:
-      case V2TXLivePlayerListenerType.onReceiveSeiMessage:
-      case V2TXLivePlayerListenerType.onPictureInPictureStateUpdate:
-        Logger.d("==player listener type= ${type.toString()}", logTag);
-        Logger.d("==player listener param= $param", logTag);
-        break;
-      default:
-        break;
+  void _onPlayerObserver(String type, Map<dynamic, dynamic> data) {
+    if (type == 'event') {
+      final eventId = data['event'] ?? 0;
+      switch (eventId) {
+        case TXLivePlayEvent.PLAY_EVT_PLAY_BEGIN:
+          Logger.i('播放开始', logTag);
+          break;
+        case TXLivePlayEvent.PLAY_EVT_PLAY_LOADING:
+          Logger.i('播放 loading', logTag);
+          break;
+        case TXLivePlayEvent.PLAY_EVT_VOD_LOADING_END:
+          Logger.i('播放 loading 结束', logTag);
+          break;
+        case TXLivePlayEvent.PLAY_EVT_PLAY_END:
+          Logger.i('播放结束', logTag);
+          break;
+        case TXLivePlayEvent.PLAY_ERR_NET_DISCONNECT:
+          Logger.e('网络断连', logTag);
+          break;
+        default:
+          break;
+      }
+    } else if (type == 'netStatus') {
+      Logger.d("==player netStatus= $data", logTag);
     }
+
     // 调用钩子方法让子类处理特定事件
-    onPlayerEvent(type, param);
+    onPlayerEvent(type, data);
   }
 
   Future<String?> buildUrl() async {
@@ -298,13 +316,7 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
   /// 启动拉流播放
   void startLivePlay() async {
     final url = await buildUrl();
-    final result = await _player?.startPlay(url);
-
-    if (result == DELEGATE_FLV_FAILED) {
-      showMessage('无效链接，请检查设备连接！');
-    } else if (result == V2TXLIVE_ERROR_INVALID_LICENSE) {
-      showMessage('License Error!');
-    }
+    await _player?.startPlay(url);
   }
 
   // ========== UI组件 ==========
@@ -336,8 +348,8 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
 
   /// 构建基础视频区域
   Widget buildBaseVideoArea() {
-    return V2TXLiveVideoWidget(
-      onViewCreated: onVideoViewCreated,
+    return TXPlayerVideo(
+      onRenderViewCreatedListener: onVideoViewCreated,
     );
   }
 
@@ -355,8 +367,23 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
   // ========== 生命周期 ==========
   @override
   void dispose() {
-    _player?.dispose();
-    XP2P.stopService(id);
+    Logger.i('页面销毁，清理资源...', logTag);
+
+    try {
+      if (_player != null) {
+        _player!.stopPlay();
+        _player!.dispose();
+        _player = null;
+      }
+
+      XP2P.stopService(id);
+
+      _isConnected = false;
+      _isPlayerReady = false;
+    } catch (e) {
+      Logger.e('dispose 时发生错误: $e', logTag);
+    }
+
     super.dispose();
   }
 

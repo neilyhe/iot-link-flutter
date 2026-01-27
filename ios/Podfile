@@ -54,6 +54,42 @@ post_install do |installer|
         ## 如果需要其他权限，可以取消注释
         # 'PERMISSION_PHOTOS=1',
       ]
+      
+      # 确保 Release 模式下符号不被剥离（特别是 xp2p_sdk）
+      if target.name == 'xp2p_sdk'
+        config.build_settings['STRIP_INSTALLED_PRODUCT'] = 'NO'
+        config.build_settings['STRIP_STYLE'] = 'non-global'
+        config.build_settings['DEAD_CODE_STRIPPING'] = 'NO'
+        config.build_settings['GCC_SYMBOLS_PRIVATE_EXTERN'] = 'NO'
+        config.build_settings['KEEP_PRIVATE_EXTERNS'] = 'YES'
+        config.build_settings['DEPLOYMENT_POSTPROCESSING'] = 'NO'
+      end
+    end
+  end
+  
+  # 确保主应用也不剥离符号，并强制链接 TencentENET.framework
+  installer.pods_project.build_configurations.each do |config|
+    if config.name == 'Release' || config.name == 'Profile'
+      config.build_settings['STRIP_INSTALLED_PRODUCT'] = 'NO'
+      config.build_settings['DEAD_CODE_STRIPPING'] = 'NO'
+    end
+  end
+  
+  # 为 Runner target 添加强制链接 TencentENET 和 SoundTouchiOS framework 的配置
+  runner_target = installer.aggregate_targets.find { |target| target.name == 'Runner' }
+  if runner_target
+    runner_target.xcconfigs.each do |config_name, config_file|
+      xcconfig_path = runner_target.xcconfig_path(config_name)
+      if xcconfig_path && File.exist?(xcconfig_path)
+        xcconfig_content = File.read(xcconfig_path)
+        # 添加 force_load 标志（如果还没有）
+        unless xcconfig_content.include?('force_load')
+          File.open(xcconfig_path, 'a') do |file|
+            file.puts "\n// Force load framework symbols for FFI"
+            file.puts 'OTHER_LDFLAGS = $(inherited) -force_load "$(PODS_ROOT)/../.symlinks/plugins/xp2p_sdk/ios/Libraries/TencentENET.framework/TencentENET" -force_load "$(PODS_ROOT)/../.symlinks/plugins/xp2p_sdk/ios/Libraries/SoundTouchiOS.framework/SoundTouchiOS"'
+          end
+        end
+      end
     end
   end
 end

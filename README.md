@@ -92,7 +92,7 @@ iot_link_flutter/
 
 | 依赖包 | 版本        | 用途 |
 |--------|-----------|------|
-| xp2p_sdk | 1.0.1     | 腾讯云 IoT XP2P SDK |
+| xp2p_sdk | ^1.0.3     | 腾讯云 IoT XP2P SDK |
 | camera | ^0.10.5+5 | 摄像头采集 |
 | record | ^6.1.2    | 音频录制 |
 | audioplayers | ^5.2.1    | 音频播放 |

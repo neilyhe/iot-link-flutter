@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'pages/video_stream_page.dart';
@@ -5,12 +6,29 @@ import 'pages/two_way_call_page.dart';
 import 'package:xp2p_sdk/xp2p_sdk.dart';
 
 void main() {
-  Logger.setLevel(LogLevel.debug);
-  Logger.setConsoleOutput(true);
   // 初始化
   WidgetsFlutterBinding.ensureInitialized();
+  
+  Logger.setLevel(LogLevel.debug);
+  Logger.setConsoleOutput(true);
 
-  runApp(const MyApp());
+  // 捕获 Flutter 框架错误（Release 模式下也会生效）
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    Logger.e('Flutter Error: ${details.exception}', 'Main');
+    Logger.e('Stack trace: ${details.stack}', 'Main');
+  };
+
+  // 捕获异步错误
+  runZonedGuarded(
+    () {
+      runApp(const MyApp());
+    },
+    (error, stackTrace) {
+      Logger.e('Uncaught error: $error', 'Main');
+      Logger.e('Stack trace: $stackTrace', 'Main');
+    },
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -116,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
     _deviceNameController.text = '';
     _p2pInfoController.text = '';
     // 初始化视立方播放器 License
-    TXLivePlayer.setupLicense(LICENSEURL, LICENSEURLKEY);
+    initPlayerLicense();
   }
 
   @override
@@ -125,6 +143,16 @@ class _LoginPageState extends State<LoginPage> {
     _deviceNameController.dispose();
     _p2pInfoController.dispose();
     super.dispose();
+  }
+
+  Future<void> initPlayerLicense() async {
+    // must called before setGlobalLicense
+    SuperPlayerPlugin.instance.setSDKListener(
+        licenceLoadedListener: (code, result) {
+      if (code == 0) {}
+    });
+    await SuperPlayerPlugin.setGlobalLicense(LICENSEURL, LICENSEURLKEY);
+    SuperPlayerPlugin.setLicenseFlexibleValid(true);
   }
 
   Future<void> _pasteFromClipboard() async {

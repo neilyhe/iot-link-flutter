@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:xp2p_sdk/xp2p_sdk.dart' show Logger;
 import 'package:iot_link_flutter/services/video/native_encoder.dart';
+import 'package:xp2p_sdk/xp2p_sdk.dart' show FLVPacker;
 
 /// H.264视频数据回调
 typedef H264DataCallback = void Function(Uint8List h264Data, int timestamp);
@@ -20,6 +21,12 @@ class VideoCaptureService {
   final List<H264DataCallback> _h264DataListeners = [];
   final VideoEncoder _encoder = VideoEncoder();
   bool _encoderInitialized = false;
+
+  // FLV缓冲区控制相关
+  FLVPacker? _flvPacker;
+  bool _shouldPauseEncoding = false;
+  int _pausedFrames = 0;
+  static const int _maxPausedFrames = 30; // 最多暂停30帧（约3秒）
 
   // 文件保存相关
   File? _yuvFile;
@@ -39,6 +46,38 @@ class VideoCaptureService {
   /// 移除H.264数据监听器
   void removeH264DataListener(H264DataCallback callback) {
     _h264DataListeners.remove(callback);
+  }
+
+  /// 设置FLVPacker实例用于缓冲区状态检查
+  void setFlvPacker(FLVPacker flvPacker) {
+    _flvPacker = flvPacker;
+    Logger.i('FLVPacker实例已设置，将启用缓冲区状态检查', 'VideoCapture');
+  }
+
+  /// 检查是否应该暂停编码（缓冲区使用率过高时）
+  bool get shouldPauseEncoding => _shouldPauseEncoding;
+
+  /// 获取缓冲区状态信息
+  Map<String, dynamic>? getBufferStats() {
+    if (_flvPacker == null) {
+      return null;
+    }
+    return {
+      'shouldPauseEncoding': _shouldPauseEncoding,
+      'bufferUsageRate': _flvPacker!.bufferUsageRate,
+      'pausedFrames': _pausedFrames,
+      'maxPausedFrames': _maxPausedFrames,
+      'flvPackerAvailable': true,
+    };
+  }
+
+  /// 强制恢复编码（用于手动控制）
+  void forceResumeEncoding() {
+    if (_shouldPauseEncoding) {
+      Logger.i('手动强制恢复编码，已跳过帧数: $_pausedFrames', 'VideoCapture');
+      _shouldPauseEncoding = false;
+      _pausedFrames = 0;
+    }
   }
 
   /// 初始化相机
@@ -77,6 +116,7 @@ class VideoCaptureService {
         ResolutionPreset.medium, // 中等分辨率，平衡质量和性能
         enableAudio: false, // 音频由AudioRecorderService处理
         imageFormatGroup: ImageFormatGroup.yuv420, // YUV420格式
+        fps: 10, // 10帧/秒
       );
 
       // 初始化相机
@@ -113,7 +153,7 @@ class VideoCaptureService {
       await _cameraController!.startImageStream(_onImageAvailable);
       _isStreaming = true;
       _encoderInitialized = await _encoder.initialize(
-        width: _width, height: _height, fps: 30, bitrate: 1000000, // 1Mbps
+        width: _width, height: _height, fps: 10, bitrate: 1000000, // 1Mbps
       );
 
       if (!_encoderInitialized) {
@@ -149,10 +189,29 @@ class VideoCaptureService {
   }
 
   /// 处理相机图像数据
+  /// 添加内存管理和频率控制，防止高频数据处理导致的性能问题
   void _onImageAvailable(CameraImage image) async {
     try {
+      // 优化：添加频率控制，避免过于频繁的图像处理
+      final currentTime = DateTime.now().millisecondsSinceEpoch;
+      if (_lastProcessTime != null && currentTime - _lastProcessTime! < 33) {
+        // 如果两次处理间隔小于33ms（约30fps），跳过本次处理
+        return;
+      }
+      _lastProcessTime = currentTime;
+      // 优化：检查FLV缓冲区状态，如果缓冲区使用率过高，跳过本次图像处理
+      if (_shouldCheckBufferStatus()) {
+        Logger.w('FLV缓冲区使用率过高，跳过当前帧处理。已跳过帧数: $_pausedFrames', 'VideoCapture');
+        return;
+      }
+
       final yuvData = _convertCameraImageToYUV420(image);
       if (yuvData == null) {
+        return;
+      }
+
+      // 优化：检查数据大小，避免处理过小的数据
+      if (yuvData.isEmpty) {
         return;
       }
 
@@ -160,7 +219,7 @@ class VideoCaptureService {
         _saveYuvDataToFile(yuvData);
       }
 
-      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      final timestamp = currentTime;
       // 使用硬件编码器（Android: MediaCodec, iOS: VideoToolbox）
       _convertToH264WithYuvData(yuvData, timestamp);
     } catch (e) {
@@ -168,11 +227,20 @@ class VideoCaptureService {
     }
   }
 
+  // 记录上次处理时间，用于频率控制
+  int? _lastProcessTime;
+
   /// 将YUV420数据转换为H.264编码数据
   /// 使用平台原生编码器（Android: MediaCodec, iOS: VideoToolbox）
   void _convertToH264WithYuvData(Uint8List yuvData, int timestamp) {
     if (!_encoderInitialized) {
       Logger.w('编码器未初始化', 'VideoCapture');
+      return;
+    }
+
+    // 检查FLV缓冲区状态，决定是否暂停编码
+    if (_shouldCheckBufferStatus()) {
+      Logger.w('FLV缓冲区使用率过高，跳过当前帧编码。已跳过帧数: $_pausedFrames', 'VideoCapture');
       return;
     }
 
@@ -192,6 +260,36 @@ class VideoCaptureService {
     }).catchError((e) {
       Logger.e('H.264编码失败: $e', 'VideoCapture');
     });
+  }
+
+  /// 检查缓冲区状态，决定是否应该暂停编码
+  bool _shouldCheckBufferStatus() {
+    if (_flvPacker == null) {
+      return false; // 没有设置FLVPacker，不进行缓冲区检查
+    }
+
+    // 检查FLV缓冲区状态
+    if (_flvPacker!.shouldPauseEncoding) {
+      _shouldPauseEncoding = true;
+      _pausedFrames++;
+      
+      // 如果暂停帧数过多，强制恢复编码以避免长时间卡顿
+      if (_pausedFrames > _maxPausedFrames) {
+        Logger.w('已跳过$_pausedFrames帧，强制恢复编码以避免长时间卡顿', 'VideoCapture');
+        _shouldPauseEncoding = false;
+        _pausedFrames = 0;
+        return false;
+      }
+      
+      return true;
+    } else if (_shouldPauseEncoding) {
+      // 缓冲区状态恢复正常，恢复编码
+      Logger.i('FLV缓冲区状态恢复正常，恢复编码。已跳过帧数: $_pausedFrames', 'VideoCapture');
+      _shouldPauseEncoding = false;
+      _pausedFrames = 0;
+    }
+    
+    return false;
   }
 
   /// 将CameraImage转换为YUV420字节数组

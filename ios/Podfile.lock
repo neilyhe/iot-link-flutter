@@ -6,10 +6,6 @@ PODS:
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - live_flutter_plugin (1.0.0):
-    - Flutter
-    - TXCustomBeautyProcesserPlugin
-    - TXLiteAVSDK_Professional (~> 12.6.18894)
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -17,10 +13,12 @@ PODS:
     - Flutter
   - record_ios (1.1.0):
     - Flutter
-  - TXCustomBeautyProcesserPlugin (1.0.2)
-  - TXLiteAVSDK_Professional (12.6.18894):
-    - TXLiteAVSDK_Professional/Professional (= 12.6.18894)
-  - TXLiteAVSDK_Professional/Professional (12.6.18894)
+  - super_player (12.8.1):
+    - Flutter
+    - TXLiteAVSDK_Professional (= 12.8.19666)
+  - TXLiteAVSDK_Professional (12.8.19666):
+    - TXLiteAVSDK_Professional/Professional (= 12.8.19666)
+  - TXLiteAVSDK_Professional/Professional (12.8.19666)
   - xp2p_sdk (2.4.50):
     - Flutter
 
@@ -29,15 +27,14 @@ DEPENDENCIES:
   - camera_avfoundation (from `.symlinks/plugins/camera_avfoundation/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
-  - live_flutter_plugin (from `.symlinks/plugins/live_flutter_plugin/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - record_ios (from `.symlinks/plugins/record_ios/ios`)
+  - super_player (from `.symlinks/plugins/super_player/ios`)
   - xp2p_sdk (from `.symlinks/plugins/xp2p_sdk/ios`)
 
 SPEC REPOS:
   trunk:
-    - TXCustomBeautyProcesserPlugin
     - TXLiteAVSDK_Professional
 
 EXTERNAL SOURCES:
@@ -49,14 +46,14 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
     :path: Flutter
-  live_flutter_plugin:
-    :path: ".symlinks/plugins/live_flutter_plugin/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
   record_ios:
     :path: ".symlinks/plugins/record_ios/ios"
+  super_player:
+    :path: ".symlinks/plugins/super_player/ios"
   xp2p_sdk:
     :path: ".symlinks/plugins/xp2p_sdk/ios"
 
@@ -65,14 +62,13 @@ SPEC CHECKSUMS:
   camera_avfoundation: 281867ff09f1da66f031a184ecfbc6f2e625c9f5
   device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
-  live_flutter_plugin: b381e742ccbd8e1f2e90ebea7a0f221c2afd462b
   path_provider_foundation: 0b743cbb62d8e47eab856f09262bb8c1ddcfe6ba
   permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
   record_ios: 840d21cce013c5a3b2168b74a54ebdb4136359e2
-  TXCustomBeautyProcesserPlugin: 099393b941cb40eda12b3a80bf6c0319957b1cfd
-  TXLiteAVSDK_Professional: adf74fce095f059a6c400f4e8d062b47eea92261
-  xp2p_sdk: 62a4c76b0b17e12b4e18f74ebabaff07531d20c9
+  super_player: 24665898d562428624e101863812bc7fb60883c1
+  TXLiteAVSDK_Professional: fab8ac9da64efa80bef81377b35530a791411a74
+  xp2p_sdk: 7b45971a6cd5e52008c2e84b70aba774d3072d6f
 
-PODFILE CHECKSUM: 061f874247ebe218f617f06f3c7b1a136c08b0ce
+PODFILE CHECKSUM: a2e5efea663daadb1f867ae37db9259e6c064aee
 
 COCOAPODS: 1.16.2

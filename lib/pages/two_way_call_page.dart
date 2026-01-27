@@ -32,8 +32,13 @@ class _TwoWayCallPageState extends BaseXP2PStreamPageState<TwoWayCallPage>
 
   @override
   void onInitServices() {
-    initAudioRecorder();
-    initVideoCapture();
+    try {
+      initAudioRecorder();
+      initVideoCapture();
+    } catch (e, stackTrace) {
+      Logger.e('初始化服务失败: $e', logTag);
+      Logger.e('堆栈信息: $stackTrace', logTag);
+    }
   }
 
   @override
@@ -109,6 +114,7 @@ class _TwoWayCallPageState extends BaseXP2PStreamPageState<TwoWayCallPage>
       }
 
       // 开始视频采集
+      videoCapture.setFlvPacker(flvPacker!);
       final videoSuccess = await videoCapture.startStreaming();
       if (!videoSuccess) {
         Logger.e('视频采集启动失败', logTag);
@@ -188,104 +194,135 @@ class _TwoWayCallPageState extends BaseXP2PStreamPageState<TwoWayCallPage>
             ),
         ],
       ),
-      body: Column(
-        children: [
-          // 状态显示
-          buildStatusBar(),
+      body: Builder(
+        builder: (context) {
+          try {
+            return Column(
+              children: [
+                // 状态显示
+                buildStatusBar(),
 
-          // 视频预览区域
-          Expanded(
-            child: Container(
-              color: Colors.black,
-              child: Stack(
-                children: [
-                  // 主视频区域：显示对端视频流
-                  Center(
-                    child: isConnected
-                        ? buildBaseVideoArea()
-                        : Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const CircularProgressIndicator(
-                                color: Colors.white54,
-                              ),
-                              const SizedBox(height: 16),
-                              Text(
-                                isConnected ? '正在连接对端视频...' : '等待设备连接...',
-                                style: const TextStyle(
-                                  color: Colors.white54,
-                                  fontSize: 16,
+                // 视频预览区域
+                Expanded(
+                  child: Container(
+                    color: Colors.black,
+                    child: Stack(
+                      children: [
+                        // 主视频区域：显示对端视频流
+                        Center(
+                          child: isConnected
+                              ? buildBaseVideoArea()
+                              : Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const CircularProgressIndicator(
+                                      color: Colors.white54,
+                                    ),
+                                    const SizedBox(height: 16),
+                                    Text(
+                                      isConnected ? '正在连接对端视频...' : '等待设备连接...',
+                                      style: const TextStyle(
+                                        color: Colors.white54,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ],
-                          ),
-                  ),
-
-                  // 小窗口：显示本地摄像头画面（仅在通话时显示）
-                  if (_isCalling && videoCapture.isInitialized)
-                    Positioned(
-                      top: 16,
-                      right: 16,
-                      child: Container(
-                        width: 120,
-                        height: 160,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
                         ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(6),
-                          child: CameraPreview(videoCapture.cameraController!),
+
+                        // 小窗口：显示本地摄像头画面（仅在通话时显示）
+                        if (_isCalling && videoCapture.isInitialized)
+                          Positioned(
+                            top: 16,
+                            right: 16,
+                            child: Container(
+                              width: 120,
+                              height: 160,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 2,
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(6),
+                                child: CameraPreview(videoCapture.cameraController!),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                // 控制按钮区域
+                Container(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    children: [
+                      // 主通话按钮
+                      SizedBox(
+                        width: 80,
+                        height: 80,
+                        child: FloatingActionButton(
+                          onPressed: isConnected ? _toggleCall : null,
+                          backgroundColor: _isCalling ? Colors.red : Colors.green,
+                          child: Icon(
+                            _isCalling ? Icons.call_end : Icons.call,
+                            size: 40,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                    ),
-                ],
-              ),
-            ),
-          ),
-
-          // 控制按钮区域
-          Container(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              children: [
-                // 主通话按钮
-                SizedBox(
-                  width: 80,
-                  height: 80,
-                  child: FloatingActionButton(
-                    onPressed: isConnected ? _toggleCall : null,
-                    backgroundColor: _isCalling ? Colors.red : Colors.green,
-                    child: Icon(
-                      _isCalling ? Icons.call_end : Icons.call,
-                      size: 40,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  _isCalling ? '结束通话' : '开始通话',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  '设备: ${widget.deviceName}',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey[600],
+                      const SizedBox(height: 16),
+                      Text(
+                        _isCalling ? '结束通话' : '开始通话',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        '设备: ${widget.deviceName}',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey[600],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
-            ),
-          ),
-        ],
+            );
+          } catch (e, stackTrace) {
+            Logger.e('构建页面失败: $e', logTag);
+            Logger.e('堆栈信息: $stackTrace', logTag);
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.error_outline, size: 48, color: Colors.red),
+                    const SizedBox(height: 16),
+                    const Text(
+                      '页面加载失败',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      '错误信息: $e',
+                      style: const TextStyle(fontSize: 14, color: Colors.grey),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
+              ),
+            );
+          }
+        },
       ),
     );
   }
