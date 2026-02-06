@@ -52,7 +52,7 @@ post_install do |installer|
         'PERMISSION_CAMERA=1',
 
         ## 如果需要其他权限，可以取消注释
-        # 'PERMISSION_PHOTOS=1',
+        'PERMISSION_PHOTOS=1',
       ]
       
       # 确保 Release 模式下符号不被剥离（特别是 xp2p_sdk）

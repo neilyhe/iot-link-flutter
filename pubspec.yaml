@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  xp2p_sdk: ^1.0.3
+  xp2p_sdk: ^1.0.4
   camera: ^0.10.5+5
   # 音频录制库
   record: ^6.1.2
@@ -45,6 +45,8 @@ dependencies:
   audioplayers: ^5.2.1
   # 权限
   permission_handler: ^11.0.1
+  # 保存图片和视频到相册
+  gal: ^2.3.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8

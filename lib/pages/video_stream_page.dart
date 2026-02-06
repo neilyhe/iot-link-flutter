@@ -24,6 +24,7 @@ class VideoStreamPage extends BaseXP2PStreamPage {
 class _VideoStreamPageState extends BaseXP2PStreamPageState<VideoStreamPage>
     with AudioTalkCapability {
   bool _isTalking = false;
+  bool _isRecording = false;
 
   // AAC文件保存相关
   File? _aacFile;
@@ -137,14 +138,40 @@ class _VideoStreamPageState extends BaseXP2PStreamPageState<VideoStreamPage>
 
   /// 截图
   void _snapshot() {
-    // player?.snapshot(fileName: 'img_${DateTime.now().millisecondsSinceEpoch}.png');
     player?.snapshot();
   }
 
   /// 录制
-  void _record() {
-    showMessage('视频录制功能正在开发中...');
-    player?.record();
+  Future<void> _record() async {
+    if (_isRecording) {
+      // 停止录制
+      Logger.i('停止录制', logTag);
+      player?.stopRecord();
+      if (mounted) {
+        setState(() {
+          _isRecording = false;
+        });
+      }
+      showMessage('停止录制');
+    } else {
+      // 开始录制
+      try {
+        final directory = await getApplicationDocumentsDirectory();
+        final fileName = 'record_${DateTime.now().millisecondsSinceEpoch}.mp4';
+        final filePath = '${directory.path}/$fileName';
+        Logger.i('开始录制，保存路径: $filePath', logTag);
+        player?.startRecord(filePath: filePath);
+        if (mounted) {
+          setState(() {
+            _isRecording = true;
+          });
+        }
+        showMessage('开启录制');
+      } catch (e) {
+        Logger.e('录制失败: $e', logTag);
+        showMessage('录制启动失败');
+      }
+    }
   }
 
   /// 发送信令测试
@@ -225,6 +252,9 @@ class _VideoStreamPageState extends BaseXP2PStreamPageState<VideoStreamPage>
   void dispose() {
     if (_isTalking) {
       audioRecorder.stopRecording();
+    }
+    if (_isRecording) {
+      player?.stopRecord();
     }
     disposeAudioTalk();
     _closeAacFile();
@@ -311,8 +341,12 @@ class _VideoStreamPageState extends BaseXP2PStreamPageState<VideoStreamPage>
                         ),
                         ElevatedButton.icon(
                           onPressed: _record,
-                          icon: const Icon(Icons.videocam_outlined),
-                          label: const Text('视频录制'),
+                          icon: Icon(_isRecording ? Icons.stop : Icons.videocam_outlined),
+                          label: Text(_isRecording ? '停止录制' : '视频录制'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: _isRecording ? Colors.red : null,
+                            foregroundColor: _isRecording ? Colors.white : null,
+                          ),
                         ),
                       ],
                     ),
@@ -321,8 +355,8 @@ class _VideoStreamPageState extends BaseXP2PStreamPageState<VideoStreamPage>
                   // 语音对讲状态显示
                   if (_isTalking)
                     Container(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 8),
                       color: Colors.red.withOpacity(0.1),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -381,18 +415,5 @@ class _VideoStreamPageState extends BaseXP2PStreamPageState<VideoStreamPage>
         },
       ),
     );
-  }
-
-  Future<void> _saveSnapshotImage(Map<dynamic, dynamic> param) async {
-    if (param['image'] is Uint8List) {
-      final file = await FileUtils.saveUint8ListToAppDocument(
-          param['image'], 'img_${DateTime.now().millisecondsSinceEpoch}.jpeg');
-
-      if (file == null) {
-        showMessage('截图保存失败！');
-      } else {
-        showMessage('截图保存成功!');
-      }
-    }
   }
 }

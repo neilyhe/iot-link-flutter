@@ -23,7 +23,7 @@ class TXLivePlayEvent {
 }
 
 class TXLivePlayer {
-  TXLivePlayer({this.observer});
+  TXLivePlayer({this.observer, this.liveListener});
 
   static const String _tag = 'TXLivePlayer';
 
@@ -31,6 +31,9 @@ class TXLivePlayer {
 
   /// 播放器观察者回调
   final void Function(String type, Map<dynamic, dynamic> data)? observer;
+
+  /// 直播事件监听器
+  final FTXLiveListener? liveListener;
 
   /// 事件订阅
   StreamSubscription? _eventSubscription;
@@ -54,7 +57,11 @@ class TXLivePlayer {
     _initCompleter = Completer<void>();
 
     try {
-      Logger.d('Initialize TXLivePlayer', _tag);
+      Logger.d('Initialize', _tag);
+
+      if (liveListener != null) {
+        _controller.liveListener = liveListener;
+      }
 
       // 订阅播放器事件
       _eventSubscription = _controller.onPlayerEventBroadcast.listen((event) {
@@ -72,9 +79,9 @@ class TXLivePlayer {
 
       _isInitialized = true;
       _initCompleter!.complete();
-      Logger.d('TXLivePlayer initialized successfully', _tag);
+      Logger.d('Initialized', _tag);
     } catch (e) {
-      Logger.e('Failed to initialize TXLivePlayer: $e', _tag);
+      Logger.e('Init failed: $e', _tag);
       _initCompleter!.completeError(e);
       rethrow;
     }
@@ -97,47 +104,42 @@ class TXLivePlayer {
 
   /// 启动直播拉流
   ///
-  /// [id] 要拉取的设备 id
-  /// [quality] 视频流画质
-  /// [encrypt] 是否加密（暂不支持）
-  /// 返回值：结果码
+  /// [url] 播放地址
+  /// 返回值：是否成功
   ///
   Future<bool?> startPlay(String? url) async {
     await _ensureInitialized();
-    Logger.d('start play: $url', _tag);
     if (url == null || url.isEmpty) {
+      Logger.e('Play failed: empty url', _tag);
       return null;
     }
 
+    Logger.d('Start play: $url', _tag);
     final isPlay = await _controller.startLivePlay(url);
 
     if (!isPlay) {
-      Logger.e('play error: $isPlay url: $url', _tag);
-    } else {
-      Logger.d('play success', _tag);
+      Logger.e('Play failed', _tag);
     }
     return isPlay;
   }
 
   /// 停止拉流
   void stopPlay() async {
-    Logger.d('stopPlay', _tag);
+    Logger.d('Stop', _tag);
     await _controller.stop();
   }
 
   /// 暂停播放
   void pausePlay() async {
     await _ensureInitialized();
-
-    Logger.d('pausePlay', _tag);
+    Logger.d('Pause', _tag);
     _controller.pause();
   }
 
   /// 恢复播放
   void resumePlay() async {
     await _ensureInitialized();
-
-    Logger.d('resumePlay', _tag);
+    Logger.d('Resume', _tag);
     _controller.resume();
   }
 
@@ -146,30 +148,42 @@ class TXLivePlayer {
   /// [volume] 音量大小，取值：0 - 100
   void setPlayVolume(int volume) async {
     await _ensureInitialized();
-
     _controller.setVolume(volume);
   }
 
   /// 视频截图
   ///
-  /// 如果同时提供 path 和 fileName 则保存至具体路径
-  /// 如果只提供 fileName 则保存至 App 应用文档路径
-  /// 如果都不提供则该方法不负责保存
-  /// [path] 路径
-  /// [fileName] 文件名
-  ///
-  Future<void> snapshot({String? path, String? fileName}) async {
+  Future<void> snapshot() async {
     await _ensureInitialized();
-    Logger.d('snapshot, path: $path, fileName: $fileName', _tag);
+    await _controller.snapshot();
   }
 
-  Future<void> record({String? path, String? fileName}) async{
-    Logger.d('Video record, path: $path, fileName: $fileName', _tag);
+  /// 开始录制视频
+  ///
+  /// [filePath] 录制文件完整路径（包含文件名），如果不提供则使用应用文档目录并自动生成文件名
+  /// 返回是否成功开始录制
+  ///
+  Future<void> startRecord({required String filePath}) async {
+    await _ensureInitialized();
+    try {
+      final params = FTXLiveLocalRecordingParams(filePath: filePath);
+      await _controller.startLocalRecording(params);
+    } catch (e) {
+      Logger.e('Record start failed: $e', _tag);
+    }
+  }
+
+  /// 停止录制视频
+  ///
+  Future<void> stopRecord() async {
+    await _ensureInitialized();
+    Logger.d('Stop record', _tag);
+    await _controller.stopLocalRecording();
   }
 
   /// 销毁
   void dispose() {
-    Logger.d('Dispose TXLivePlayer', _tag);
+    Logger.d('Dispose', _tag);
 
     // 停止播放
     stopPlay();

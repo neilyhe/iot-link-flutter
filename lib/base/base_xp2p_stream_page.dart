@@ -1,9 +1,12 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:iot_link_flutter/base/tx_live_player.dart';
 import 'package:xp2p_sdk/xp2p_sdk.dart';
+import 'package:gal/gal.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 /// XP2P流媒体页面基类
 /// 提供XP2P服务管理、TXLivePlayer播放器管理等公共功能
@@ -238,15 +241,11 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
       // 创建播放器实例
       _player = TXLivePlayer(
         observer: _onPlayerObserver,
+        liveListener: _onLiveListener,
       );
 
-      // 显式初始化播放器
       await _player!.initialize();
-
-      // 设置渲染视图
       await _player!.setRenderView(viewId);
-
-      // 更新状态为播放器就绪
       if (mounted) {
         setState(() {
           _isPlayerReady = true;
@@ -401,6 +400,111 @@ abstract class BaseXP2PStreamPageState<T extends BaseXP2PStreamPage>
   }
   
   String get p2pInfo => _p2pInfo;
+
+  FTXLiveListener get _onLiveListener => FTXLiveListener(
+        // 截图完成回调
+        snapshotCompleteCallback: (imageBytes) async {
+          if (imageBytes == null) return;
+          await _saveSnapshotToGallery(imageBytes);
+        },
+        // 录制开始回调
+        recordBeginCallback: (code, storagePath) {
+          Logger.i('录制开始: code=$code, path=$storagePath', logTag);
+        },
+        // 录制进行中回调（避免频繁打印）
+        recordingCallback: (durationMs, storagePath) {
+          // Logger.d('录制中: duration=${durationMs}ms', logTag);
+        },
+        // 录制完成回调
+        recordCompleteCallback: (code, storagePath) async {
+          await _saveVideoToGallery(code, storagePath);
+        },
+      );
+
+  /// 保存截图到相册
+  Future<void> _saveSnapshotToGallery(Uint8List imageBytes) async {
+    try {
+      // 请求存储权限
+      if (Platform.isAndroid) {
+        final status = await Permission.storage.request();
+        if (!status.isGranted) {
+          Logger.e('存储权限被拒绝', logTag);
+          showMessage('需要存储权限才能保存截图');
+          return;
+        }
+      } else if (Platform.isIOS) {
+        final status = await Permission.photos.request();
+        if (!status.isGranted) {
+          Logger.e('相册权限被拒绝', logTag);
+          showMessage('需要相册权限才能保存截图');
+          return;
+        }
+      }
+
+      // 保存到相册
+      await Gal.putImageBytes(
+        imageBytes,
+        album: 'Screenshots',
+      );
+      
+      Logger.i('截图保存成功', logTag);
+      showMessage('截图已保存到相册');
+    } catch (e, stackTrace) {
+      Logger.e('保存截图异常: $e', logTag);
+      Logger.e('堆栈信息: $stackTrace', logTag);
+      showMessage('截图保存失败: $e');
+    }
+  }
+
+  /// 保存视频到相册
+  Future<void> _saveVideoToGallery(int code, String storagePath) async {
+    try {
+      Logger.i('录制完成: code=$code, path=$storagePath', logTag);
+
+      if (code != 0) {
+        Logger.e('录制失败: code=$code', logTag);
+        showMessage('录制失败');
+        return;
+      }
+
+      // 检查文件是否存在
+      final file = File(storagePath);
+      if (!await file.exists()) {
+        Logger.e('录制文件不存在: $storagePath', logTag);
+        showMessage('录制文件不存在');
+        return;
+      }
+
+      // 请求存储权限
+      if (Platform.isAndroid) {
+        final status = await Permission.storage.request();
+        if (!status.isGranted) {
+          Logger.e('存储权限被拒绝', logTag);
+          showMessage('需要存储权限才能保存视频');
+          return;
+        }
+      } else if (Platform.isIOS) {
+        final status = await Permission.photos.request();
+        if (!status.isGranted) {
+          Logger.e('相册权限被拒绝', logTag);
+          showMessage('需要相册权限才能保存视频');
+          return;
+        }
+      }
+
+      // 保存到相册
+      await Gal.putVideo(
+        storagePath,
+        album: 'Videos',
+      );
+      
+      Logger.i('视频保存成功: $storagePath', logTag);
+      showMessage('视频已保存到相册');
+    } catch (e, stackTrace) {
+      Logger.e('堆栈信息: $stackTrace', logTag);
+      showMessage('视频保存失败: $e');
+    }
+  }
 }
 
 /// XP2P 回调实现

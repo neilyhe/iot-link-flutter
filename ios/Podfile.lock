@@ -6,6 +6,9 @@ PODS:
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - gal (1.0.0):
+    - Flutter
+    - FlutterMacOS
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -13,12 +16,15 @@ PODS:
     - Flutter
   - record_ios (1.1.0):
     - Flutter
-  - super_player (12.8.1):
+  - super_player (13.1.0):
     - Flutter
-    - TXLiteAVSDK_Professional (= 12.8.19666)
-  - TXLiteAVSDK_Professional (12.8.19666):
-    - TXLiteAVSDK_Professional/Professional (= 12.8.19666)
-  - TXLiteAVSDK_Professional/Professional (12.8.19666)
+    - super_player/professional (= 13.1.0)
+  - super_player/professional (13.1.0):
+    - Flutter
+    - TXLiteAVSDK_Professional (= 13.1.20454)
+  - TXLiteAVSDK_Professional (13.1.20454):
+    - TXLiteAVSDK_Professional/Professional (= 13.1.20454)
+  - TXLiteAVSDK_Professional/Professional (13.1.20454)
   - xp2p_sdk (2.4.50):
     - Flutter
 
@@ -27,6 +33,7 @@ DEPENDENCIES:
   - camera_avfoundation (from `.symlinks/plugins/camera_avfoundation/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
+  - gal (from `.symlinks/plugins/gal/darwin`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - record_ios (from `.symlinks/plugins/record_ios/ios`)
@@ -46,6 +53,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
     :path: Flutter
+  gal:
+    :path: ".symlinks/plugins/gal/darwin"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   permission_handler_apple:
@@ -62,6 +71,7 @@ SPEC CHECKSUMS:
   camera_avfoundation: 281867ff09f1da66f031a184ecfbc6f2e625c9f5
   device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  gal: 6a522c75909f1244732d4596d11d6a2f86ff37a5
   path_provider_foundation: 0b743cbb62d8e47eab856f09262bb8c1ddcfe6ba
   permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
   record_ios: 840d21cce013c5a3b2168b74a54ebdb4136359e2
